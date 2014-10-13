@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :users
+  resources :logins
+
+  resources :user_logins
+
+  resources :roles
+
 
   get 'administrator' => 'admin_panel#index'
   controller :admin_sessions do
@@ -13,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'admin_sessions/destroy'
 
-  resources :admins
+  resources :users
 
   resources :line_items
 

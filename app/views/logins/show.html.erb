@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <% @role = Role.find_by(params[:role_id]) %>
+  <%= @role.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @login.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @login.password %>
+</p>
+
+<%= link_to 'Edit', edit_login_path(@login) %> |
+<%= link_to 'Back', logins_path %>

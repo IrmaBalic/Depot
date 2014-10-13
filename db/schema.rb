@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012213501) do
+ActiveRecord::Schema.define(version: 20141013202409) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -33,17 +36,43 @@ ActiveRecord::Schema.define(version: 20141012213501) do
     t.integer  "quantity",   default: 1
   end
 
-  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+
+  create_table "logins", force: true do |t|
+    t.integer  "role_id"
+    t.string   "name"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "logins", ["role_id"], name: "index_logins_on_role_id", using: :btree
 
   create_table "products", force: true do |t|
-    t.string   "title",       limit: 255
+    t.string   "title"
     t.text     "description"
-    t.string   "image_url",   limit: 255
-    t.decimal  "price",                   precision: 8, scale: 2
+    t.string   "image_url"
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_logins", force: true do |t|
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "password"
+  end
+
+  add_index "user_logins", ["role_id"], name: "index_user_logins_on_role_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -52,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141012213501) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "role"
   end
 
 end
