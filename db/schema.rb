@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013202409) do
+ActiveRecord::Schema.define(version: 20141017105911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "address_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addresses", force: true do |t|
+    t.string   "name"
+    t.string   "number"
+    t.integer  "floor"
+    t.integer  "address_type_id"
+    t.integer  "city_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -28,6 +49,28 @@ ActiveRecord::Schema.define(version: 20141013202409) do
     t.datetime "updated_at"
   end
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.string   "postal_code"
+    t.integer  "country_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "cities", ["country_id"], name: "index_cities_on_country_id", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "line_items", force: true do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
@@ -39,40 +82,24 @@ ActiveRecord::Schema.define(version: 20141013202409) do
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
-  create_table "logins", force: true do |t|
-    t.integer  "role_id"
-    t.string   "name"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "logins", ["role_id"], name: "index_logins_on_role_id", using: :btree
-
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",        precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "sale_price"
+    t.integer  "categorie_id"
   end
+
+  add_index "products", ["categorie_id"], name: "index_products_on_categorie_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "user_logins", force: true do |t|
-    t.integer  "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.string   "password"
-  end
-
-  add_index "user_logins", ["role_id"], name: "index_user_logins_on_role_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -81,7 +108,9 @@ ActiveRecord::Schema.define(version: 20141013202409) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "role"
+    t.integer  "role_id"
   end
+
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end

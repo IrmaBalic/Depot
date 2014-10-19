@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user
+  include CurrentCart
+  before_action :set_cart
+  #before_action :authorize_user
+  skip_before_action :authorize_admin
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.order(:title)
   end
 
   # GET /products/1
@@ -25,6 +28,9 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    categorie = Categorie.find_by_id(params[:categorie])
+    @product.categorie = categorie
+   #raise
 
     respond_to do |format|
       if @product.save
@@ -40,6 +46,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    categorie = Categorie.find_by_id(params[:categorie])
+    @product.categorie = categorie
+    #raise
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

@@ -4,46 +4,71 @@
 
 /* START_HIGHLIGHT */
 .store {
+  margin-left: auto;
+  margin-right: auto;
+
+  #latest_products {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    margin-top: 20px;
+
+  }
+  #products_sale {
+    margin-top: 40px;
+    height: 500px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
   h1 {
-    margin: 0;
-    padding-bottom: 0.5em;
-    font:  150% sans-serif;
-    color: #226;
-    border-bottom: 3px dotted #77d;
+    font-weight: bold;
+    padding-top: 20px;
+    text-align: center;
+   /* font-size: 130%;*/
   }
 
   /* An entry in the store catalog */
   .entry {
+    padding: 10px;
     overflow: auto;
     margin-top: 1em;
-    border-bottom: 1px dotted #77d;
-    min-height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
 
+    border: 1px solid gray;
+    height: 250px;
+    width: 250px;
+    display: inline-block;
     img {
-      width: 80px;
-      margin-right: 5px;
-      margin-bottom: 5px;
-      position: absolute;
+      padding: 5px;
+      width: 95%;
+      height: 170px;
+     /* position: absolute;*/
     }
 
     h3 {
       font-size: 120%;
       font-family: sans-serif;
-      margin-left: 100px;
-      margin-top: 0;
-      margin-bottom: 2px;
+      margin: 0;
       color: #227;
     }
 
     p, div.price_line {
-      margin-left: 100px;
-      margin-top: 0.5em; 
-      margin-bottom: 0.8em; 
+      margin: 0; 
       form, div {
       		display: inline
       }
     }
-
+    .price_line {
+     float: left;
+    }
+     #button {
+        float: right;
+      }
     .price {
       color: #44a;
       font-weight: bold;

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number: MyString
+  floor: 1
+  address_type_id: 
+  city_id: 
+  user_id: 
+
+two:
+  name: MyString
+  number: MyString
+  floor: 1
+  address_type_id: 
+  city_id: 
+  user_id: 

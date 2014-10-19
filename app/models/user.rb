@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  validates :name, :surname, :email, presence: true
-  validates :email, uniqueness: true
+  belongs_to :role
+  validates :role_id, presence: true
+  has_many :addresses
+	
   has_secure_password
+
 end

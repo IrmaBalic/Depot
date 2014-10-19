@@ -1,34 +1,48 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+ # skip_before_action :authorize_admin
+  #before_action :authorize_user
 
-  # GET /users
-  # GET /users.json
+  # GET /logins
+  # GET /logins.json
   def index
     @users = User.all
+    #@role = User()
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /logins/1
+  # GET /logins/1.json
   def show
   end
 
-  # GET /users/new
+  # GET /logins/new
   def new
-    @user = User.new
+   @user = User.new
   end
 
-  # GET /users/1/edit
+  # GET /logins/1/edit
   def edit
   end
 
-  # POST /users
-  # POST /users.json
+  # POST /logins
+  # POST /logins.json
   def create
+
+   # if params[:user][:role_id]
+    #  @role = Role.find(params[:user][:role_id]) 
+    #else 
+    #  @role = Role.find_by(name: 'User');
+    #end*/
+    #@role = Role.find(params[:role])
+   
+
     @user = User.new(user_params)
+    role = Role.find_by_id(params[:role])
+    @user.role = role
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -37,9 +51,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT /logins/1
+  # PATCH/PUT /logins/1.json
   def update
+    role = Role.find_by_id(params[:role])
+    @user.role = role
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -51,8 +67,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /logins/1
+  # DELETE /logins/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -61,14 +77,14 @@ class UsersController < ApplicationController
     end
   end
 
+    
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :surname, :email, :password_digest)
     end
+
+
 end

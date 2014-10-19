@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+<div id="user">
+  <div class="field">
+    <%= label :role_id, "role" %><br>
+    <%= select_tag(:role, options_for_select(Role.dropdown_options, -1)) %>
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -25,13 +30,11 @@
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password_digest %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>

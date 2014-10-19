@@ -7,36 +7,49 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name%>'>
-	<div id="banner"> 
-		<%= image_tag("logo.png") %>
-		<%= @page_title || "Pragmatic Bookshelf" %>
-	</div>
-	<div id="columns">
-		<div id="side">
-		<% if @cart %>
-			<%= hidden_div_if(@cart.line_items.empty?, id:'cart') do %>
-				<%= render @cart %>
-			<% end %>
-		<% end %>
-			
-			<% if session[:user_id] %>
-				<ul>
-					<li><%= link_to 'Home', administrator_path %></li>
-					<li><%= link_to 'Store', store_path %></li>
-					<li><%= link_to 'Products', products_path %></li>
-					<li><%= link_to 'Users', users_path %></li>
-				</ul>
-				<%= button_to 'Logout', logout_path, method: :delete %>
-			<% else %>
+	<div id="header-top">
+		<div id="menu-right">
 			<ul>
-				<li><%= link_to 'Register', products_path %></li>
-				<li><%= link_to 'Login', products_path %></li>
-			</ul>
+			<% if session[:user_id] %>
+				<li><span> Hello, <%= @user.name %>! </span></li>
+				<li><%= button_to 'Sign Out', signout_path, method: :delete %></li>
+			<% else %>
+				<li><%= link_to 'Sign In', signin_path %></li>  |
+				<li><%= link_to 'Sign Up', store_path %></li>
 			<% end %>
+			</ul>
 		</div>
+	</div>
+	<div id="banner">
+		<div id="banner-left"> 
+			<h1>Web Shop</h1>
+			<br>
+			<ul>
+				<li><%= link_to 'HOME', store_path %></li> 
+				<% if session[:role] == 'Admin' %>
+					<li><%= link_to 'ITEMS', products_path %></li> 
+					<li><%= link_to 'ROLES', roles_path %></li> 
+					<li><%= link_to 'USERS', users_path %></li>
+					<li><%= link_to 'CATEGORIES', categories_path %></li>
+				<% else %>
+				  <% @categories.each do |category| %>
+					<li><%= link_to category.name, category_path(category) %></li> 
+				  <% end %>
+				<% end %>
+			</ul>
+		</div>
+		<% unless session[:role] == 'Admin' %>
+			<div id="banner-right">
+				<%= image_tag("cart.png") %>
+				<ul class="last">
+					<li><a href="<%=carts_path %>" id="cart"><%= @cart.total_price %></a></li>
+					<%= button_to 'Empty cart', @cart, method: :delete, confirm: 'Are you sure?'%>
+				</ul>
+			</div>
+		<% end %>
+	</div>
 		<div id="main">
 			<%= yield %>
 		</div>
-	</div>
 </body>
 </html>

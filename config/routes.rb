@@ -1,24 +1,26 @@
 Rails.application.routes.draw do
   
-  resources :logins
+  #get 'categories/index'
 
-  resources :user_logins
+  #get 'categories/show'
 
-  resources :roles
+  #get 'categories/edit'
 
+  #get 'categories/new'
 
-  get 'administrator' => 'admin_panel#index'
-  controller :admin_sessions do
-    get  'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  #get 'categories' => 'categories#index'
 
-  get 'admin_sessions/create'
-
-  get 'admin_sessions/destroy'
-
+  #get 'categories/create'
+  resources :categories
   resources :users
+  resources :roles
+  get 'administrator' => 'admin_panel#index'
+  
+  controller :admin_sessions do
+    get  'signin' => :new
+    post 'signin' => :create
+    delete 'signout' => :destroy
+  end
 
   resources :line_items
 

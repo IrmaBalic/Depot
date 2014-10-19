@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+<div class="field">
+    <%= label :categorie_id, "Category" %><br>
+    <%= select_tag(:categorie, options_for_select(Categorie.dropdown_options, -1)) %>
+  </div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>

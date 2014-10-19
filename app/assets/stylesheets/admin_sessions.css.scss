@@ -1,3 +1,17 @@
 // Place all the styles related to the AdminSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_sessions {
+	#login {
+		border: 1px solid gray;
+		margin:0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		padding: 10px;
+		width: 300px;
+		text-align: center;
+	}
+
+}

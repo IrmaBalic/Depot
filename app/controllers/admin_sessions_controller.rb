@@ -7,24 +7,36 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class AdminSessionsController < ApplicationController
-  #skip_before_action :authorize_admin
+  skip_before_action :authorize_admin
+  #before_action :authorize_user_login
   def new
   end
 
+    #@user = User.new(user_params)
+    #role = Role.find_by_id(params[:role])
+
+    #@user.role = role
   def create
-    user = User.find_by(name: params[:name])
-    if user and user.authenticate(params[:password])
+    #raise
+    user = User.find_by(email: params[:email])
+    #if user and user.authenticate(params[:password])
+    if user and user.password = params[:password]
       session[:user_id] = user.id
       session[:role] = user.role.name
-      redirect_to administrator_url
+
+      if session[:role] == 'Admin'
+        redirect_to administrator_url
+      else
+        redirect_to store_url
+      end
     else
-      redirect_to login_url, alert: "Invalid user/password combination"
+      redirect_to signin_url, alert: "Invalid user/password combination"
     end
   end
 
-  def destroys
+  def destroy
     session[:user_id] = nil
-    session[:role = nil
-    redirect_to store_url, notice: "Logged out"
+    session[:role] = nil
+    redirect_to store_url
   end
 end

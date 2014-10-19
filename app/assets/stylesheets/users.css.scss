@@ -1,3 +1,25 @@
-// Place all the styles related to the Users controller here.
+// Place all the styles related to the Logins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users {
+		#table_index {
+		padding: 20px;
+		margin-top: 40px;
+		border: 1px solid gray;
+		width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#login {
+		margin-top: 20px;
+		border: 1px solid gray;
+	margin-left: auto;
+	margin-right: auto; 
+		width: 250px;
+		padding: 20px;
+	}
+	h1 {
+		margin-top: 10px;
+		text-align: center;
+	}
+}

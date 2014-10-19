@@ -13,20 +13,123 @@
  *= require_self
  *= require_tree .
  */
-
+ body{
+  font-family: 'Exo 2', sans-serif;
+  background:#fff;
+}
+ol,ul{list-style:none;margin:0;padding:0;}
+a { text-decoration: none;}
+html, body, div, span { display: block;}
+#header-top {
+  /*position: absolute;*/
+  height: 40px;
+  margin:0 auto;
+  color: white;
+  background: #4cb1ca;
+  #menu-right {
+    margin-left: 80%;
+    float: right;
+    font-size: 0.8125em;
+    ul {
+        padding: 0;
+        li {
+          display: inline-block;
+          list-style: none;
+          a {
+            color: white;
+            display: block;
+            margin:10px;
+          }
+        }
+      }
+      li> a:hover {
+        color: #ACEAFA;
+      }
+    }
+}
 #banner {
-  background: #9c9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: white;
   padding: 10px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
-  text-align: center;
-
-  img {
+  font-size: 200%;
+  color: #3E3E40;
+  height: 45px;
+  vertical-align: middle;
+  /*img {
     float: left;
+  }*/
+  #banner-left {
+    display: inline;
+    width:80%;
+    float: left;
+    h1 {
+      color: #3E3E40;
+      font-weight: bold;
+      padding: 0;
+      font-size: 130%;
+      border: none;
+      padding-top: 10px;
+      text-align: center;
+     /* border: 1px solid black;*/
+      margin: 0;
+    }
+    ul {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+   /*   text-align: center;*/
+    /*  margin-left: 20px;*/
+      li{
+        display: inline;
+        a{
+          padding: 10px;
+          background-color: #4cb1ca;
+          font-weight: bold;
+          font-size: 150%;
+          color: white;
+        }
+      }
+    }
+    li> a:hover {
+        color: #ACEAFA;
+      }
+    
+    img {
+      vertical-align: middle;
+      padding: 0;
+      float: left;
+    }
+  }
+  #banner-right {
+    display: inline;
+    margin: 0;
+    font-size: 200%;
+  /*  width: 20%;*/
+    float: left;
+    vertical-align: middle;
+    span {float: left;}
+    img {
+      float: left;
+      height: 30px;
+    }
+    ul {
+      float: left;
+      height: 30px;
+      li {
+        margin-top: 5px;
+        vertical-align: middle;
+      a { 
+        font-size: 150%;}
+      }  
+    }
   }
 }
-
+#sale {}
+#main {
+  margin-left: auto;
+  margin-right: auto;
+}
 #notice {
   color: #000 !important;
   border: 2px solid red;
@@ -45,7 +148,6 @@
     background: white;
   }
 
-//#START:side
   #side {
     float: left;
     padding: 1em 2em;
@@ -124,4 +226,5 @@
     }
   }
 }
+
 /*#END:form*/

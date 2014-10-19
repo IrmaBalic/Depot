@@ -3,6 +3,86 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* START_HIGHLIGHT */
 .products {
+  #filter {
+    display: block;
+    float: left;
+    border: 1px solid gray;
+    min-height: 500px;
+    width: 18%;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+   #products_list {
+    width: 900px;
+   /* border: 1px solid green;*/
+    float: left;
+    display: block;
+    padding: 10px;
+    margin: 0;
+    margin-left: 50px;
+        margin-top: 20px;
+
+    /*padding-left: 30px;*/
+    .list_actions {
+     margin-top: 10px;
+     display: block;
+     float: left;
+     font-size: 100%;
+     border: 1px solid black;
+    }
+
+  h1 {
+    font-weight: bold;
+    padding: 0;
+   /* font-size: 130%;*/
+    text-align: center;
+  }
+
+  /* An entry in the store catalog */
+  .entry {
+    padding: 10px;
+    overflow: auto;
+    margin-top: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border: 1px solid gray;
+    height: 270px;
+    width: 250px;
+    display: inline-block;
+    img {
+      padding: 5px;
+      width: 95%;
+      height: 170px;
+     /* position: absolute;*/
+    }
+
+    h3 {
+      font-size: 120%;
+      font-family: sans-serif;
+      margin: 0;
+      color: #227;
+    }
+
+    p, div.price_line {
+      margin: 0; 
+      form, div {
+          display: inline
+      }
+    }
+    .price_line {
+     float: left;
+    }
+     #button {
+        float: right;
+      }
+    .price {
+      color: #44a;
+      font-weight: bold;
+      margin-right: 3em;
+    }
+  }
+}
   table {
    /* border-collapse: collapse;*/
     border : 1px solid black;
@@ -47,6 +127,30 @@
 
   .list_line_odd {
     background:   #f8b0f8;
+  }
+  #image {
+        margin-left: 40px;
+
+    width: 18%;
+    img {
+    width: 100%;
+  }
+    float: left;
+    display: inline-block;
+  }
+  #description {
+    width: 70%;
+    margin: 0;
+    float: left;
+    margin-left: 20px;
+    display: inline-block;
+  }
+  #actions {
+    padding-top: 40px;
+    font-size: 150%;
+    display: block;
+    clear: both;
+    text-align: center;
   }
 }
 /* END_HIGHLIGHT */
