@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  #get 'addresses/index'
+
+  #get 'addresses/show'
+
+  #get 'addresses/new'
+
   #get 'categories/index'
 
   #get 'categories/show'
@@ -10,10 +16,11 @@ Rails.application.routes.draw do
 
   #get 'categories' => 'categories#index'
 
-  #get 'categories/create'
+  #post 'categories/create'
   resources :categories
   resources :users
   resources :roles
+  resources :addresses
   get 'administrator' => 'admin_panel#index'
   
   controller :admin_sessions do

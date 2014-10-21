@@ -1,4 +1,20 @@
-<% if notice %>
-	<p id="notice"><%= notice %></p>
+<div id="cart_title"> Vaša korpa </div>
+
+ <% @line_items.each do |line_item| %>
+  <% if line_item.cart == @cart %>
+  	<div id="cart_line_item">
+		<div style="display: inline-block"><%= image_tag(line_item.product.image_url) %></div>
+
+		<div id="price_details">
+			<div class="price">Cijena: <%= line_item.product.price %></span>
+			Količina: <input type="text" class="quantity" value="<%=line_item.quantity %>"/>
+		</div>
+	</div>
+	<div class="item_price"><%= number_to_currency(line_item.total_price)%></div>
+	<% end %>
 <% end %>
-<%= render @cart %>
+
+Total: <%= number_to_currency(@cart.total_price)%>
+<div id="entry-button">
+    <div class="buy_button"> <a href="<%=new_address_url%>"> KUPI </a></div>
+</div>

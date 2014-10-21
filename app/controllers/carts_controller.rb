@@ -1,13 +1,15 @@
 class CartsController < ApplicationController
   skip_before_action  :authorize_admin
   include CurrentCart
-  before_action :set_cart
+  before_action :set_cart, :set_line_items
   # GET /carts
   # GET /carts.json
   def index
     @carts = Cart.all
   end
-
+  def set_line_items
+    @line_items = LineItem.all
+  end
   # GET /carts/1
   # GET /carts/1.json
   def show

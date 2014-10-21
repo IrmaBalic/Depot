@@ -5,51 +5,58 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body class='<%= controller.controller_name%>'>
-	<div id="header-top">
-		<div id="menu-right">
-			<ul>
-			<% if session[:user_id] %>
-				<li><span> Hello, <%= @user.name %>! </span></li>
-				<li><%= button_to 'Sign Out', signout_path, method: :delete %></li>
-			<% else %>
-				<li><%= link_to 'Sign In', signin_path %></li>  |
-				<li><%= link_to 'Sign Up', store_path %></li>
-			<% end %>
-			</ul>
-		</div>
-	</div>
-	<div id="banner">
-		<div id="banner-left"> 
-			<h1>Web Shop</h1>
-			<br>
-			<ul>
-				<li><%= link_to 'HOME', store_path %></li> 
-				<% if session[:role] == 'Admin' %>
-					<li><%= link_to 'ITEMS', products_path %></li> 
-					<li><%= link_to 'ROLES', roles_path %></li> 
-					<li><%= link_to 'USERS', users_path %></li>
-					<li><%= link_to 'CATEGORIES', categories_path %></li>
-				<% else %>
-				  <% @categories.each do |category| %>
-					<li><%= link_to category.name, category_path(category) %></li> 
-				  <% end %>
-				<% end %>
-			</ul>
-		</div>
+<div id="home-slider">
+	<div id="header">
+		<div id="header-top">
+			<div id="banner"> 
+				abhTech
+			</div>
+			<div id="menu">
+				<ul>
+					<li><%= link_to 'Store', store_path %></li> 
+					<% if session[:role] == 'Admin' %>
+						<li><%= link_to 'ITEMS', products_path %></li> 
+						<li><%= link_to 'ROLES', roles_path %></li> 
+						<li><%= link_to 'USERS', users_path %></li>
+						<li><%= link_to 'CATEGORIES', categories_path %></li>
+					<% else %>
+					  <% @categories.each do |category| %>
+						<li><%= link_to category.name, category_path(category) %></li> 
+					  <% end %>
+					<% end %>
+				</ul>
+			</div>
+
 		<% unless session[:role] == 'Admin' %>
 			<div id="banner-right">
-				<%= image_tag("cart.png") %>
-				<ul class="last">
-					<li><a href="<%=carts_path %>" id="cart"><%= @cart.total_price %></a></li>
-					<%= button_to 'Empty cart', @cart, method: :delete, confirm: 'Are you sure?'%>
+				<ul>
+					<li><a href="<%=cart_path(@cart) %>" id="cart"><%= @cart.total_price %></a></li>
 				</ul>
 			</div>
 		<% end %>
-	</div>
-		<div id="main">
-			<%= yield %>
+
+			<div id="menu-right">
+				<ul>
+				<% if session[:user_id] %>
+					<li><span> Hello, <%= @user.name %>! </span></li>
+					<li><%= button_to 'SIGN OUT', signout_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to 'SIGN IN', signin_path %></li>  |
+					<li><%= link_to 'SIGN UP', store_path %></li>
+				<% end %>
+				</ul>
+			</div>
 		</div>
+	</div>
+</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+<div id="footer">
+	Copyright abhShoes.All rights reserved.
+</div>
 </body>
 </html>

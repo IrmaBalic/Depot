@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .categories {
-
+#header {
+    background-color: #413e4a;
+  }
   #filter {
     display: block;
     float: left;
@@ -13,16 +15,16 @@
     margin-left: 40px;
     margin-top: 40px;
   }
-   #products_list {
-    width: 900px;
-   /* border: 1px solid green;*/
-    float: left;
-    display: block;
-    padding: 10px;
-    margin: 0;
-    margin-left: 50px;
-        margin-top: 20px;
-
+#products_list {
+    width: 1000px;
+    min-height: 500px;
+    margin-left: 20%;
+    text-align: center;
+   /* width: 900px;*/
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 20px;
     /*padding-left: 30px;*/
     .list_actions {
      margin-top: 10px;
@@ -38,51 +40,89 @@
    /* font-size: 130%;*/
     text-align: center;
   }
-
-  /* An entry in the store catalog */
-  .entry {
-    padding: 10px;
-    overflow: auto;
-    margin-top: 1em;
-    margin-left: 10px;
-    margin-right: 10px;
-
-    border: 1px solid gray;
-    height: 270px;
-    width: 250px;
+    #category_name {
+    color:  #545454;
+    font-size: 1.13em; /* Approximation due to font substitution */
+    font-weight: 600;
+    width: 120px;
+    height: 14px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+  }
+.entry    {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color:  #ffffff;
+    width: 210px;
+    height: 280px;
     display: inline-block;
     img {
-      padding: 5px;
-      width: 95%;
-      height: 170px;
-     /* position: absolute;*/
+      width: 167px;
+      height: 126px;
     }
 
-    h3 {
-      font-size: 120%;
-      font-family: sans-serif;
-      margin: 0;
-      color: #227;
-    }
-
-    p, div.price_line {
-      margin: 0; 
-      form, div {
-          display: inline
-      }
-    }
     .price_line {
-     float: left;
-    }
-     #button {
-        float: right;
+      margin-top: 10px;
+      text-align: left;
+      .title {
+        color:  #959595;
+        font-size: 0.88em; /* Approximation due to font substitution */
+        font-weight: 600;
       }
-    .price {
-      color: #44a;
-      font-weight: bold;
-      margin-right: 3em;
+      .price {
+
+        color:  #7d7d7d;
+        font-size: 1.13em; /* Approximation due to font substitution */
+        font-weight: 600;
+      }
+    width: 145px;
+    height: 32px;
+    }
+    #entry-button {
+      margin-top: 30px;
+      color:  #ffffff;
+      font-size: 0.88em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      .buy_button {
+        border-radius: 4px;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+        background-color:  #e74c3c;   
+         a {
+        color: white;
+        }
+      }
+      .cart_button {
+        /*margin-left: 10px;*/
+        margin-left: 10px;
+        background-color: white;
+        border-radius: 4px;
+        display: inline-block;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        border: 1px solid #7d7d7d;
+        color: #7d7d7d;
+        font-size: 0.88em; /* Approximation due to font substitution */
+        font-weight: 600;
+        float: left;
+      }
     }
   }
+      .entry:hover {
+        border: 2px solid #E3E3E3;
+    }
 }
   table {
    /* border-collapse: collapse;*/

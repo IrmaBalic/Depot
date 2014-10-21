@@ -1,10 +1,13 @@
 
-<% if @line_item = @current_item %>
-<tr id="current_item">
-<% else %>
-<tr>
-<% end %>
-	<td><%= line_item.quantity %> &times;</td>
-	<td><%= line_item.product.title %></td>
-	<td class="item_price"><%= number_to_currency(line_item.total_price)%></td>
-</tr>
+	<div id="cart_line_item">
+		<%= image_tag(line_item.product.image_url) %>
+		<div id="product_details">
+			<span id="product_title"><%= line_item.product.title %></span>
+			<span id="product_description"><%= sanitize(line_item.product.description) %></span>
+		</div>
+		<div id="price_details">
+			<div class="price">Cijena: <%= line_item.product.price %></span>
+			Količina: <input type="text" class="quantity" value="<%=line_item.quantity %>"/>
+		</div>
+	</div>
+	<div class="item_price"><%= number_to_currency(line_item.total_price)%></div>

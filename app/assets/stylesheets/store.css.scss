@@ -1,12 +1,111 @@
-// Place all the styles related to the Store controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* START_HIGHLIGHT */
 .store {
   margin-left: auto;
   margin-right: auto;
 
+   #products_sale {
+    width: 1181px;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    #main-header {
+      height: 80px;
+      line-height: 80px;
+      padding-left: 40px;
+      border-radius: 10px;
+      margin-top: -40px;
+      background-color: white;
+      color: #7d7d7d;
+      font-size: 0.88em; /* Approximation due to font substitution */
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+  #home-slider {
+    height: 600px;
+    background-image: url(image-path('Layer 34.png'));
+    background-repeat: no-repeat;
+    background-size:   cover;   
+  }
+  .entry:hover {
+        border: 2px solid #E3E3E3;
+
+    }
+  .entry {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color:  #ffffff;
+    width: 210px;
+    height: 260px;
+    display: inline-block;
+    padding: 10px;
+
+    img {
+      width: 155px;
+      height: 134px;
+    }
+    .price_line {
+      margin-top: 10px;
+      text-align: left;
+      .title {
+        color:  #959595;
+        font-size: 0.88em; /* Approximation due to font substitution */
+        font-weight: 600;
+      }
+      .price {
+
+        color:  #7d7d7d;
+        font-size: 1.13em; /* Approximation due to font substitution */
+        font-weight: 600;
+      }
+      width: 145px;
+      height: 32px;
+    }
+    #entry-button {
+      margin-top: 30px;
+      color:  #ffffff;
+      font-size: 0.88em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      .buy_button {
+        border-radius: 4px;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+        background-color:  #e74c3c;   
+         a {
+        color: white;
+        }
+      }
+      .cart_button {
+        /*margin-left: 10px;*/
+        margin-left: 10px;
+        background-color: white;
+        border-radius: 4px;
+        display: inline-block;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        border: 1px solid #7d7d7d;
+        color: #7d7d7d;
+        font-size: 0.88em; /* Approximation due to font substitution */
+        font-weight: 600;
+        float: left;
+      }
+    }
+  }
+/*
   #latest_products {
     padding: 10px;
     margin-left: auto;
@@ -28,10 +127,10 @@
     font-weight: bold;
     padding-top: 20px;
     text-align: center;
-   /* font-size: 130%;*/
+   /* font-size: 130%;
   }
 
-  /* An entry in the store catalog */
+  /* An entry in the store catalog 
   .entry {
     padding: 10px;
     overflow: auto;
@@ -47,7 +146,7 @@
       padding: 5px;
       width: 95%;
       height: 170px;
-     /* position: absolute;*/
+     /* position: absolute;
     }
 
     h3 {
@@ -74,6 +173,6 @@
       font-weight: bold;
       margin-right: 3em;
     }
-  }
+  }*/
 }
 /* END_HIGHLIGHT */

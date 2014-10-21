@@ -1,0 +1,31 @@
+// Place all the styles related to the Adresses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.addresses {
+	#header {
+	  background-color: #413e4a;
+	}
+	#entry-button {
+      margin-top: 30px;
+      color:  #ffffff;
+      font-size: 0.88em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      .buy_button {
+        border-radius: 4px;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+        background-color:  #e74c3c;   
+         a {
+        color: white;
+        }
+      }
+      }
+}

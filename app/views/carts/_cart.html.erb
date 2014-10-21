@@ -1,1 +1,2 @@
-<%= number_to_currency(@cart.total_price)%>
+	<%= render (@cart.line_items) %>
+Total: <%= number_to_currency(@cart.total_price)%>

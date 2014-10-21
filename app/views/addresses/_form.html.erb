@@ -1,0 +1,37 @@
+<%= form_tag  addresses_path do %>  
+  <h1> Adresa za dostavu </h1>
+  <%= hidden_field :address_type, :id, :value => 2%>
+  </div>
+  <div class="field">
+    <%= label :name, 'Address' %>
+    <%= text_field :address, :name %>
+  </div>
+  <div class="field">
+    <%= label :number, 'Address number' %>
+    <%= text_field :address, :number %>
+  </div>
+  <div class="field">
+    <%= label :floor, 'Address floor' %>
+    <%= text_field :address, :floor %>
+  </div>
+  <div class="field">
+    <%= label :city, 'City' %>
+    <%= text_field :city, :name %>
+  </div>
+  <div class="field">
+    <%= label :postal_code, 'ZIP' %>
+    <%= text_field :city, :postal_code %>
+  </div>
+    <div class="field">
+    <%= label :country, 'Country' %>
+    <%= text_field :country, :name %>
+  </div>
+  <div class="field">
+    <%= label :same_as_shipping, 'Adresa za račun:' %>
+    <%= check_box_tag :same_as_shipping %>
+  </div>
+  <div class="actions">
+     <%= submit_tag( "Submit" ) %>
+  </div> 
+<% end %>
+

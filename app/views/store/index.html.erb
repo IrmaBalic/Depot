@@ -1,22 +1,29 @@
 <div id="products_sale">
-	<%= image_tag("banner.jpg") %>
-</div><br>
-<h1> Latest products </h1>
-<div id="latest_products">
-<% cache ['store', Product.latest] do %>
-	<% @products.each do |product| %>
-		<% cache ['entry', product] do %>
-			<div class="entry">
-				<%= image_tag(product.image_url) %>
-				<div class="price_line">
-					<h3><%= product.title %></h23>
-					<span class="price"><%= number_to_currency(product.price) %></span>
+	<div id="main-header"> POPULARNO </div>
+	<div id="latest_products">
+	<% cache ['store', Product.latest] do %>
+		<% @products.each do |product| %>
+			<% cache ['entry', product] do %>
+
+				<div class="entry">
+					<%= image_tag(product.image_url) %>
+
+					<div class="price_line">
+						<div class="title"><%= product.title %></div>
+						<span class="price"><%= number_to_currency(product.price) %></span>
+					</div>
+
+					<% unless session[:role] == 'Admin' %>
+					<div id="entry-button">
+						<%= button_to 'U KORPU', line_items_path(product_id: product), remote: true, class: 'cart_button' %>
+						<div class="buy_button"> <a href="#"> KUPI </a></div>
+					</div>
+					<%end%>
+
 				</div>
-				<% unless session[:role] == 'Admin' %>
-				<div id="button"><%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %></div>
-				<%end%>
-			</div>
+			<% end %>
 		<% end %>
 	<% end %>
-<% end %>
+	</div>
+	
 </div>

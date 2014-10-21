@@ -1,4 +1,8 @@
 <br><br><br>
+	<p>
+	  <strong>Title:</strong>
+	  <%= @product.title %>
+	</p>
 <div id="image">
 	<%= image_tag(@product.image_url) %>
 </div>
@@ -8,11 +12,6 @@
 	  <strong>Category:</strong>
      <%= @product.categorie.name %>
 </p>
-	<p>
-	  <strong>Title:</strong>
-	  <%= @product.title %>
-	</p>
-
 	<p>
 	  <strong>Description:</strong>
 	  <%= sanitize(@product.description) %>

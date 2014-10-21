@@ -22,8 +22,8 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @categorie.save
-        format.html { redirect_to @categorie, notice: 'Role was successfully created.' }
-        format.json { render :show, status: :created, location: @role }
+        format.html { redirect_to @categorie }
+        format.json { render :show, status: :created, location: @categorie }
       else
         format.html { render :new }
         format.json { render json: @categorie.errors, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class CategoriesController < ApplicationController
   def destroy
     @categorie.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Role was successfully destroyed.' }
+      format.html { redirect_to categories_url }
       format.json { head :no_content }
     end
   end

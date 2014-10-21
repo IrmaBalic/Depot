@@ -3,7 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* START_HIGHLIGHT */
-.carts, #side #cart {
+
+.carts {
+	#cart_title {
+		color:  #545454;
+		font-size: 1.5em; /* Approximation due to font substitution */
+		font-weight: 400;
+		width: 117px;
+		height: 22px;
+		margin-left: 100px;
+		margin-top: 20px;
+	}
+#header {
+	  background-color: #413e4a;
+	}
+	#entry-button {
+      margin-top: 30px;
+      color:  #ffffff;
+      font-size: 0.88em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      .buy_button {
+        border-radius: 4px;
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+        background-color:  #e74c3c;   
+         a {
+        color: white;
+        }
+      }
+      }
 /* END_HIGHLIGHT */
   .item_price, .total_line {
     text-align: right;
@@ -13,4 +49,47 @@
     font-weight: bold;
     border-top: 1px solid #595;
   }
+
+  	#cart_line_item {			
+  		padding: 0;
+  		margin-top: 30px;
+		width: 800px;
+		height: 200px;
+		border-bottom: 1px solid gray;
+		display: inline-block;
+		img {
+			width: 168px;
+			height: 136px;
+			display: inline-block;
+
+		}
+		#product_details {
+			padding: 0;
+			width: 400px;
+			display: inline-block;
+			margin: 0;
+		}
+		#price_details {
+			padding: 0;
+			margin: 0;
+			width: 100px;
+			height: 60px;
+			display: inline-block;
+			#product_title {
+				color:  #7d7d7d;
+				font-size: 1.13em; /* Approximation due to font substitution */
+				font-weight: 600;
+			}
+			.quantity {
+				width: 40px;
+				height: 20px;
+			}
+		}
+	}
+
+#shop_details {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
 }
