@@ -1,20 +1,33 @@
-<div id="cart_title"> Vaša korpa </div>
-
+<div id="section_title"> Vaša korpa </div>
+<div id="cart_frame">
  <% @line_items.each do |line_item| %>
   <% if line_item.cart == @cart %>
   	<div id="cart_line_item">
-		<div style="display: inline-block"><%= image_tag(line_item.product.image_url) %></div>
-
-		<div id="price_details">
-			<div class="price">Cijena: <%= line_item.product.price %></span>
-			Količina: <input type="text" class="quantity" value="<%=line_item.quantity %>"/>
-		</div>
+		<div id="slika"><%= image_tag(line_item.product.image_url) %></div>	
+			<div id="description">
+				<span>Naziv: <%= line_item.product.title %></span><br>
+				<span>Opis: <%= sanitize(line_item.product.description) %></span>
+			</div>
+			<div id="price_details">
+				<span id="cijena">Cijena:</span> <span class="price"><%= line_item.product.price %> KM</span><br><br>
+				<span id="cijena">Količina:</span><span class="price"> <%=line_item.quantity %></span>
+			</div>	
 	</div>
-	<div class="item_price"><%= number_to_currency(line_item.total_price)%></div>
 	<% end %>
 <% end %>
-
-Total: <%= number_to_currency(@cart.total_price)%>
+</div>
+<div id="kupovina">
+	<span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= Cart.number_of_items %> proizvoda</span>
+	<br><br>
+	<div id="price_details">
+		<span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
+		<span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
+	</div><br>
+	<div id="ukupno">
+		<span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
+	</div>
+</div>
 <div id="entry-button">
-    <div class="buy_button"> <a href="<%=new_address_url%>"> KUPI </a></div>
+	<%= button_to 'ISPRAZNI KORPU', @cart,  :class => 'leave_button', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <div class="buy_button"> <a href="<%=new_address_url%>"> NASTAVI </a></div>
 </div>

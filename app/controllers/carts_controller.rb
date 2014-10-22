@@ -10,6 +10,7 @@ class CartsController < ApplicationController
   def set_line_items
     @line_items = LineItem.all
   end
+
   # GET /carts/1
   # GET /carts/1.json
   def show

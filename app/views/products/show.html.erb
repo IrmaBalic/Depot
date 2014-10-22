@@ -1,31 +1,28 @@
 <br><br><br>
-	<p>
-	  <strong>Title:</strong>
-	  <%= @product.title %>
-	</p>
+<div id="section_title"><%= @product.title %>
+</div>
 <div id="image">
 	<%= image_tag(@product.image_url) %>
 </div>
 <div id="description">
 
 	<p>
-	  <strong>Category:</strong>
+	  <strong>Kategorija:</strong>
      <%= @product.categorie.name %>
 </p>
 	<p>
-	  <strong>Description:</strong>
+	  <strong>Opis:</strong>
 	  <%= sanitize(@product.description) %>
 	</p>
 
 	<p>
-	  <strong>Price:</strong>
+	  <strong>Cijena:</strong>
 	  <%= number_to_currency(@product.price) %>
 	</p>
 	<% unless session[:role] == 'Admin' %>
-		<%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true, :class => 'button' %>
+		 <div id="entry-button">
+              <%= button_to 'U KORPU', line_items_path(product_id: @product), remote: true, class: 'cart_button' %>
+         </div>
 	<%end%>
 </div>
-<div id="actions">
-	<%= link_to 'Edit', edit_product_path(@product) %> |
-	<%= link_to 'Back', products_path %>
-</div>
+

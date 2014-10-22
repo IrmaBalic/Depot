@@ -1,0 +1,6 @@
+development:
+	publishable_key: "pk_test_kzKfC1KtnaDRgEhugzaUKq6t"
+	secret_key: "sk_test_qRvUT5VgLyKC4aQI7AxpHMkd"
+production:
+
+

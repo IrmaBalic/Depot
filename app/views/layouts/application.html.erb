@@ -6,17 +6,17 @@
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body class='<%= controller.controller_name%>'>
 <div id="home-slider">
 	<div id="header">
 		<div id="header-top">
 			<div id="banner"> 
-				abhTech
+				<%= link_to 'abhTech', store_path %>
 			</div>
 			<div id="menu">
 				<ul>
-					<li><%= link_to 'Store', store_path %></li> 
 					<% if session[:role] == 'Admin' %>
 						<li><%= link_to 'ITEMS', products_path %></li> 
 						<li><%= link_to 'ROLES', roles_path %></li> 

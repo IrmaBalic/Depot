@@ -1,37 +1,85 @@
 <%= form_tag  addresses_path do %>  
-  <h1> Adresa za dostavu </h1>
-  <%= hidden_field :address_type, :id, :value => 2%>
-  </div>
-  <div class="field">
-    <%= label :name, 'Address' %>
-    <%= text_field :address, :name %>
-  </div>
-  <div class="field">
-    <%= label :number, 'Address number' %>
-    <%= text_field :address, :number %>
-  </div>
-  <div class="field">
-    <%= label :floor, 'Address floor' %>
-    <%= text_field :address, :floor %>
-  </div>
-  <div class="field">
-    <%= label :city, 'City' %>
-    <%= text_field :city, :name %>
-  </div>
-  <div class="field">
-    <%= label :postal_code, 'ZIP' %>
-    <%= text_field :city, :postal_code %>
-  </div>
+  <div id="section_title" style="margin-left: 50px"> Adresa za dostavu </div>
+  <div id="input_form">
     <div class="field">
-    <%= label :country, 'Country' %>
-    <%= text_field :country, :name %>
+      <%= label :user_name, 'Ime' %>
+      <%= text_field :user, :name %>
+    </div>
+    <div class="field">
+      <%= label :user_surname, 'Prezime'%>
+      <%= text_field :user, :surname %>
+    </div><br>
+    <div class="field">
+      <%= label :name, 'Adresa' %>
+      <%= text_field :address, :name %>
+    </div>
+    <div class="field">
+      <%= label :number, 'Broj' %>
+      <%= text_field :address, :number %>
+    </div>
+    <div class="field">
+      <%= label :floor, 'Sprat' %>
+      <%= text_field :address, :floor %>
+    </div>
+    <div class="field">
+      <%= label :city, 'Grad' %>
+      <%= text_field :city, :name %>
+    </div>
+    <div class="field">
+      <%= label :postal_code, 'ZIP' %>
+      <%= text_field :city, :postal_code %>
+    </div>
+      <div class="field">
+      <%= label :country, 'Država' %>
+      <%= text_field :country, :name %>
+    </div>
+   <div id="section_title" style="margin-left: -20px;"> Adresa za račun </div>
+    <div class="field" style="margin-top: 20px">
+      <%= check_box_tag :same_as_shipping, 1, true %>
+      <%= label :same_as_shipping, 'Koristi adresu za dostavu' %>
+    </div>
   </div>
-  <div class="field">
-    <%= label :same_as_shipping, 'Adresa za račun:' %>
-    <%= check_box_tag :same_as_shipping %>
+  <div id="input_form_2" style="margin-left: 30px;">
+    <div class="field">
+      <%= label :name, 'Adresa' %>
+      <%= text_field_tag "billing_address[name]" %>
+    </div>
+    <div class="field">
+      <%= label :number, 'Broj' %>
+      <%= text_field_tag "billing_address[number]" %>
+    </div>
+    <div class="field">
+      <%= label :floor, 'Sprat' %>
+      <%= text_field_tag "billing_address[floor]" %>
+    </div>
+    <div class="field">
+      <%= label :city, 'Grad' %>
+      <%= text_field_tag "billing_address[city]"%>
+    </div>
+    <div class="field">
+      <%= label :postal_code, 'ZIP' %>
+      <%= text_field_tag "billing_address[postal_code]" %>
+    </div>
+      <div class="field">
+      <%= label :country, 'Država' %>
+      <%= text_field_tag "billing_address[country]" %>
+    </div>
   </div>
-  <div class="actions">
-     <%= submit_tag( "Submit" ) %>
-  </div> 
+
+<div id="kupovina" style="margin-left: 80px;">
+  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= Cart.number_of_items %> proizvoda</span>
+  <br><br>
+  <div id="price_details">
+    <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
+    <span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
+  </div><br>
+  <div id="ukupno">
+    <span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
+  </div>
+</div>
+<div id="entry-button" style="margin-left: 175px">
+    <div class="leave_button"> <a href="<%=store_url%>"> ODUSTANI </a></div>
+    <div class="buy_button"> <%= submit_tag("NASTAVI", :class => 'submit_class')  %></a></div>
+</div>
 <% end %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017105911) do
+ActiveRecord::Schema.define(version: 20141021095327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,12 @@ ActiveRecord::Schema.define(version: 20141017105911) do
     t.integer  "floor"
     t.integer  "address_type_id"
     t.integer  "city_id"
-    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -101,6 +99,16 @@ ActiveRecord::Schema.define(version: 20141017105911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shipping_addresses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shipping_addresses", ["address_id"], name: "index_shipping_addresses_on_address_id", using: :btree
+  add_index "shipping_addresses", ["user_id"], name: "index_shipping_addresses_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "surname"
@@ -109,8 +117,11 @@ ActiveRecord::Schema.define(version: 20141017105911) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "role_id"
+    t.integer  "address_id"
+    t.boolean  "registered"
   end
 
+  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end

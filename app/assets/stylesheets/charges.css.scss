@@ -1,44 +1,26 @@
-// Place all the styles related to the Adresses controller here.
+// Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.addresses {
+.charges {
 	#header {
 	  background-color: #413e4a;
 	}
-
- #input_form_2 {
- visibility: hidden;
+  #order_details {
+    padding: 20px;
+    border-left: 1px solid #566473;
+    color:  #545454;
+    font-size: 1.13em; /* Approximation due to font substitution */
+    font-weight: 600;
+    width: 187px;
+    height: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
     float: left;
-      width: 350px;
-      margin-left: 80px;
-      margin-top: 50px;
-     /* float: left;*/
-      .field {
-        margin-top: 10px;
-
-        label {
-         color:  #545454;
-        font-size: 1.13em; /* Approximation due to font substitution */
-        font-weight: 600;
-        width: 350px;
-        height: 13px;
-        }
-        input {
-        border-radius: 4px;
-        border-width: 1px;
-        border-color:  #b7b7b7;
-        border-style: solid;
-        width: 350px;
-        height: 27px;
-        }
-        input[type=checkbox] {
-            width: 20px;
-           height: 20px;
-        }
-        .actions {
-          margin-top: 20px;
-        }
-      }
+  }
+  #stripe-button {
+    float:left;
+    margin-top: 300px;
+    margin-left: -120px;
   }
 #price_details {
         float: right;

@@ -16,10 +16,7 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-  	
-  	@address = Address.new(address_params)
-  	address_type = AddressType.find_by_id(params[:address_type][:id])
-  	
+  	@address = Address.new(address_params)	
     unless city = City.find_by(name: params[:city][:name])
     	unless country = Country.find_by(name: params[:country][:name])
     		country = Country.new(country_params)
@@ -27,20 +24,21 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
     	city = City.new(city_params)
     	city.country = country
     end
-
-    @address.address_type = address_type
     @address.city = city
-   #raise
+   	@address.save
 
-    respond_to do |format|
-      if @address.save
-        format.html { redirect_to @address, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @address }
-      else
-        format.html { render :new }
-        format.json { render json: @address.errors }
-      end
-    end
+   	@user = User.new
+   	@user.name = params[:user][:name]
+   	@user.surname = params[:user][:surname]
+   	@user.password_digest = "blank"
+   	@user.registered = false
+   	@user.address = @address
+    #if same_as_shipping
+        @user.shipping_addresses << @address
+
+ 	  @user.save
+    redirect_to new_charge_path
+    
   end
    private
   def set_address

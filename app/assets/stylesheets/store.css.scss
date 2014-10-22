@@ -10,6 +10,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    
     #main-header {
       height: 80px;
       line-height: 80px;
@@ -23,27 +24,39 @@
       text-align: left;
     }
   }
+  #header  {
+  }
   #home-slider {
     height: 600px;
-    background-image: url(image-path('Layer 34.png'));
+    background-image: url(image-path('smart-main.jpg'));
     background-repeat: no-repeat;
     background-size:   cover;   
   }
-  .entry:hover {
-        border: 2px solid #E3E3E3;
-
-    }
-  .entry {
+  .entry-frame {
+    width: 250px;
+    height: 300px;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
+    display: inline-block;
+    border: 1px solid black;
+    border: 2px solid #E3E3E3;
+
+  }
+  .entry:hover {
+     border: 2px solid #E3E3E3;
+  }
+  .entry {
     border-radius: 4px;
     background-color:  #ffffff;
     width: 210px;
     height: 260px;
-    display: inline-block;
     padding: 10px;
-
+    border: 2px solid white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    display: inline-block;
     img {
       width: 155px;
       height: 134px;
@@ -90,18 +103,18 @@
       .cart_button {
         /*margin-left: 10px;*/
         margin-left: 10px;
-        background-color: white;
+        background-color: #e74c3c;
         border-radius: 4px;
         display: inline-block;
-        width: 73px;
+        width: 100px;
         height: 30px;
         line-height: 30px;
         vertical-align: middle;
-        border: 1px solid #7d7d7d;
-        color: #7d7d7d;
+        border: 1px solid #e74c3c;
+        color: white;
         font-size: 0.88em; /* Approximation due to font substitution */
         font-weight: 600;
-        float: left;
+        float: right;
       }
     }
   }

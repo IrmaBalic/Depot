@@ -4,9 +4,8 @@
 	<% cache ['store', Product.latest] do %>
 		<% @products.each do |product| %>
 			<% cache ['entry', product] do %>
-
 				<div class="entry">
-					<%= image_tag(product.image_url) %>
+					<a href="<%= product_path(product) %>"><%= image_tag(product.image_url) %></a>
 
 					<div class="price_line">
 						<div class="title"><%= product.title %></div>
@@ -15,12 +14,10 @@
 
 					<% unless session[:role] == 'Admin' %>
 					<div id="entry-button">
-						<%= button_to 'U KORPU', line_items_path(product_id: product), remote: true, class: 'cart_button' %>
-						<div class="buy_button"> <a href="#"> KUPI </a></div>
+						<%= button_to 'DODAJ U KORPU', line_items_path(product_id: product), remote: true, class: 'cart_button' %>
 					</div>
 					<%end%>
-
-				</div>
+				 	</div>
 			<% end %>
 		<% end %>
 	<% end %>

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :users
   resources :roles
   resources :addresses
+  resources :charges
+
   get 'administrator' => 'admin_panel#index'
   
   controller :admin_sessions do
