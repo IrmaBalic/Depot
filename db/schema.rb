@@ -99,15 +99,15 @@ ActiveRecord::Schema.define(version: 20141021095327) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shipping_addresses", force: true do |t|
+  create_table "shipping_addresses_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "shipping_addresses", ["address_id"], name: "index_shipping_addresses_on_address_id", using: :btree
-  add_index "shipping_addresses", ["user_id"], name: "index_shipping_addresses_on_user_id", using: :btree
+  add_index "shipping_addresses_users", ["address_id"], name: "index_shipping_addresses_users_on_address_id", using: :btree
+  add_index "shipping_addresses_users", ["user_id"], name: "index_shipping_addresses_users_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
