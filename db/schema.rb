@@ -84,14 +84,14 @@ ActiveRecord::Schema.define(version: 20141021095327) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",        precision: 8, scale: 2
+    t.decimal  "price",           precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "sale_price"
-    t.integer  "categorie_id"
+    t.integer  "categorie_id_id"
   end
 
-  add_index "products", ["categorie_id"], name: "index_products_on_categorie_id", using: :btree
+  add_index "products", ["categorie_id_id"], name: "index_products_on_categorie_id_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

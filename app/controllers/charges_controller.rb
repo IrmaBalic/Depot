@@ -20,9 +20,9 @@ class ChargesController < ApplicationController
 
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => @amount,
+	    :amount      => (@cart.total_price)*100,
 	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
+	    :currency    => 'bam'
 	  )
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
