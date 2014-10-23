@@ -37,7 +37,7 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
       @user.surname = params[:user][:surname]
      	@user.password_digest = "blank"
      	@user.registered = false
-      @tmp_user=user
+      @tmp_user=@user
     end
     @user.shipping_addresses << @address
 
