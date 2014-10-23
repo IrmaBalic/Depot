@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_categorie, only: [:show, :edit, :update, :destroy]
-  skip_before_action  :authorize_admin, only: [:edit, :update, :destroy]
+  skip_before_action  :authorize_admin, only: [:show]
   include CurrentCart
   before_action :set_cart, :set_products
 
