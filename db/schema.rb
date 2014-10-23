@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20141021095327) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "sale_price"
-    t.integer  "categorie_id_id"
+    t.integer  "categorie_id"
   end
 
   add_index "products", ["categorie_id_id"], name: "index_products_on_categorie_id_id", using: :btree
