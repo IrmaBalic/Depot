@@ -27,14 +27,37 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
     @address.city = city
    	@address.save
 
-   	@user = User.new
-   	@user.name = params[:user][:name]
-   	@user.surname = params[:user][:surname]
-   	@user.password_digest = "blank"
-   	@user.registered = false
-   	@user.address = @address
-    #if same_as_shipping
-        @user.shipping_addresses << @address
+
+    if session[:user_id]
+      @user = User.find_by_id(session[:user_id]) 
+      @user.registered = true
+    else
+      @user = User.new
+      @user.name = params[:user][:name]
+      @user.surname = params[:user][:surname]
+     	@user.password_digest = "blank"
+     	@user.registered = false
+      @tmp_user=user
+    end
+    @user.shipping_addresses << @address
+
+    unless params[:same_as_shipping]
+        @billing_address = Address.new(billing_address_params)
+        unless b_city = City.find_by(name: params[:billing_address][:city])
+          unless b_country = Country.find_by(name: params[:billing_address][:country])
+            b_country = Country.new(billing_country_params)
+          end
+          b_city = City.new
+          b_city.postal_code=params[:billing_address][:postal_code]
+          b_city.name = params[:billing_address][:city]
+          b_city.country = b_country
+        end
+        @billing_address.city = b_city
+        @billing_address.save
+        @user.address = @billing_address
+    else 
+      @user.address = @address
+    end
 
  	  @user.save
     redirect_to new_charge_path
@@ -54,4 +77,17 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
     def country_params
       params.require(:country).permit(:name)
     end
+    def set_address
+      @address = Address.find(params[:id])
+    end
+
+    def billing_address_params
+      params.require(:billing_address).permit(:name, :number, :floor)
+    end
+    def billing_city_params
+      params.require(:billing_address).permit(:city, :postal_code)
+    end
+    def billing_country_params
+      params.require(:billing_address).permit(:country)
+    end 
 end

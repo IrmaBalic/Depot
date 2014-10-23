@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :addresses
   resources :charges
 
-  get 'administrator' => 'admin_panel#index'
+  get 'administrator' => 'products#index'
   
   controller :admin_sessions do
     get  'signin' => :new

@@ -9,7 +9,7 @@
 
 					<div class="price_line">
 						<div class="title"><%= product.title %></div>
-						<span class="price"><%= number_to_currency(product.price) %></span>
+						<span class="price"><%= product.price %> KM </span>
 					</div>
 
 					<% unless session[:role] == 'Admin' %>

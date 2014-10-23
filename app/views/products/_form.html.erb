@@ -10,27 +10,30 @@
       </ul>
     </div>
   <% end %>
-<div class="field">
-    <%= label :categorie_id, "Category" %><br>
-    <%= select_tag(:categorie, options_for_select(Categorie.dropdown_options, -1)) %>
-  </div>
+<div id="input_form" style="margin-top: 15px;">
+
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, :rows => 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= label :categorie_id, "Kategorija" %><br>
+      <%= select_tag(:categorie, options_for_select(Categorie.dropdown_options, -1)) %>
+    </div>
+    <div class="field">
+      <%= f.label :title, "Naziv" %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "Opis" %><br>
+      <%= f.text_area :description, :rows => 6 %>
+    </div>
+    <div class="field">
+      <%= f.label :image_url, "Slika" %><br>
+      <%= f.text_field :image_url %>
+    </div>
+    <div class="field">
+      <%= f.label :price, "Cijena" %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+    </div>
 <% end %>

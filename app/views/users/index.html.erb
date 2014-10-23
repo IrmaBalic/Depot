@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Role</th>
-      <th>Name</th>
-      <th>Surname</th>
+      <th>Rola</th>
+      <th>Ime</th>
+      <th>Prezime</th>
       <th>Email</th>
       <th colspan="3"></th>
     </tr>
@@ -14,20 +14,20 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-      <!-- Za usera ovaj dio ukinuti -->
+    <%if user.role %> 
         <td><%= user.role.name %></td>
         <td><%= user.name %></td>
         <td><%= user.surname %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br><br>
-<%= link_to 'New Login', new_user_path %>
+<%= link_to 'Novi korisnik', new_user_path %>
 
 </div>
 <br>

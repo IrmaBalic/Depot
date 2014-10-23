@@ -17,11 +17,11 @@
 
 	<p>
 	  <strong>Cijena:</strong>
-	  <%= number_to_currency(@product.price) %>
+	  <%= @product.price %> KM
 	</p>
 	<% unless session[:role] == 'Admin' %>
 		 <div id="entry-button">
-              <%= button_to 'U KORPU', line_items_path(product_id: @product), remote: true, class: 'cart_button' %>
+              <%= button_to 'DODAJ U KORPU', line_items_path(product_id: @product), remote: true, class: 'cart_button' %>
          </div>
 	<%end%>
 </div>

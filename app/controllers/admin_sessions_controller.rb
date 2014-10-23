@@ -23,7 +23,6 @@ class AdminSessionsController < ApplicationController
     if user and user.password = params[:password]
       session[:user_id] = user.id
       session[:role] = user.role.name
-
       if session[:role] == 'Admin'
         redirect_to administrator_url
       else

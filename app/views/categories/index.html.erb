@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Ime</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,15 +12,14 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to 'Show', category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ažuriraj', edit_category_path(category) %></td>
+        <td><%= link_to 'Obriši', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br><br>
-<%= link_to 'New Category', new_category_path %>
+<%= link_to '+ Nova kategorija', new_category_path %>
 
 </div>
 <br>

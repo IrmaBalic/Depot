@@ -18,10 +18,10 @@
 			<div id="menu">
 				<ul>
 					<% if session[:role] == 'Admin' %>
-						<li><%= link_to 'ITEMS', products_path %></li> 
-						<li><%= link_to 'ROLES', roles_path %></li> 
-						<li><%= link_to 'USERS', users_path %></li>
-						<li><%= link_to 'CATEGORIES', categories_path %></li>
+						<li><%= link_to 'PROIZVODI', products_path %></li> 
+						<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
+						<li><%= link_to 'KORISNICI', users_path %></li>
+						<li><%= link_to 'KATEGORIJE', categories_path %></li>
 					<% else %>
 					  <% @categories.each do |category| %>
 						<li><%= link_to category.name, category_path(category) %></li> 
@@ -33,7 +33,7 @@
 		<% unless session[:role] == 'Admin' %>
 			<div id="banner-right">
 				<ul>
-					<li><a href="<%=cart_path(@cart) %>" id="cart"><%= @cart.total_price %></a></li>
+					<li><a href="<%=cart_path(@cart) %>" id="cart"><%= @cart.total_price.to_i %> KM</a></li>
 				</ul>
 			</div>
 		<% end %>
@@ -41,11 +41,10 @@
 			<div id="menu-right">
 				<ul>
 				<% if session[:user_id] %>
-					<li><span> Hello, <%= @user.name %>! </span></li>
-					<li><%= button_to 'SIGN OUT', signout_path, method: :delete %></li>
+					<li><%= button_to 'SIGN OUT', signout_path, method: :delete, :class => "sign_out" %></li>
 				<% else %>
 					<li><%= link_to 'SIGN IN', signin_path %></li>  |
-					<li><%= link_to 'SIGN UP', store_path %></li>
+					<li><%= link_to 'SIGN UP', new_user_path %></li>
 				<% end %>
 				</ul>
 			</div>

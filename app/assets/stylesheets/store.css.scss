@@ -25,6 +25,9 @@
     }
   }
   #header  {
+    background-image: url(image-path('textura.png'));
+    background-repeat: repeat;
+    opacity: 0.85;
   }
   #home-slider {
     height: 600px;
@@ -62,7 +65,8 @@
       height: 134px;
     }
     .price_line {
-      margin-top: 10px;
+       margin-left: 20px;
+      margin-top: 20px;
       text-align: left;
       .title {
         color:  #959595;

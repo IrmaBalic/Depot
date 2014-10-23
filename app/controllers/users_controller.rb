@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
- # skip_before_action :authorize_admin
+  skip_before_action :authorize_admin, only: [:new]
   #before_action :authorize_user
 
   # GET /logins
@@ -34,21 +34,15 @@ class UsersController < ApplicationController
     #  @role = Role.find_by(name: 'User');
     #end*/
     #@role = Role.find(params[:role])
-   
-
     @user = User.new(user_params)
-    role = Role.find_by_id(params[:role])
-    @user.role = role
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if session[:role] == 'Admin'
+      role = Role.find(params[:role])
+    else 
+      role = Role.find_by(name: 'User')
     end
+    @user.role = role
+    @user.save
+    redirect_to store_path
   end
 
   # PATCH/PUT /logins/1

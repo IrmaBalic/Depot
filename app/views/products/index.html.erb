@@ -12,12 +12,16 @@
             <div id="entry-button">
               <%= button_to 'U KORPU', line_items_path(product_id: product), remote: true, class: 'cart_button' %>
               <div class="buy_button"> <a href="#"> KUPI </a></div>
-          </div>
+          </div><br>
           <% else %>
-          <%= link_to 'Show', product_path(product) %>
-        <%= link_to 'Edit', edit_product_path(product) %>
-        <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div id="admin_actions" style=" text-align: center; margin-top: 20px;">
+              <%= link_to 'Ažuriraj', edit_product_path(product) %><br><br>
+              <%= link_to 'Obriši', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
           <% end %>   
       </div>
   <% end %>
+  <div id="admin_actions" style="margin-top: 30px; text-align: center; font-size: 150%;">
+    <%= link_to '+ Dodaj proizvod', new_product_path %>
+    </div>
 </div>

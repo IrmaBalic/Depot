@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .categories {
+#table_index {
+    padding: 20px;
+    margin-top: 40px;
+    border: 1px solid gray;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 #header {
     background-color: #413e4a;
   }
@@ -49,14 +57,15 @@
     padding-bottom: 20px;
   }
 .entry    {
-  padding: 15px;
+  width: 210px;
+    height: 260px;
+    padding: 10px;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 10px;
     border-radius: 4px;
     background-color:  #ffffff;
-    width: 210px;
-    height: 280px;
+  
     display: inline-block;
         border: 2px solid white;
 
@@ -119,7 +128,7 @@
         background-color: #e74c3c;
         border-radius: 4px;
         display: inline-block;
-        width: 73px;
+        width: 110px;
         height: 30px;
         line-height: 30px;
         vertical-align: middle;
@@ -132,43 +141,9 @@
         border: 2px solid #E3E3E3;
     }
 }
-  table {
-   /* border-collapse: collapse;*/
-    border : 1px solid black;
-  }
+  
 
-  table tr td {
-    padding: 5px;
-    vertical-align: top;
-  }
 
-  .list_image {
-    width:  60px;
-    height: 70px;
-  }
-
-  .list_description {
-    width: 60%;
-    dl {
-      margin: 0;
-    }
-
-    dt {
-      color:        #244;
-      font-weight:  bold;
-      font-size:    larger;
-    }
-
-    dd {
-      margin: 0;
-    }
-  }
-
-  .list_actions {
-    font-size:    x-small;
-    text-align:   right;
-    padding-left: 1em;
-  }
 
   .list_line_even {
     background:   #e0f8f8;

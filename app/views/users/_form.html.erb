@@ -11,30 +11,36 @@
     </div>
   <% end %>
 
-<div id="user">
+<div id="input_form">
+<% if session[:role] == "Admin" %>
   <div class="field">
-    <%= label :role_id, "role" %><br>
+    <%= label :role_id, "Rola" %><br>
     <%= select_tag(:role, options_for_select(Role.dropdown_options, -1)) %>
   </div>
+<%end%>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Ime" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :surname %><br>
+    <%= f.label :surname, "Prezime" %><br>
     <%= f.text_field :surname %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email, "Email" %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password, "Password" %><br>
     <%= f.password_field :password_digest %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+  <% if session[:role] == "Admin" %>
+    <%= f.submit "Submit" %>
+  <% else %>
+    <%= f.submit "Sign up" %>
+    <% end %>
   </div>
   </div>
 <% end %>
