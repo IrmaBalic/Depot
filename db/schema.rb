@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 20141023080545) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "surname"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
@@ -119,6 +118,7 @@ ActiveRecord::Schema.define(version: 20141023080545) do
     t.integer  "role_id"
     t.integer  "address_id"
     t.boolean  "registered"
+    t.string   "surname"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
