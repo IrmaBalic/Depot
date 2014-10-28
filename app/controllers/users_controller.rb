@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize_admin, only: [:new]
+  skip_before_action :authorize_admin, only: [:new, :create]
   #before_action :authorize_user
 
   # GET /logins
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
       role = Role.find_by(name: 'User')
     end
     @user.role = role
+  
     @user.save
     redirect_to store_path
   end
