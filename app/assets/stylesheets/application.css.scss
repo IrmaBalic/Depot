@@ -18,6 +18,7 @@
         font-family: 'ProximaNova';
         src: url(/assets/fonts/ProximaNova.otf) format("truetype");
     }
+ $hover_link: #81D697;
  body
  {
   font-family: 'Open Sans', sans-serif;
@@ -27,7 +28,18 @@
   margin-right: auto;
 }
 ol,ul{list-style:none;margin:0;padding:0;}
-a { text-decoration: none;}
+a { 
+  text-decoration: none;
+  color:white;
+  }
+a:visited {
+  color: white;
+}
+a:hover {}
+input {
+      font-family: "Open Sans";
+      }
+
 html, body, div, span { display: block;}
   #section_title {
     color:  #545454;
@@ -38,14 +50,13 @@ html, body, div, span { display: block;}
 
   }
   #input_form {
-    float: left;
+      float: left;
       width: 350px;
       margin-left: 80px;
       margin-top: 50px;
      /* float: left;*/
       .field {
-        margin-top: 10px;
-
+        margin-top: 15px;
         label {
          color:  #545454;
         font-size: 1.13em; /* Approximation due to font substitution */
@@ -76,7 +87,6 @@ html, body, div, span { display: block;}
 }
 #header {
   height: 60px;
-  /*background-color: #413e4a;*/
 }
 
 #header-top {
@@ -84,24 +94,6 @@ html, body, div, span { display: block;}
   height: 10px;
   vertical-align: middle;
   padding-top: 20px;
-  #menu-right {
-   /* display: inline;*/
-    width: 140px;
-    margin-left: 50px;
-    font-size: 0.8125em;
-  /*  display: inline;*/
-    float: left;
-    color: white;
-    ul {
-        padding: 0;
-        li {
-          display: inline-block;
-          a {
-            color: white;
-          }
-        }
-      }
-    }
   #banner {
     ul { 
       li { 
@@ -115,11 +107,14 @@ html, body, div, span { display: block;}
       text-decoration: none;
       color: white;
     }
+    a:hover {
+      color: $hover_link;
+    }
     font-size: 23px; /* Approximation due to font substitution */
     font-weight: 700;
     width: 95px;
     height: 17px;
-    margin-left: 100px;
+    margin-left: 10%;
     display: inline;
     float: left;
   }
@@ -127,48 +122,83 @@ html, body, div, span { display: block;}
     color: #ffffff;
     font-size: 0.88em;
     font-weight: 700;
-    width: 700px;
     height: 20px;
     display: inline;
     float: left;
-    margin-left: 70px;
+    margin-left: 10%;
+    width: 40%;
     ul {
       li {
-         width: 150px;
+          padding-right: 5%;
           display: inline-block;
           a {
             text-transform: uppercase;
-          color: white;
+            color: white;
           }
       }
     }
-
+    a:hover {
+      border-bottom: 3px solid #F08490;
+      padding-bottom: 19px;
+    }
   }
+    #menu-right {
+     /* width: 140px;*/
+      font-size: 0.88em;
+      font-weight: 700;
+      float: right;
+      color: white;
+      ul {
+          padding: 0;
+          li {
+            display: inline-block;
+            a {
+              color: white;
+            }
+          }
+        }
+      a:hover {
+       border-bottom: 3px solid #F08490;
+        padding-bottom: 19px;
+      }
+    }
   .sign_out {
-    background-image: url(image-path('textura.png'));
-    background-repeat: repeat;
-    opacity: 0.85;
+    float: right;
+    margin-right: 50%;
+    background-color: #413e4a;
     border: none;
     background-color: none;
     color: white;
-    font-size: 0.88em;
     font-weight: 700;
-    font-family: 'Open San', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+  }
+  .sign_out:hover{
+    border-bottom: 3px solid #F08490;
+    padding-bottom: 18px;
   }
   #banner-right {
-    margin-left: 50px;
-    float: left;
+    margin-right: 5%;
+    margin-left: 2%;
+    float: right;
     display: inline;
     width: 130px;
-    ul {
-      li {
-        a {
-              color: white;
-font-size: 0.88em;
-    font-weight: 700;
-        }
-      }
+    #cart {
+      border-radius: 50%;
+      background-color:  #e74c3c;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      color: white;
+      font-size: 0.75em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block;
+      margin-top: -40px;
+      margin-left: -3px;
     }
+
   }
 }
 #footer {
@@ -183,6 +213,7 @@ font-size: 0.88em;
   text-align: center;
   clear: both;
 }
+/*
 #main {
   margin-left: auto;
   margin-right: auto;
@@ -205,7 +236,6 @@ font-size: 0.88em;
     width: 13em;
     background: #141;
 
-/* START_HIGHLIGHT */
     form, div {
       display: inline;
     }  
@@ -225,7 +255,6 @@ font-size: 0.88em;
       }
     }
 
-/* END_HIGHLIGHT */
     ul {
       padding: 0;
 
@@ -237,13 +266,7 @@ font-size: 0.88em;
           font-size: small;
         }
       }
-    }
-  }
-/*END:side*/
-}
+    }*/
 
 
-/*#END:form*/
-
-  /* An entry in the store catalog */
 

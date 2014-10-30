@@ -1,4 +1,5 @@
 <%= form_for(@user) do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,37 +11,38 @@
       </ul>
     </div>
   <% end %>
+<div id="section_title">Registracija </div>
+  <div id="input_form">
+    <% if session[:role] == "Admin" %>
+      <div class="field">
+        <%= label :role_id, "Rola" %><br>
+        <%= select_tag(:role, options_for_select(Role.dropdown_options, -1)) %>
+      </div>
+    <%end%>
+      <div class="field">
+        <%= f.label :name, "Ime" %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :surname, "Prezime" %><br>
+        <%= f.text_field :surname %>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Email" %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password, "Šifra" %><br>
+        <%= f.password_field :password_digest %>
+      </div>
 
-<div id="input_form">
-<% if session[:role] == "Admin" %>
-  <div class="field">
-    <%= label :role_id, "Rola" %><br>
-    <%= select_tag(:role, options_for_select(Role.dropdown_options, -1)) %>
-  </div>
-<%end%>
-  <div class="field">
-    <%= f.label :name, "Ime" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :surname, "Prezime" %><br>
-    <%= f.text_field :surname %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "Email" %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password, "Password" %><br>
-    <%= f.password_field :password_digest %>
+      <div class="actions">
+      <% if session[:role] == "Admin" %>
+        <%= f.submit "Submit" %>
+      <% else %>
+        <%= f.submit "REGISTER" %>
+      <% end %>
+      </div>
   </div>
 
-  <div class="actions">
-  <% if session[:role] == "Admin" %>
-    <%= f.submit "Submit" %>
-  <% else %>
-    <%= f.submit "Sign up" %>
-  <% end %>
-  </div>
-  </div>
 <% end %>

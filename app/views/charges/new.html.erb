@@ -17,7 +17,7 @@
     Država <%= @shipping_address.city.country.name %><br>
   </div><br>
 <div id="kupovina" style="margin-left: 220px; margin-top: 20px;">
-  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= Cart.number_of_items %> proizvoda</span>
+  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
   <br><br>
   <div id="price_details">
     <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>

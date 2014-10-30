@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* START_HIGHLIGHT */
 .products {
+    $hover_link: #81D697;
+    $crvena:  #e74c3c;
     .entry:hover {
         border: 2px solid #E3E3E3;
     }
@@ -238,6 +240,12 @@ height: 365px;*/
         color: white;
         font-size: 0.88em; /* Approximation due to font substitution */
         font-weight: 600;
+        cursor: pointer;
+      }
+      .cart_button:hover{
+          background-color: white;
+          border: 1px solid $crvena;
+          color: $crvena; 
       }
     }
 }

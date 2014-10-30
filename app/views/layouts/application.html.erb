@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pragprog Books Online Store</title>
+  <title>ABHTech</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -32,19 +32,18 @@
 
 		<% unless session[:role] == 'Admin' %>
 			<div id="banner-right">
-				<ul>
-					<li><a href="<%=cart_path(@cart) %>" id="cart"><%= @cart.total_price.to_i %> KM</a></li>
-				</ul>
+			<a href="<%=cart_path(@cart) %>"><%= image_tag("basket.png") %></a>
+				<div id="cart"><%= @cart.number_of_items %></div>
 			</div>
 		<% end %>
 
 			<div id="menu-right">
 				<ul>
 				<% if session[:user_id] %>
-					<li><%= button_to 'SIGN OUT', signout_path, method: :delete, :class => "sign_out" %></li>
+					<li><%= button_to 'LOGOUT', signout_path, method: :delete, :class => "sign_out" %></li>
 				<% else %>
-					<li><%= link_to 'SIGN IN', signin_path %></li>  |
-					<li><%= link_to 'SIGN UP', new_user_path %></li>
+					<li><%= link_to 'LOGIN', signin_path %></li>  |
+					<li><%= link_to 'REGISTER', new_user_path %></li>
 				<% end %>
 				</ul>
 			</div>
@@ -55,7 +54,7 @@
 		<%= yield %>
 	</div>
 <div id="footer">
-	Copyright abhShoes.All rights reserved.
+	Copyright abhTech. All rights reserved.
 </div>
 </body>
 </html>

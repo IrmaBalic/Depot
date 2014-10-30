@@ -99,40 +99,37 @@ height: 17px;
         float: left;
         margin-top: 10px;
         color:  #ffffff;
-        font-size: 0.88em; 
         font-weight: 600;
         text-align: center;
         vertical-align: middle;
         width: 200px;
         margin-left: 545px;
       .buy_button {
-        margin-left: 10px;
-        border-radius: 4px;
         width: 85px;
         height: 30px;
         line-height: 30px;
         vertical-align: middle;
         display: inline-block;
-        background-color:   #566473;   
-         a {
+        background-color: #566473;   
+        font-weight: 600;
+        border-radius: 4px;
+        border: 1px solid #566473;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
         color: white;
-        }
-        .submit_class {
-            background-color:   #566473;   
-            color: white;   
-            font-size: 0.88em; 
-            font-weight: 600;
-            text-align: center;
-            vertical-align: middle;
-            font-family: 'Open Sans';
-            width: 85px;
-            height: 30px;
-            border-radius: 4px;
-            border: 1px solid #566473;
-
-        }
+        cursor:pointer;
+        font-family: 'Open Sans';
+      }
+      .buy_button:hover {
+        background-color: white;
+        border: 1px solid #566473;
+        color: #566473;
       }
       .leave_button {
+                float: left;
+
+        margin-left: 10px;
         border-radius: 4px;
         border: 1px solid #566473;
         width: 85px;
@@ -143,6 +140,14 @@ height: 17px;
         background-color:   white;   
          a {
         color: #566473;
+        }
+        cursor:pointer;
+      }
+      .leave_button:hover {
+        background-color: #566473;
+        border: 1px solid #566473;
+        a {
+          color: white;
         }
       }
       }

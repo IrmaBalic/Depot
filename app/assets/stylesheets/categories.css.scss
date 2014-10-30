@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .categories {
+  $crvena: #e74c3c;
+  $hover_link: #81D697;
 #table_index {
     padding: 20px;
     margin-top: 40px;
@@ -14,6 +16,7 @@
 #header {
     background-color: #413e4a;
   }
+
   #filter {
     display: block;
     float: left;
@@ -57,7 +60,7 @@
     padding-bottom: 20px;
   }
 .entry    {
-  width: 210px;
+      width: 210px;
     height: 260px;
     padding: 10px;
     margin-left: 5px;
@@ -96,7 +99,6 @@
     }
     #entry-button {
       border: 1px solid black;
-
       margin-top: 30px;
       color:  #ffffff;
       font-size: 0.88em; /* Approximation due to font substitution */
@@ -104,7 +106,6 @@
       text-align: center;
       vertical-align: middle;
       width: 180px;
-      
       .buy_button {
         margin-top: 10px;
         border-radius: 4px;
@@ -136,6 +137,12 @@
         color: white;
         font-size: 0.88em; /* Approximation due to font substitution */
         font-weight: 600;
+        cursor: pointer;
+      }
+    .cart_button:hover{
+        color: $crvena;
+        background-color: white;
+        border: 1px solid $crvena;
       }
       .entry:hover {
         border: 2px solid #E3E3E3;

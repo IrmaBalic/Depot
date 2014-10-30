@@ -5,10 +5,10 @@
 /* START_HIGHLIGHT */
 
 .carts {
+	$hover_link: #81D697;
 	#header {
 	  background-color: #413e4a;
 	}
-
 	#cart_frame {
 		width: 780px;
 		margin-left: 100px;
@@ -106,14 +106,13 @@ height: 17px;
 			}
 	#entry-button {
 		float: left;
-	      margin-top: 10px;
-	      color:  #ffffff;
-	      font-size: 0.88em; 
-	      font-weight: 600;
-	      text-align: center;
-	      vertical-align: middle;
-	      width: 250px;
-	      margin-left: 95px;
+	    margin-top: 10px;
+	    color:  #ffffff;
+	    font-weight: 600;
+	    text-align: center;
+	    vertical-align: middle;
+	    width: 250px;
+	    margin-left: 95px;
       .buy_button {
       	margin-left: 10px;
         border-radius: 4px;
@@ -122,13 +121,21 @@ height: 17px;
         line-height: 30px;
         vertical-align: middle;
         display: inline-block;
-        background-color:   #566473;   
-         a {
+        background-color: #566473;   
+        cursor:pointer;
+        a {
         color: white;
         }
       }
+
+      .buy_button:hover {
+      	background-color: white;
+      	border: 1px solid #566473;
+      	a {
+      	color: #566473;
+      	}
+      }
       .leave_button {
-      	font-size: 0.88em; 
 	    font-weight: 600;
       	float: left;
         border-radius: 4px;
@@ -140,7 +147,12 @@ height: 17px;
         display: inline-block;
         background-color:   white;   
         color: #566473;
+        cursor:pointer;
       }
+       .leave_button:hover {
+        	background-color: #566473;   
+        	color: white;
+      	}
       }
 
 	/*#cart_title {

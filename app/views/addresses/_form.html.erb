@@ -41,7 +41,7 @@
   </div>
 
   <div id="kupovina">
-  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= Cart.number_of_items %> proizvoda</span>
+  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
   <br><br>
   <div id="price_details">
     <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
@@ -52,8 +52,8 @@
   </div>
 </div>
 <div id="entry-button">
+    <%= submit_tag("NASTAVI", :class => 'buy_button')  %>
     <div class="leave_button"> <a href="<%=store_url%>"> ODUSTANI </a></div>
-    <div class="buy_button"> <%= submit_tag("NASTAVI", :class => 'submit_class')  %></a></div>
 </div>
 <br><br>
   <div id="input_form_2" style="clear:both;">
