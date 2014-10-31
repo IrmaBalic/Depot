@@ -5,6 +5,9 @@
 .categories {
   $crvena: #e74c3c;
   $hover_link: #81D697;
+      #main {
+      min-height: 445px;
+    }
 #table_index {
     padding: 20px;
     margin-top: 40px;
@@ -28,12 +31,10 @@
   }
 #products_list {
     width: 1200px;
-    min-height: 500px;
     margin-left: 10%;
    /* width: 900px;*/
     display: inline-block;
     padding-top: 20px;
-    padding-bottom: 30px;
     margin-top: 20px;
     /*padding-left: 30px;*/
     .list_actions {

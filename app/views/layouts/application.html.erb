@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body class='<%= controller.controller_name%>'>
@@ -29,7 +29,6 @@
 					<% end %>
 				</ul>
 			</div>
-
 		<% unless session[:role] == 'Admin' %>
 			<div id="banner-right">
 			<a href="<%=cart_path(@cart) %>"><%= image_tag("basket.png") %></a>
@@ -55,6 +54,20 @@
 	</div>
 <div id="footer">
 	Copyright abhTech. All rights reserved.
+	<div id="menu">
+		<ul>
+			<% if session[:role] == 'Admin' %>
+				<li><%= link_to 'PROIZVODI', products_path %></li> 
+				<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
+				<li><%= link_to 'KORISNICI', users_path %></li>
+				<li><%= link_to 'KATEGORIJE', categories_path %></li>
+			<% else %>
+				<% @categories.each do |category| %>
+					<li><%= link_to category.name, category_path(category) %></li> 
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
 </div>
 </body>
 </html>

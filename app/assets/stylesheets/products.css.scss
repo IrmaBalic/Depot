@@ -8,8 +8,10 @@
     .entry:hover {
         border: 2px solid #E3E3E3;
     }
+    #main {
+      min-height: 485px;
+    }
     #admin_actions {
-
       a:visited {
         color: blue;
       }
