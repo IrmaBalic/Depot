@@ -7,15 +7,13 @@
 	}
 
  #input_form_2 {
- visibility: hidden;
-   
+      display: none;
       width: 350px;
       margin-left: 80px;
       margin-top: 50px;
      /* float: left;*/
       .field {
         margin-top: 10px;
-
         label {
          color:  #545454;
         font-size: 1.13em; /* Approximation due to font substitution */

@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 group :development do
 	gem 'better_errors'
 	gem "binding_of_caller"
