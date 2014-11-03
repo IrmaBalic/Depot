@@ -3,11 +3,11 @@
 	<div id="input_form">
 
 				<div class="field">
-					<%= label_tag :email, 'Name:' %>
-					<%= text_field_tag :email, params[:email] %>
+					<%= label_tag :email, 'Email:' %>
+					<%= text_field_tag :email, params[:email], :autofocus=>true %>
 				</div>
 				<div class="field">
-					<%= label_tag :password, 'Password:' %>
+					<%= label_tag :password, 'Šifra:' %>
 					<%= password_field_tag :password, params[:password] %>
 				</div>
 				<div class="field">

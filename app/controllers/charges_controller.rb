@@ -18,6 +18,8 @@ class ChargesController < ApplicationController
   def create
     @order = Order.new
     @order.user = @user
+    @order.shipping_address = @user.last_shipping_address
+    @order.billing_address = @user.last_shipping_address
 
     @cart.line_items.each do |line_item| 
 

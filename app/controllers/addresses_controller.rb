@@ -1,14 +1,16 @@
 class AddressesController < ApplicationController
-before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_address, only: [:show, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart
   skip_before_action :authorize_admin
 
   def index
-  	@addresses = Address.all
+  	redirect_to new_address_path
   end
 
   def show
+        redirect_to new_address_path
+
   end
 
   def new

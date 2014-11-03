@@ -14,10 +14,10 @@
  *= require_tree .
  */
 
-    @font-face {
-        font-family: 'ProximaNova';
-        src: url(/assets/fonts/ProximaNova.otf) format("truetype");
-    }
+@font-face {
+    font-family: 'ProximaNova';
+    src: url(/assets/fonts/ProximaNova.otf) format("truetype");
+}
  $hover_link: #81D697;
  body
  {
@@ -141,8 +141,6 @@ html, body, div, span { display: block;}
       }
     }
   .sign_out {
-    float: right;
-    margin-right: 50%;
     background-color: #413e4a;
     border: none;
     background-color: none;

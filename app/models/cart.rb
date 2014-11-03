@@ -20,9 +20,11 @@ class Cart < ActiveRecord::Base
   	end
   	def number_of_items
   		sum = 0
-  		LineItem.all.each do |line_item|
-  			sum+=line_item.quantity
-  		end
+      unless line_items.empty?
+    		line_items.each do |line_item|
+    			sum+=line_item.quantity
+    		end
+      end
   		sum
   	end
 end
