@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :address
   has_and_belongs_to_many :shipping_addresses, class_name: "Address", join_table: "shipping_addresses_users"
+  has_many :orders
 
   has_secure_password
 

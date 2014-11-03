@@ -1,8 +1,7 @@
   <div id="section_title"> <%= @categorie.name %></div>
 
 <div id="products_list">
-  <% @products.each do |product| %>
-  <% if product.categorie == @categorie %>
+  <% @categorie.products.each do |product| %>
       <div class="entry">
       <a href="<%= product_path(product) %>">
         <%= image_tag(product.image_url) %></a>
@@ -18,7 +17,6 @@
           <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>     
-      <% end %>
   <% end %>
 </div>
 

@@ -32,6 +32,7 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="pk_test_kzKfC1KtnaDRgEhugzaUKq6t"
           data-description="A month's subscription"
-          data-amount="<%= ((@cart.total_price.to_i+40)*100) %>"></script>
+          data-amount="<%= ((@cart.total_price.to_i+40)*100) %>">
+  </script>
 </div>
 <% end %>
