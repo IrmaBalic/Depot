@@ -7,10 +7,22 @@
 	}
 #section_title {
 	text-align: center;
-	margin-left: -320px;
 	margin-top: 60px;
 	font-weight: 800;
 	font-size: 22px;
+	margin-left: 445px;
+	width: 150px;
+	display: inline-block;
+}
+#register_link {
+	display: inline-block;
+	width: 100px;
+	margin-left: 230px;
+	a {
+		color:  #7ca3cc;
+		font-size: 1.13em; /* Approximation due to font substitution */
+		font-weight: 600;
+	}
 }
 #input_form {
 	float:none;
@@ -40,8 +52,8 @@
           cursor: pointer;
         }
         input[type="submit"]:hover {
-        	color: #566473;
-        	background-color: white;
+            background-color: #6D7F91;
+        	border-color: #6D7F91;
         }
 }
 #table_index {

@@ -16,23 +16,14 @@
     Grad: <%= @shipping_address.city.name %> <%= @shipping_address.city.postal_code %><br>
     Država <%= @shipping_address.city.country.name %><br>
   </div><br>
-<div id="kupovina" style="margin-left: 220px; margin-top: 20px;">
-  <span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
-  <br><br>
-  <div id="price_details">
-    <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
-    <span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
-  </div><br>
-  <div id="ukupno">
-    <span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40.0 %> KM</span><br><br>
+<div id="purchuase" style="margin-top:14px;">
+  <%= render(@cart) %>
+  <div id="stripe-button">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_kzKfC1KtnaDRgEhugzaUKq6t"
+            data-description="A month's subscription"
+            data-amount="<%= ((@cart.total_price.to_i+40)*100) %>">
+    </script>
   </div>
-</div>
-
-<div id="stripe-button">
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_kzKfC1KtnaDRgEhugzaUKq6t"
-          data-description="A month's subscription"
-          data-amount="<%= ((@cart.total_price.to_i+40)*100) %>">
-  </script>
 </div>
 <% end %>

@@ -18,113 +18,24 @@
     float: left;
   }
   #stripe-button {
-    float:left;
-    margin-top: 300px;
-    margin-left: -120px;
+    float: right;
+    margin-top: 20px;
   }
-#price_details {
-        float: right;
-        text-align: right;
-        padding-bottom: 10px;
-        }
-        .price {  
-          color:  #566473;
-          font-size: 1.31em; /* Approximation due to font substitution */
-          font-weight: 600;
-          text-align: right;
-        }
-        #cijena {
-            color:  #7d7d7d;
-            font-size: 1.13em; /* Approximation due to font substitution */
-            font-weight: 600;
-            text-align: right;
-
-          }
-      
-      #kupovina {
-        border-radius: 4px;
-        border-width: 1px;
-        border-color:  #b7b7b7;
-        border-style: solid;
-        width: 250px;
-        height: 220px;
-        float: left;
-        margin-left: 450px;
-        margin-top: 50px;
-        padding: 20px;
-        #narudzba {
-          color:  #545454;
-          font-size: 1.13em; /* Approximation due to font substitution */
-          font-weight: 400;
-          float: left;
-          width: 75px;
-height: 14px;
-        }
-        #broj_proizvoda {
-          float: left;
-          color:  rgba(84, 84, 84, 0.5);
-          font-size: 1.13em; /* Approximation due to font substitution */
-          font-weight: 400;
-          width: 92px;
-height: 17px;
-        }
-        #ukupno {
-          padding-top: 10px;
-          border-top: 1px solid #566473;
-          clear: both;
-          margin-top: 10px;       
-        }
-      
-      }
-  #entry-button {
-        float: left;
-        margin-top: 10px;
-        color:  #ffffff;
-        font-size: 0.88em; 
-        font-weight: 600;
-        text-align: center;
-        vertical-align: middle;
-        width: 200px;
-        margin-left: 545px;
-      .buy_button {
-        margin-left: 10px;
-        border-radius: 4px;
-        width: 85px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        background-color:   #566473;   
-         a {
-        color: white;
-        }
-        .submit_class {
-            background-color:   #566473;   
-            color: white;   
-            font-size: 0.88em; 
-            font-weight: 600;
-            text-align: center;
-            vertical-align: middle;
-            font-family: 'Open Sans';
-            width: 85px;
-            height: 30px;
-            border-radius: 4px;
-            border: 1px solid #566473;
-
-        }
-      }
-      .leave_button {
-        border-radius: 4px;
-        border: 1px solid #566473;
-        width: 85px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        background-color:   white;   
-         a {
-        color: #566473;
-        }
-      }
-      }
+ /* #price_details {
+    float: right;
+    text-align: right;
+    padding-bottom: 10px;
+  }
+  .price {  
+    color:  #566473;
+    font-size: 1.31em;
+    font-weight: 600;
+    text-align: right;
+  }
+  #cijena {
+    color:  #7d7d7d;
+    font-size: 1.13em;
+    font-weight: 600;
+    text-align: right;
+  }*/
 }

@@ -6,14 +6,12 @@
   $crvena: #e74c3c;
   margin-left: auto;
   margin-right: auto;
-
    #products_sale {
     width: 1181px;
     min-height: 500px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-    
+    text-align: center;  
     #main-header {
       height: 80px;
       line-height: 80px;
@@ -117,9 +115,8 @@
         cursor: pointer;
       }
         .cart_button:hover{
-          background-color: white;
-          border: 1px solid $crvena;
-          color: $crvena; 
+          background-color:  #f16354;
+          border: 1px solid #f16354;
         }
     }
   }

@@ -5,153 +5,56 @@
 	#header {
 	  background-color: #413e4a;
 	}
- #input_form {
-  margin-top: 20px;
- }
- #main {
-  margin-bottom: 30px;
- }
- #input_form_2 {
-      display: none;
-      width: 350px;
-      margin-left: 80px;
-      margin-top: 50px;
-     /* float: left;*/
-      .field {
-        margin-top: 10px;
-        label {
-         color:  #545454;
-        font-size: 1.13em; /* Approximation due to font substitution */
-        font-weight: 600;
-        width: 350px;
-        height: 13px;
-        }
-        input {
-        border-radius: 4px;
-        border-width: 1px;
-        border-color:  #b7b7b7;
-        border-style: solid;
-        width: 350px;
-        height: 27px;
-        padding: 5px;
-        }
-        input[type=checkbox] {
-            width: 20px;
-           height: 20px;
-        }
-        .actions {
-          margin-top: 20px;
-        }
-      }
+  #input_form {
+    margin-top: 20px;
   }
-#price_details {
-        float: right;
-        text-align: right;
-        padding-bottom: 10px;
-        }
-        .price {  
-          color:  #566473;
-          font-size: 1.31em; /* Approximation due to font substitution */
-          font-weight: 600;
-          text-align: right;
-        }
-        #cijena {
-            color:  #7d7d7d;
-            font-size: 1.13em; /* Approximation due to font substitution */
-            font-weight: 600;
-            text-align: right;
-
-          }
-      
-      #kupovina {
-        border-radius: 4px;
-        border-width: 1px;
-        border-color:  #b7b7b7;
-        border-style: solid;
-        width: 250px;
-        height: 220px;
-        float: left;
-        margin-left: 450px;
-        margin-top: 50px;
-        padding: 20px;
-        #narudzba {
-          color:  #545454;
-          font-size: 1.13em; /* Approximation due to font substitution */
-          font-weight: 400;
-          float: left;
-          width: 75px;
-height: 14px;
-        }
-        #broj_proizvoda {
-          float: left;
-          color:  rgba(84, 84, 84, 0.5);
-          font-size: 1.13em; /* Approximation due to font substitution */
-          font-weight: 400;
-          width: 92px;
-height: 17px;
-        }
-        #ukupno {
-          padding-top: 10px;
-          border-top: 1px solid #566473;
-          clear: both;
-          margin-top: 10px;       
-        }
-      
+  #main {
+    margin-bottom: 30px;
+  }
+  #input_form_2 {
+    display: none;
+    width: 350px;
+    margin-left: 80px;
+    margin-top: 50px;
+    float: left;
+    .field {
+      margin-top: 10px;
+      label {
+       color:  #545454;
+      font-size: 1.13em; /* Approximation due to font substitution */
+      font-weight: 600;
+      width: 350px;
+      height: 13px;
       }
-  #entry-button {
-        float: left;
-        margin-top: 10px;
-        color:  #ffffff;
-        font-weight: 600;
-        text-align: center;
-        vertical-align: middle;
-        width: 200px;
-        margin-left: 545px;
-      .buy_button {
-        width: 85px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        background-color: #566473;   
-        font-weight: 600;
-        border-radius: 4px;
-        border: 1px solid #566473;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        color: white;
-        cursor:pointer;
-        font-family: 'Open Sans';
+      input {
+      border-radius: 4px;
+      border-width: 1px;
+      border-color:  #b7b7b7;
+      border-style: solid;
+      width: 350px;
+      height: 27px;
+      padding: 5px;
       }
-      .buy_button:hover {
-        background-color: white;
-        border: 1px solid #566473;
-        color: #566473;
+      input[type=checkbox] {
+          width: 20px;
+         height: 20px;
       }
-      .leave_button {
-                float: left;
-
-        margin-left: 10px;
-        border-radius: 4px;
-        border: 1px solid #566473;
-        width: 85px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        background-color:   white;   
-         a {
-        color: #566473;
-        }
-        cursor:pointer;
+      .actions {
+        margin-top: 20px;
       }
-      .leave_button:hover {
-        background-color: #566473;
-        border: 1px solid #566473;
-        a {
-          color: white;
-        }
-      }
-      }
+    }
+  }
+  .buy_button {
+      width: 122px;
+      height: 32px;   
+      font-weight: 600;
+      border: 1px solid #566473;
+      color: white;
+  }
+  .leave_button {
+    a {
+      font-weight: 600;
+      color: #566473;
+    }
+  }
 }

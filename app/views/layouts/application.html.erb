@@ -29,13 +29,12 @@
 					<% end %>
 				</ul>
 			</div>
-		<% unless session[:role] == 'Admin' %>
 			<div id="banner-right">
-			<a href="<%=cart_path(@cart) %>"><%= image_tag("basket.png") %></a>
-				<div id="cart"><%= @cart.number_of_items %></div>
+				<% unless session[:role] == 'Admin' %>
+					<a href="<%=cart_path(@cart) %>"><div class="basket"></div></a>
+						<div id="cart"><%= @cart.number_of_items %></div>
+				<% end %>
 			</div>
-		<% end %>
-
 			<div id="menu-right">
 				<ul>
 				<% if session[:user_id] %>

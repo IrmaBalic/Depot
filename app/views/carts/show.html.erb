@@ -16,20 +16,12 @@
 	<% end %>
 <% end %>
 </div>
-<div id="kupovina">
-	<span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
-	<br><br>
-	<div id="price_details">
-		<span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
-		<span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
-	</div><br>
-	<div id="ukupno">
-		<span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
-	</div>
+<div id="purchuase">
+	<%= render(@cart) %>
+	<% if @cart.number_of_items >0 %>
+		<div id="entry-button">
+			<%= button_to 'ISPRAZNI KORPU', @cart,  :class => 'leave_button', method: :delete, data: { confirm: 'Are you sure?' } %>
+		    <div class="buy_button"> <a href="<%=new_address_url%>"> NASTAVI </a></div>
+		</div>
+	<% end %>
 </div>
-<% if @cart.number_of_items >0 %>
-	<div id="entry-button">
-		<%= button_to 'ISPRAZNI KORPU', @cart,  :class => 'leave_button', method: :delete, data: { confirm: 'Are you sure?' } %>
-	    <div class="buy_button"> <a href="<%=new_address_url%>"> NASTAVI </a></div>
-	</div>
-<% end %>

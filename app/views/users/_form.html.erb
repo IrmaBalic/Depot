@@ -11,7 +11,10 @@
       </ul>
     </div>
   <% end %>
-<div id="section_title">Registracija </div>
+<div id="section_title"> Registracija </div>
+<% unless session[:role] == "Admin" %>
+  <div id="register_link"><%= link_to 'Prijavi se', signin_path %></div>
+<% end %>
   <div id="input_form">
     <% if session[:role] == "Admin" %>
       <div class="field">

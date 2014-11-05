@@ -65,8 +65,7 @@
     height: 280px;
     display: inline-block;
     padding: 10px;
-        border: 2px solid white;
-
+    border: 2px solid white;
     img {
       width: 155px;
       height: 134px;
@@ -90,94 +89,8 @@
       width: 145px;
       height: 32px;
     }
-    #entry-button {
-      margin-top: 30px;
-      color:  #ffffff;
-      font-size: 0.88em; /* Approximation due to font substitution */
-      font-weight: 600;
-      text-align: center;
-      vertical-align: middle;
-      width: 180px;
-      margin-left: auto;
-      margin-right: auto;
-      .buy_button {
-        border-radius: 4px;
-        width: 73px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        display: inline-block;
-        background-color:  #e74c3c;   
-         a {
-        color: white;
-        }
-      }
-      .cart_button {
-        /*margin-left: 10px;*/
-        margin-left: 10px;
-        background-color: white;
-        border-radius: 4px;
-        display: inline-block;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        border: 1px solid #7d7d7d;
-        color: #7d7d7d;
-        font-size: 0.88em; /* Approximation due to font substitution */
-        font-weight: 600;
-        float: left;
-      }
-    }
   }
 }
-/*width: 439px;
-height: 365px;*/
-  table {
-   /* border-collapse: collapse;*/
-    border : 1px solid black;
-  }
-
-  table tr td {
-    padding: 5px;
-    vertical-align: top;
-  }
-
-  .list_image {
-    width:  60px;
-    height: 70px;
-  }
-
-  .list_description {
-    width: 60%;
-    dl {
-      margin: 0;
-    }
-
-    dt {
-      color:        #244;
-      font-weight:  bold;
-      font-size:    larger;
-    }
-
-    dd {
-      margin: 0;
-    }
-  }
-
-  .list_actions {
-    font-size:    x-small;
-    text-align:   right;
-    padding-left: 1em;
-  }
-
-  .list_line_even {
-    background:   #e0f8f8;
-  }
-
-  .list_line_odd {
-    background:   #f8b0f8;
-  }
   #image {
     margin-top: 40px;
     margin-left: 150px;
@@ -214,19 +127,6 @@ height: 365px;*/
       text-align: center;
       vertical-align: middle;
       width: 180px;
-      
-      .buy_button {
-        border-radius: 4px;
-        width: 73px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        background-color:  #e74c3c;   
-        float: left;
-         a {
-        color: white;
-        }
-      }
       .cart_button {
         /*margin-left: 10px;*/
         float: left;
@@ -245,9 +145,8 @@ height: 365px;*/
         cursor: pointer;
       }
       .cart_button:hover{
-          background-color: white;
-          border: 1px solid $crvena;
-          color: $crvena; 
+          background-color:  #f16354;
+          border: 1px solid #f16354;
       }
     }
 }

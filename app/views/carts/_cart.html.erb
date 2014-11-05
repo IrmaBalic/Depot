@@ -1,2 +1,11 @@
-	<%= render (@cart.line_items) %>
-Total: <%= number_to_currency(@cart.total_price)%>
+<div id="kupovina">
+	<span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
+	<br><br>
+	<div id="price_details">
+	  <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
+	  <span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
+	</div><br>
+	<div id="ukupno">
+	  <span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
+	</div>
+</div>

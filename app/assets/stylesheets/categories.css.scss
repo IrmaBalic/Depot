@@ -69,16 +69,13 @@
     margin-top: 10px;
     border-radius: 4px;
     background-color:  #ffffff;
-  
     display: inline-block;
-        border: 2px solid white;
-
+    border: 2px solid white;
     img {
       width: 167px;
       height: 126px;
       margin-left: 20px;
     }
-
     .price_line {
       margin-left: 20px;
       margin-top: 20px;
@@ -88,12 +85,11 @@
         font-size: 0.88em; /* Approximation due to font substitution */
         font-weight: 600;
       }
-      .price {
-
+    .price {
         color:  #7d7d7d;
         font-size: 1.13em; /* Approximation due to font substitution */
         font-weight: 600;
-      }
+    }
     width: 145px;
     height: 32px;
     margin-bottom: 15px;
@@ -106,21 +102,7 @@
       font-weight: 600;
       text-align: center;
       vertical-align: middle;
-      width: 180px;
-      .buy_button {
-        margin-top: 10px;
-        border-radius: 4px;
-        width: 73px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        background-color:  #e74c3c;   
-        float: left;
-         a {
-        color: white;
-        }
-      }
-      
+      width: 180px;     
     }
   }
   .cart_button {
@@ -141,47 +123,11 @@
         cursor: pointer;
       }
     .cart_button:hover{
-        color: $crvena;
-        background-color: white;
-        border: 1px solid $crvena;
+        background-color:  #f16354;
+        border: 1px solid #f16354;
       }
       .entry:hover {
         border: 2px solid #E3E3E3;
     }
-}
-  
-
-
-
-  .list_line_even {
-    background:   #e0f8f8;
-  }
-
-  .list_line_odd {
-    background:   #f8b0f8;
-  }
-  #image {
-        margin-left: 40px;
-
-    width: 18%;
-    img {
-    width: 100%;
-  }
-    float: left;
-    display: inline-block;
-  }
-  #description {
-    width: 70%;
-    margin: 0;
-    float: left;
-    margin-left: 20px;
-    display: inline-block;
-  }
-  #actions {
-    padding-top: 40px;
-    font-size: 150%;
-    display: block;
-    clear: both;
-    text-align: center;
   }
 }

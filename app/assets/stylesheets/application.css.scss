@@ -18,7 +18,7 @@
     font-family: 'ProximaNova';
     src: url(/assets/fonts/ProximaNova.otf) format("truetype");
 }
- $hover_link: #81D697;
+ $hover_link: #F08490;
  body
  {
   font-family: 'Open Sans', sans-serif;
@@ -122,6 +122,8 @@ html, body, div, span { display: block;}
   }
     #menu-right {
      /* width: 140px;*/
+     /* border: 1px solid yellow;*/
+
       font-size: 0.88em;
       font-weight: 700;
       float: right;
@@ -136,7 +138,7 @@ html, body, div, span { display: block;}
           }
         }
       a:hover {
-       border-bottom: 3px solid #F08490;
+        border-bottom: 3px solid #F08490;
         padding-bottom: 19px;
       }
     }
@@ -148,10 +150,14 @@ html, body, div, span { display: block;}
     font-weight: 700;
     font-family: 'Open Sans', sans-serif;
     cursor: pointer;
+    margin-top: -15px;
   }
   .sign_out:hover{
     border-bottom: 3px solid #F08490;
-    padding-bottom: 18px;
+    padding-bottom: 19px;
+  }
+  @-moz-document url-prefix() {
+    .sign_out:hover { padding-bottom:18px;}
   }
   #banner-right {
     margin-right: 5%;
@@ -159,6 +165,7 @@ html, body, div, span { display: block;}
     float: right;
     display: inline;
     width: 130px;
+    height: 20px;
     #cart {
       border-radius: 50%;
       background-color:  #e74c3c;
@@ -173,6 +180,18 @@ html, body, div, span { display: block;}
       display: inline-block;
       margin-top: -40px;
       margin-left: -3px;
+    }
+    .basket {
+      display: inline-block;
+      background-size: contain;
+      background-image: url(image-path('basket.png'));
+      background-repeat: no-repeat;
+      float: left;
+      width: 26px;
+      height: 20px;
+    }
+    .basket:hover {
+      background-image: url(image-path('basket_hover.png'));
     }
   }
   #menu {
@@ -231,6 +250,101 @@ html, body, div, span { display: block;}
       }
     }
 }
-
+#purchuase {
+    float: right;
+    margin-right: 140px;
+    margin-top: 50px;
+    width: 292px;
+    #kupovina {
+      border-radius: 4px;
+      border-width: 1px;
+      border-color:  #b7b7b7;
+      border-style: solid;
+      width: 250px;
+      height: 220px;
+      padding: 20px;
+      #narudzba {
+        color:  #545454;
+        font-size: 1.13em; /* Approximation due to font substitution */
+        font-weight: 400;
+        float: left;
+        width: 75px;
+        height: 14px;
+      }
+      #broj_proizvoda {
+        float: left;
+        color:  rgba(84, 84, 84, 0.5);
+        font-size: 1.13em; /* Approximation due to font substitution */
+        font-weight: 400;
+        width: 92px;
+        height: 17px;
+      }
+      #ukupno {
+        padding-top: 10px;
+        border-top: 1px solid #566473;
+        clear: both;
+        margin-top: 10px;       
+      } 
+    }
+    #price_details {
+      float: right;
+      text-align: right;
+      padding-bottom: 10px;
+    }
+    .price {  
+      color:  #566473;
+      font-size: 1.31em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: right;
+    }
+    #cijena {
+      color:  #7d7d7d;
+      font-size: 1.13em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: right;
+    }
+    #entry-button {
+      margin-top: 20px;
+      color:  #ffffff;
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      width: 260px;
+      float: right;
+      .buy_button {
+          float: right;
+          border-radius: 4px;
+          line-height: 30px;
+          vertical-align: middle;
+          display: inline-block;
+          background-color: #566473;   
+          cursor:pointer;
+          a {
+            color: white;
+          }
+      }
+      .buy_button:hover {
+        background-color: #6D7F91;
+        border-color: #6D7F91;
+      }
+      .leave_button {
+        font-weight: 600;
+        float: left;
+        border-radius: 4px;
+        border: 1px solid #566473;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+        background-color:   white;   
+        color: #566473;
+        cursor:pointer;
+      }
+      .leave_button:hover {
+        background-color:  #eff3f3;
+      }
+    }
+  }
 
 
