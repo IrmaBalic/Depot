@@ -1,4 +1,14 @@
 <%= form_tag  addresses_path do %>  
+ <% if @address.errors[:name].any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @address.errors[:name].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div id="section_title" style="margin-left: 50px"> Adresa za dostavu </div>
   <div id="input_form">
     <div class="field">
@@ -8,10 +18,16 @@
     <div class="field">
       <%= label :user_surname, 'Prezime'%>
       <%= text_field :user, :surname %>
-    </div><br>
+    </div>
     <div class="field">
       <%= label :name, 'Adresa' %>
-      <%= text_field :address, :name %>
+      <% if @address.errors[:name].any? %>
+        <div id='field_with_errors'>
+          <%= text_field :address, :name %>
+        </div>
+      <% else %>
+        <%= text_field :address, :name %>
+      <% end %>
     </div>
     <div class="field">
       <%= label :number, 'Broj' %>
@@ -74,7 +90,5 @@
       <%= text_field_tag "billing_address[country]" %>
     </div>
   </div>
-
-
 <% end %>
 

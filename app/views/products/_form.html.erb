@@ -1,17 +1,15 @@
 <%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
+  <% if @product.errors[:title].any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
-      <% @product.errors.full_messages.each do |message| %>
+      <% @product.errors[:title].each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 <div id="input_form" style="margin-top: 15px;">
-
   <div class="field">
       <%= label :categorie_id, "Kategorija" %><br>
       <%= select_tag(:categorie, options_for_select(Categorie.dropdown_options, -1)) %>

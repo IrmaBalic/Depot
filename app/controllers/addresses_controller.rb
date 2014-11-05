@@ -9,8 +9,7 @@ class AddressesController < ApplicationController
   end
 
   def show
-        redirect_to new_address_path
-
+    redirect_to new_address_path
   end
 
   def new
@@ -27,43 +26,45 @@ class AddressesController < ApplicationController
     	city.country = country
     end
     @address.city = city
-   	@address.save
-
-
-    if session[:user_id]
-      @user = User.find_by_id(session[:user_id]) 
-      @user.registered = true
-    else
-      @user = User.new
-      @user.name = params[:user][:name]
-      @user.surname = params[:user][:surname]
-     	@user.password_digest = "blank"
-     	@user.registered = false
-      @tmp_user=@user
-    end
-    @user.shipping_addresses << @address
-
-    unless params[:same_as_shipping]
-        @billing_address = Address.new(billing_address_params)
-        unless b_city = City.find_by(name: params[:billing_address][:city])
-          unless b_country = Country.find_by(name: params[:billing_address][:country])
-            b_country = Country.new(billing_country_params)
-          end
-          b_city = City.new
-          b_city.postal_code=params[:billing_address][:postal_code]
-          b_city.name = params[:billing_address][:city]
-          b_city.country = b_country
-        end
-        @billing_address.city = b_city
-        @billing_address.save
-        @user.address = @billing_address
+   	
+    if !@address.save
+      render :action => :new
     else 
-      @user.address = @address
-    end
 
- 	  @user.save
-    redirect_to new_charge_path
-    
+      if session[:user_id]
+        @user = User.find_by_id(session[:user_id]) 
+        @user.registered = true
+      else
+        @user = User.new
+        @user.name = params[:user][:name]
+        @user.surname = params[:user][:surname]
+       	@user.password_digest = "blank"
+       	@user.registered = false
+        @tmp_user=@user
+      end
+      @user.shipping_addresses << @address
+
+      unless params[:same_as_shipping]
+          @billing_address = Address.new(billing_address_params)
+          unless b_city = City.find_by(name: params[:billing_address][:city])
+            unless b_country = Country.find_by(name: params[:billing_address][:country])
+              b_country = Country.new(billing_country_params)
+            end
+            b_city = City.new
+            b_city.postal_code=params[:billing_address][:postal_code]
+            b_city.name = params[:billing_address][:city]
+            b_city.country = b_country
+          end
+          @billing_address.city = b_city
+          @billing_address.save
+          @user.address = @billing_address
+      else 
+        @user.address = @address
+      end
+
+   	  @user.save
+      redirect_to new_charge_path
+    end
   end
    private
   def set_address
