@@ -286,23 +286,6 @@ html, body, div, span { display: block;}
         margin-top: 10px;       
       } 
     }
-    #price_details {
-      float: right;
-      text-align: right;
-      padding-bottom: 10px;
-    }
-    .price {  
-      color:  #566473;
-      font-size: 1.31em; /* Approximation due to font substitution */
-      font-weight: 600;
-      text-align: right;
-    }
-    #cijena {
-      color:  #7d7d7d;
-      font-size: 1.13em; /* Approximation due to font substitution */
-      font-weight: 600;
-      text-align: right;
-    }
     #entry-button {
       margin-top: 20px;
       color:  #ffffff;
@@ -346,5 +329,21 @@ html, body, div, span { display: block;}
       }
     }
   }
-
+    #price_details {
+      float: right;
+      text-align: right;
+      padding-bottom: 10px;
+    }
+    .price {  
+      color:  #566473;
+      font-size: 1.31em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: right;
+    }
+    #cijena {
+      color:  #7d7d7d;
+      font-size: 1.13em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: right;
+    }
 
