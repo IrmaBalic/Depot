@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103210555) do
+ActiveRecord::Schema.define(version: 20141107120654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141103210555) do
     t.string   "number"
     t.integer  "floor"
     t.integer  "address_type_id"
-    t.integer  "city_id"
+    t.integer  "city_id",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20141103210555) do
   create_table "cities", force: true do |t|
     t.string   "name"
     t.string   "postal_code"
-    t.integer  "country_id"
+    t.integer  "country_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -1,20 +1,19 @@
 <%= form_tag charges_path do %>
 
- <div id="section_title"> Narudžba i plaćanje </div>
-
+  <div id="section_title"> Narudžba i plaćanje </div>
   <div id="order_details">
     Adresa za račun <br><br>
     Ime i prezime: <%= @user.name %> <%=@user.surname %><br>
-    Adresa: <%= @user.address.name %>, <%= @user.address.number%> <br>
+    Adresa: <%= @user.address.name %> <%= @user.address.number%> <br>
     Grad: <%= @user.address.city.name %> <%= @user.address.city.postal_code %><br>
-    Država <%= @user.address.city.country.name %><br>
+    Država: <%= @user.address.city.country.name %><br>
   </div><br>
   <div id="order_details" style="margin-top:30px;">
     Adresa za dostavu <br><br>
     Ime i prezime: <%= @user.name %> <%=@user.surname %><br>
-    Adresa: <%= @shipping_address.name %>, <%= @shipping_address.number%> <br>
+    Adresa: <%= @shipping_address.name %> <%= @shipping_address.number%> <br>
     Grad: <%= @shipping_address.city.name %> <%= @shipping_address.city.postal_code %><br>
-    Država <%= @shipping_address.city.country.name %><br>
+    Država: <%= @shipping_address.city.country.name %><br>
   </div><br>
 <div id="purchuase" style="margin-top:14px;">
   <%= render(@cart) %>

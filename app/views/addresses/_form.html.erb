@@ -1,9 +1,19 @@
 <%= form_tag  addresses_path do %>  
- <% if @address.errors[:name].any? %>
+ <% if @address.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@address.errors.count, "error") %> prohibited this product from being saved:</h2>
       <ul>
-      <% @address.errors[:name].each do |message| %>
+      <% @address.errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @user.errors[:name].any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @user.errors[:name].each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -21,13 +31,7 @@
     </div>
     <div class="field">
       <%= label :name, 'Adresa' %>
-      <% if @address.errors[:name].any? %>
-        <div id='field_with_errors'>
-          <%= text_field :address, :name %>
-        </div>
-      <% else %>
-        <%= text_field :address, :name %>
-      <% end %>
+      <%= text_field :address, :name %>
     </div>
     <div class="field">
       <%= label :number, 'Broj' %>
@@ -86,7 +90,7 @@
       <%= text_field_tag "billing_address[postal_code]" %>
     </div>
       <div class="field">
-      <%= label :country, 'Država' %>
+      <%= label :country, 'Država:' %>
       <%= text_field_tag "billing_address[country]" %>
     </div>
   </div>
