@@ -47,10 +47,11 @@ class AddressesController < ApplicationController
         @billing_address = Address.new(billing_address_params)
         unless b_city = City.find_by(name: params[:billing_address][:city])
           unless b_country = Country.find_by(name: params[:billing_address][:country])
-            b_country = Country.new(billing_country_params)
+            b_country = Country.new
+            b_country.name = params[:billing_address][:country]
           end
           b_city = City.new
-          b_city.postal_code=params[:billing_address][:postal_code]
+          b_city.postal_code = params[:billing_address][:postal_code]
           b_city.name = params[:billing_address][:city]
           b_city.country = b_country
         end
@@ -67,6 +68,7 @@ class AddressesController < ApplicationController
     else 
       @address.save
    	  @user.save
+      #raise
       redirect_to new_charge_path
     end
   end
