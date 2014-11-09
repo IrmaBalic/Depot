@@ -15,7 +15,7 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'https://depot-application.heroku.com'}
+  config.action_mailer.default_url_options = { :host => 'localhost:300'}
   
   MANDRILL_APIKEY='yPzISG5DRA4r91zEa1FTYA'
   MANDRILL_USERNAME='app30658806@heroku.com'

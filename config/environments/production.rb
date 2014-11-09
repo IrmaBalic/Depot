@@ -19,7 +19,22 @@ Rails.application.configure do
   # For large-scale production use, consider using a caching reverse proxy like
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'depot-application.heroku.com'}
+  
+  MANDRILL_APIKEY='yPzISG5DRA4r91zEa1FTYA'
+  MANDRILL_USERNAME='app30658806@heroku.com'
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:  "smtp.mandrillapp.com",
+    port: "587",
+    domain: "heroku.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: MANDRILL_USERNAME,
+    password: MANDRILL_APIKEY
+  }
   # Disable Rails's static asset server (Apache or NGINX will already do this).
   config.serve_static_assets = false
 
