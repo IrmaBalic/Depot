@@ -29,7 +29,7 @@ category_2 = Categorie.find_by(name: 'Mobiteli i tableti')
 category_3 = Categorie.find_by(name: 'Laptopi')
 
 User.delete_all
-User.create!(email: 'admin', password_digest:'admin', role_id: role_2.id)
+User.create!(name:'admin', surname:'admin',email: 'admin', password_digest:'admin', role_id: role_2.id)
 
 LineItem.delete_all
 Product.delete_all

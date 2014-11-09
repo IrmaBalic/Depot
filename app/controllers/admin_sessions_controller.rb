@@ -20,7 +20,7 @@ class AdminSessionsController < ApplicationController
     #raise
     user = User.find_by(email: params[:email])
     #if user and user.authenticate(params[:password])
-    if user and user.password = params[:password]
+    if user and user.password_digest == params[:password]
       session[:user_id] = user.id
       session[:role] = user.role.name
       if session[:role] == 'Admin'
