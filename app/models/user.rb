@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   def last_shipping_address
   	shipping_addresses.order("created_at DESC").first
   end
+  def last_user
+  	User.order("created_at DESC").first
+  end
 end

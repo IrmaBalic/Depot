@@ -35,11 +35,12 @@ class ChargesController < ApplicationController
       @ordered_line_item.quantity = line_item.quantity
       @ordered_line_item.ordered_product = @ordered_product
       @order.ordered_line_items << @ordered_line_item
-
-      @order.save
       #raise
     end
-
+    @order.save
+    if session[:user_id]
+      UserMailer.confirmation_email(@order).deliver
+    end
     @amount = ((@cart.total_price.to_i+40)*100)
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',

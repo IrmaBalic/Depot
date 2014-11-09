@@ -1,0 +1,21 @@
+<%= @user.name %>,
+
+Vaša narudžba je uspješno obavljena. U nastavku se nalaze podaci o Vašoj narudžbi.
+
+Broj proizvoda: <%= @order.number_of_items %>
+Ukupan iznos: <%= (@order.total_price)+40.0 %> KM
+ 
+Adresa za račun
+    Adresa: <%= @user.address.name %> <%= @user.address.number%> 
+    Grad: <%= @user.address.city.name %> <%= @user.address.city.postal_code %>
+    Država: <%= @user.address.city.country.name %>
+
+Adresa za dostavu 
+    Adresa: <%= @shipping_address.name %> <%= @shipping_address.number%>
+    Grad: <%= @shipping_address.city.name %> <%= @shipping_address.city.postal_code %>
+    Država: <%= @shipping_address.city.country.name %>
+
+Hvala na povjerenju.
+
+Pozdrav,
+abhTech

@@ -42,7 +42,9 @@ class UsersController < ApplicationController
     end
     @user.role = role
   
-    @user.save
+    if @user.save
+      UserMailer.registration_email(@user).deliver
+    end
     redirect_to store_path
   end
 

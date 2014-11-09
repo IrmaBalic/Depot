@@ -14,7 +14,22 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'https://depot-application.heroku.com'}
+  
+  MANDRILL_APIKEY='yPzISG5DRA4r91zEa1FTYA'
+  MANDRILL_USERNAME='app30658806@heroku.com'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:  "smtp.mandrillapp.com",
+    port: "587",
+    domain: "heroku.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: MANDRILL_USERNAME,
+    password: MANDRILL_APIKEY
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

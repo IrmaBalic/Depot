@@ -5,6 +5,7 @@ $(document).ready(function() {
 		else
 			$("#input_form_2").css("display","block");
 	});
+	
 	// Textbox fields for validation
 	var name = $("#user_name");
 	var surname = $("#user_surname");
@@ -36,8 +37,7 @@ $(document).ready(function() {
 			if (number_of_children > 2) remove_warning(field);
 		}
 	}
-	// Onblur events
-	
+	// Onblur events	
 	name.blur(function(){
 		validate_field($(this));
 	});
