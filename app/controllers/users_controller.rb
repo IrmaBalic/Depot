@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize_admin, only: [:new, :create]
+  skip_before_action :authorize_admin
   #before_action :authorize_user
 
   # GET /logins
@@ -13,6 +13,12 @@ class UsersController < ApplicationController
   # GET /logins/1
   # GET /logins/1.json
   def show
+   
+  end
+  def purchuase
+    if session[:user_id]
+      @user = User.find_by_id(session[:user_id])
+    end
   end
 
   # GET /logins/new

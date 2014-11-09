@@ -33,7 +33,7 @@ User.create!(email: 'admin', password_digest:'admin', role_id: role_2.id)
 
 LineItem.delete_all
 Product.delete_all
-Product.create!(title: 'Samsung Galaxy Tab 3 7.0',
+Product.create!(title: 'Samsung Galaxy Tab 3',
   description: 
     'Uz GALAXY Tab 3 cijeli vam je jedan novi svijet nadohvat ruke. Tanji, uzi i s tanjim okvirom, ovaj novi i poboljsani 
     Tab model nudi nevjerojatnu lakocu drzanja za lakse rukovanje u pokretu. Usto je i laksi, iako to ne umanjuje njegove 

@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   #post 'categories/create'
   resources :categories
-  resources :users
+  resources :users do  
+    collection do
+      get :purchuase
+    end
+  end
   resources :roles
   resources :addresses
   resources :charges

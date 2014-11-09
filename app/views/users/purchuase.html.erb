@@ -1,0 +1,32 @@
+<div id="purchase_title"> Arhiva narudžbi</div>
+<div id="cart_frame">
+<% @user.orders.each do |order| %>
+	<% order.ordered_line_items.each do |line_item| %>
+	  	<div id="cart_line_item">
+			<div id="slika"><%= image_tag(line_item.ordered_product.image_url) %></div>	
+				<div id="description">
+					<span>Naziv: <%= line_item.ordered_product.title %></span><br>
+					<span>Opis: <%= sanitize(line_item.ordered_product.description) %></span>
+				</div>
+				<div id="price_details">
+					<span id="cijena">Cijena:</span> <span class="price"><%= line_item.ordered_product.price %> KM</span><br><br>
+					<span id="cijena">Količina:</span><span class="price"> <%=line_item.quantity %></span>
+				</div>
+				<div id="order_details">
+					<span id="label">Datum narudžbe:</span>
+					 <span class="value"><%= order.created_at.strftime("%d.%m.%Y") %></span><br><br>
+					<span id="label">Datum dostave:</span>
+					<span class="value"> <%= order.created_at.strftime("%d.%m.%Y") %></span>
+				</div>
+				<div id="order_details" style="margin-left: 10px; width: 200px;">
+					<span id="label">Adresa za dostavu:</span>
+					<span class="value" style="width: 200px;">
+						<%= order.shipping_address.name %>, <%= order.shipping_address.number %><br>
+						<%= order.shipping_address.city.postal_code %>, <%= order.shipping_address.city.name %><br>
+						<%= order.shipping_address.city.country.name %><br>
+					</span><br><br>
+				</div>	
+		</div>
+	<% end %>
+<% end %>
+</div>

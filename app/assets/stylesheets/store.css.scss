@@ -54,6 +54,10 @@
   }
   .entry:hover {
      border: 2px solid #E3E3E3;
+     #entry-button {
+      visibility: visible;
+     }
+
   }
   .entry {
     border-radius: 4px;
@@ -71,7 +75,7 @@
       height: 134px;
     }
     .price_line {
-       margin-left: 20px;
+      margin-left: 20px;
       margin-top: 20px;
       text-align: left;
       .title {
@@ -83,12 +87,14 @@
         color:  #7d7d7d;
         font-size: 1.13em; /* Approximation due to font substitution */
         font-weight: 600;
+        text-align: left;
       }
       width: 145px;
       height: 32px;
     }
     #entry-button {
-      margin-top: 30px;
+      visibility: hidden;
+      margin-top: 25px;
       color:  #ffffff;
       font-size: 0.88em; /* Approximation due to font substitution */
       font-weight: 600;
@@ -97,6 +103,7 @@
       width: 180px;
       margin-left: auto;
       margin-right: auto;
+      height: 30px;
       .cart_button {
         margin-left: 10px;
         background-color: #e74c3c;
@@ -114,10 +121,10 @@
         font-family: "Open Sans";
         cursor: pointer;
       }
-        .cart_button:hover{
-          background-color:  #f16354;
-          border: 1px solid #f16354;
-        }
+      .cart_button:hover{
+        background-color:  #f16354;
+        border: 1px solid #f16354;
+      }
     }
   }
 

@@ -38,6 +38,7 @@
 			<div id="menu-right">
 				<ul>
 				<% if session[:user_id] %>
+					<li><%= link_to 'ARHIVA', purchuase_users_path %></li>  |
 					<li><%= button_to 'LOGOUT', signout_path, method: :delete, :class => "sign_out" %></li>
 				<% else %>
 					<li><%= link_to 'LOGIN', signin_path %></li>  |
