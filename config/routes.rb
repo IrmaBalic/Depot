@@ -17,32 +17,39 @@ Rails.application.routes.draw do
   #get 'categories' => 'categories#index'
 
   #post 'categories/create'
-  resources :categories
-  resources :users do  
-    collection do
-      get :purchuase
+  scope "(:locale)", locale: /bs|en/ do
+    resources :categories
+    resources :users do  
+      collection do
+        get :purchuase
+      end
     end
-  end
-  resources :roles
-  resources :addresses
-  resources :charges
-
-  get 'administrator' => 'products#index'
-  
-  controller :admin_sessions do
-    get  'signin' => :new
-    post 'signin' => :create
-    delete 'signout' => :destroy
-  end
-
-  resources :line_items
-
-  resources :carts
-
-  get 'store/index'
-
-  resources :products do
-    get :who_bought, on: :member
+    resources :roles
+    resources :addresses do
+      collection do
+        get :old_addresses
+        get :new_shipping
+        get :new_billing
+        post :create_shipping
+        post :create_billing
+      end
+    post 'change', on: :member
+    end
+    resources :charges do
+      post 'change', on: :collection
+    end
+    get 'administrator' => 'products#index'
+    controller :admin_sessions do
+      get  'signin' => :new
+      post 'signin' => :create
+      delete 'signout' => :destroy
+    end
+    resources :line_items
+    resources :carts
+    get 'store/index'
+    resources :products do
+      get :who_bought, on: :member
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -50,7 +57,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'store#index', as: 'store'
-
+  get '/:locale' => 'store#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,9 +1,8 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_address, only: [:show, :edit, :update, :destroy, :change]
   include CurrentCart
   before_action :set_cart
   skip_before_action :authorize_admin
-
   def index
   	redirect_to new_address_path
   end
@@ -15,6 +14,71 @@ class AddressesController < ApplicationController
   def new
   	@address = Address.new
     @user = User.new
+  end
+  def new_billing
+  end
+  def create_billing
+    #Shipping address
+    @address = Address.new(address_params)  
+    unless city = City.find_by(name: params[:city][:name])
+      unless country = Country.find_by(name: params[:country][:name])
+        country = Country.new(country_params)
+      end
+      city = City.new(city_params)
+      city.country = country
+    end
+    @address.city = city
+    #User
+    if session[:user_id]
+      @user = User.find_by_id(session[:user_id]) 
+    else
+      @user = User.last
+    end
+    @user.billing_addresses << @address
+
+    if !@address.city.country.save and !@address.save and !@user.save
+      render :action => :new_billing
+    else 
+      @address.save
+      @user.save
+      #raise
+      redirect_to new_charge_path
+    end
+  end
+  def new_shipping
+  end
+  def create_shipping
+    #Shipping address
+    @address = Address.new(address_params)  
+    unless city = City.find_by(name: params[:city][:name])
+      unless country = Country.find_by(name: params[:country][:name])
+        country = Country.new(country_params)
+      end
+      city = City.new(city_params)
+      city.country = country
+    end
+    @address.city = city
+    #User
+    if session[:user_id]
+      @user = User.find_by_id(session[:user_id]) 
+    else
+      @user = User.last
+    end
+    @user.shipping_addresses << @address
+    if !@address.city.country.save and !@address.save and !@user.save
+      render :action => :new_shipping
+    else 
+      @address.save
+      @user.save
+      #raise
+      redirect_to new_charge_path
+    end
+  end
+  def change
+  end
+  def old_addresses
+    @user = User.find_by_id(session[:user_id]) 
+    @user.registered = true
   end
 
   def create
@@ -57,10 +121,10 @@ class AddressesController < ApplicationController
         end
         @billing_address.city = b_city
         @billing_address.save
-        @user.address = @billing_address
+        @user.billing_addresses << @billing_address
     else 
       # Billing address is same as shipping address
-      @user.address = @address
+      @user.billing_addresses << @address
     end
 
     if !@address.city.country.save and !@address.save and !@user.save

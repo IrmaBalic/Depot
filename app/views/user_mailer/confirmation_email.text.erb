@@ -6,9 +6,9 @@ Broj proizvoda: <%= @order.number_of_items %>
 Ukupan iznos: <%= (@order.total_price)+40.0 %> KM
  
 Adresa za račun
-    Adresa: <%= @user.address.name %> <%= @user.address.number%> 
-    Grad: <%= @user.address.city.name %> <%= @user.address.city.postal_code %>
-    Država: <%= @user.address.city.country.name %>
+    Adresa: <%= @billing_address.name %> <%= @billing_address.number%> 
+    Grad: <%= @billing_address.city.name %> <%= @billing_address.city.postal_code %>
+    Država: <%= @billing_address.city.country.name %>
 
 Adresa za dostavu 
     Adresa: <%= @shipping_address.name %> <%= @shipping_address.number%>

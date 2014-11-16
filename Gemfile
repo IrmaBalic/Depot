@@ -1,3 +1,7 @@
+if RUBY_VERSION =~ /1.9/
+	Encoding.default_external = Encoding::UTF_8
+	Encoding.default_internal = Encoding::UTF_8
+end
 source 'https://rubygems.org'
 
 ruby "1.9.3"
@@ -5,7 +9,9 @@ ruby "1.9.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta2'
 # Use sqlite3 as the database for Active Record
-
+gem 'globalize', '~> 4.0.2'
+gem 'globalize-accessors'
+#gem 'spree', :github => 'radar/spree', :branch => '2-1-stable'
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -22,7 +28,7 @@ gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 group :development do
-	gem 'better_errors'
+	gem 'better_errors','0.0.8'
 	gem "binding_of_caller"
 end
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

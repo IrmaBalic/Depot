@@ -6,33 +6,27 @@
 		background-color: #413e4a;
 		}
 	#section_title {
-		text-align: center;
+		text-align: left;
 		margin-top: 60px;
 		font-weight: 800;
 		font-size: 22px;
-		margin-left: 445px;
-		width: 150px;
-		display: inline-block;
-	}
-	#purchase_title {
-		color:  #545454;
-	    font-size: 1.5em; 
-	    font-weight: 400;
-	    margin-left: 100px;
-	    margin-top: 40px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 430px;
 	}
 	#register_link {
+		float: right;
+		text-align: right;
 		display: inline-block;
-		width: 100px;
-		margin-left: 230px;
+		width: 117px;
 		a {
 			color:  #7ca3cc;
-			font-size: 1.13em; /* Approximation due to font substitution */
+			font-size: 15px; /* Approximation due to font substitution */
 			font-weight: 600;
 		}
 	}
 	#input_form {
-		float:none;
+		float: none;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 30px;
@@ -72,6 +66,13 @@
 			margin-right: auto;
 	}
 	/*Purchuase history*/
+	#purchase_title {
+		color:  #545454;
+	    font-size: 1.5em; 
+	    font-weight: 400;
+	    margin-left: 100px;
+	    margin-top: 40px;
+	}
 	#cart_frame {
 		width: 1200px;
 		margin-left: 65px;

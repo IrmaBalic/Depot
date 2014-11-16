@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_categorie, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   skip_before_action  :authorize_admin, only: [:show]
   include CurrentCart
   before_action :set_cart, :set_products
@@ -8,24 +8,24 @@ class CategoriesController < ApplicationController
     @products = Product.all
   end
   def new
-    @categorie = Categorie.new
+    @category = Category.new
   end
 
   def index
-    @categories = Categorie.all
+    @categories = Category.all
 
   end
 
   def create
-    @categorie = Categorie.new(categorie_params)
+    @category = Category.new(category_params)
 
     respond_to do |format|
-      if @categorie.save
-        format.html { redirect_to @categorie }
-        format.json { render :show, status: :created, location: @categorie }
+      if @category.save
+        format.html { redirect_to @category }
+        format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
-        format.json { render json: @categorie.errors, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,12 +37,12 @@ class CategoriesController < ApplicationController
     # PATCH/PUT /roles/1.json
   def update
     respond_to do |format|
-      if @categorie.update(categorie_params)
-        format.html { redirect_to @categorie }
-        format.json { render :show, status: :ok, location: @categorie }
+      if @category.update(category_params)
+        format.html { redirect_to @category }
+        format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
-        format.json { render json: @categorie.errors, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +50,7 @@ class CategoriesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @categorie.destroy
+    @category.destroy
     respond_to do |format|
       format.html { redirect_to categories_url }
       format.json { head :no_content }
@@ -58,11 +58,11 @@ class CategoriesController < ApplicationController
   end
 
   private
-  def set_categorie
-      @categorie = Categorie.find(params[:id])
+  def set_category
+      @category = Category.find(params[:id])
     end
 
-    def categorie_params
-      params.require(:categorie).permit(:name)
+    def category_params
+      params.require(:category).permit(:name)
     end
 end

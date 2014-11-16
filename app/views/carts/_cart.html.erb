@@ -1,11 +1,11 @@
 <div id="kupovina">
-	<span id="narudzba"> Narudžba  </span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %> proizvoda</span>
+	<span id="narudzba"><%= t('order') %></span> &nbsp &nbsp &nbsp <span id="broj_proizvoda"><%= @cart.number_of_items %>  <%= t('items') %></span>
 	<br><br>
 	<div id="price_details">
-	  <span id="cijena">Cijena:</span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
-	  <span id="cijena">Dostava:</span><span class="price"> 40 KM </span>
+	  <span id="cijena"><%= t('price') %></span> <span class="price"><%= @cart.total_price %> KM</span><br><br>
+	  <span id="cijena"><%= t('shipping') %></span><span class="price"> 40 KM </span>
 	</div><br>
 	<div id="ukupno">
-	  <span id="cijena">Ukupno:</span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
+	  <span id="cijena"><%= t('total') %></span> <span class="price"><%= (@cart.total_price) +40 %> KM</span><br><br>
 	</div>
 </div>

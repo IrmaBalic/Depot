@@ -1,0 +1,36 @@
+<%= form_tag  create_shipping_addresses_path do %>  
+<div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
+  <div id="input_form">
+	    <div class="field">
+	      <%= label :name, t('address') %>
+	      <%= text_field :address, :name %>
+	    </div>
+	    <div class="field">
+	      <%= label :number, t('address_number') %>
+	      <%= text_field :address, :number %>
+	    </div>
+	    <div class="field">
+	      <%= label :floor, t('address_floor') %>
+	      <%= text_field :address, :floor %>
+	    </div>
+	    <div class="field">
+	      <%= label :city, t('city') %>
+	      <%= text_field :city, :name %>
+	    </div>
+	    <div class="field">
+	      <%= label :postal_code, t('postal_code') %>
+	      <%= text_field :city, :postal_code %>
+	    </div>
+	    <div class="field">
+	      <%= label :country, t('country') %>
+	      <%= text_field :country, :name %>
+	    </div>
+    </div>
+    <div id="purchuase">
+	  <%= render(@cart) %>
+	  <div id="entry-button">
+	      <%= submit_tag(t('continue'), :class => 'buy_button')  %>
+	      <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
+	  </div>
+	</div>
+<% end %>

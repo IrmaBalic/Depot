@@ -28,8 +28,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    categorie = Categorie.find_by_id(params[:categorie])
-    @product.categorie = categorie
+    category = Category.find_by_id(params[:category])
+    @product.category = category
    #raise
 
     respond_to do |format|
@@ -46,8 +46,8 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    categorie = Categorie.find_by_id(params[:categorie])
-    @product.categorie = categorie
+    category = Category.find_by_id(params[:category])
+    @product.category = category
     #raise
     respond_to do |format|
       if @product.update(product_params)

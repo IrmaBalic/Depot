@@ -1,17 +1,20 @@
 <%= form_tag do %>
-	<div id="section_title"> Prijava </div>
-	<div id="login_link"><%= link_to 'Registruj se', new_user_path %></div>
-		<div id="input_form">
-			<div class="field">
-				<%= label_tag :email, 'Email:' %>
-				<%= text_field_tag :email, params[:email], :autofocus=>true %>
-			</div>
-			<div class="field">
-				<%= label_tag :password, 'Šifra:' %>
-				<%= password_field_tag :password, params[:password] %>
-			</div>
-			<div class="field">
-				<%= submit_tag "LOGIN" %>
-			</div>
+	<div id="section_title"><%= t('log_in') %> 
+	<% unless session[:role] == "Admin" %>
+	  <div id="login_link"><%= link_to t('user_register'), new_user_path %></div>
+	<% end %>
+	</div>
+	<div id="input_form">
+		<div class="field">
+			<%= label_tag :email, 'Email' %>
+			<%= text_field_tag :email, params[:email], :autofocus=>true %>
 		</div>
+		<div class="field">
+			<%= label_tag :password, t('password') %>
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div class="field">
+			<%= submit_tag "LOGIN" %>
+		</div>
+	</div>
 <% end %>

@@ -19,78 +19,80 @@
       </ul>
     </div>
   <% end %>
-  <div id="section_title" style="margin-left: 50px"> Adresa za dostavu </div>
+  <div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
   <div id="input_form">
+  <% unless session[:user_id] %>
     <div class="field">
-      <%= label :user_name, 'Ime' %>
+      <%= label :user_name, t('name') %>
       <%= text_field :user, :name %>
     </div>
     <div class="field">
-      <%= label :user_surname, 'Prezime'%>
+      <%= label :user_surname, t('surname') %>
       <%= text_field :user, :surname %>
     </div>
+  <% end %>
     <div class="field">
-      <%= label :name, 'Adresa' %>
+      <%= label :name, t('address') %>
       <%= text_field :address, :name %>
     </div>
     <div class="field">
-      <%= label :number, 'Broj' %>
+      <%= label :number, t('address_number') %>
       <%= text_field :address, :number %>
     </div>
     <div class="field">
-      <%= label :floor, 'Sprat' %>
+      <%= label :floor, t('address_floor') %>
       <%= text_field :address, :floor %>
     </div>
     <div class="field">
-      <%= label :city, 'Grad' %>
+      <%= label :city, t('city') %>
       <%= text_field :city, :name %>
     </div>
     <div class="field">
-      <%= label :postal_code, 'ZIP' %>
+      <%= label :postal_code, t('postal_code') %>
       <%= text_field :city, :postal_code %>
     </div>
       <div class="field">
-      <%= label :country, 'Država' %>
+      <%= label :country, t('country') %>
       <%= text_field :country, :name %>
     </div>
-   <div id="section_title" style="margin-left: -30px;"> Adresa za račun </div>
+   <div id="section_title" style="margin-left: -30px;"><%= t('billing_address') %></div>
     <div class="field" style="margin-top: 20px">
       <%= check_box_tag :same_as_shipping, 1, true %>
-      <%= label :same_as_shipping, 'Koristi adresu za dostavu' %>
+      <%= label :same_as_shipping, t('same_as_shipping') %>
     </div>
     <br>
   </div>
 <div id="purchuase">
   <%= render(@cart) %>
   <div id="entry-button">
-      <%= submit_tag("NASTAVI", :class => 'buy_button')  %>
-      <div class="leave_button"> <a href="<%=store_url%>"> ODUSTANI </a></div>
+      <%= submit_tag(t('continue'), :class => 'buy_button')  %>
+      <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
   </div>
 </div>
 <br><br>
   <div id="input_form_2" style="clear:both;">
     <div class="field">
-      <%= label :name, 'Adresa' %>
+      <%= label :name, t('address') %>
       <%= text_field_tag "billing_address[name]" %>
     </div>
     <div class="field">
-      <%= label :number, 'Broj' %>
+      <%= label :number, t('address_number') %>
       <%= text_field_tag "billing_address[number]" %>
     </div>
     <div class="field">
-      <%= label :floor, 'Sprat' %>
+      <%= label :floor, t('address_floor') %>
       <%= text_field_tag "billing_address[floor]" %>
     </div>
     <div class="field">
-      <%= label :city, 'Grad' %>
+      <%= label :city, t('city') %>
       <%= text_field_tag "billing_address[city]"%>
     </div>
     <div class="field">
-      <%= label :postal_code, 'ZIP' %>
+      <%= label :postal_code, t('postal_code') %>
       <%= text_field_tag "billing_address[postal_code]" %>
     </div>
       <div class="field">
-      <%= label :country, 'Država:' %>
+      <%= label :country, t('country') %>
       <%= text_field_tag "billing_address[country]" %>
     </div>
   </div>

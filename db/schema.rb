@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107155028) do
+ActiveRecord::Schema.define(version: 20141116223548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,16 +42,36 @@ ActiveRecord::Schema.define(version: 20141107155028) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "billing_addresses_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "billing_addresses_users", ["address_id"], name: "index_billing_addresses_users_on_address_id", using: :btree
+  add_index "billing_addresses_users", ["user_id"], name: "index_billing_addresses_users_on_user_id", using: :btree
+
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "categories", force: true do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "category_translations", force: true do |t|
+    t.integer  "category_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id", using: :btree
+  add_index "category_translations", ["locale"], name: "index_category_translations_on_locale", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -91,9 +111,19 @@ ActiveRecord::Schema.define(version: 20141107155028) do
   add_index "ordered_line_items", ["order_id"], name: "index_ordered_line_items_on_order_id", using: :btree
   add_index "ordered_line_items", ["ordered_product_id"], name: "index_ordered_line_items_on_ordered_product_id", using: :btree
 
+  create_table "ordered_product_translations", force: true do |t|
+    t.integer  "ordered_product_id", null: false
+    t.string   "locale",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
+  add_index "ordered_product_translations", ["locale"], name: "index_ordered_product_translations_on_locale", using: :btree
+  add_index "ordered_product_translations", ["ordered_product_id"], name: "index_ordered_product_translations_on_ordered_product_id", using: :btree
+
   create_table "ordered_products", force: true do |t|
     t.string   "title"
-    t.text     "description"
     t.string   "image_url"
     t.decimal  "price"
     t.integer  "categorie_id"
@@ -113,18 +143,28 @@ ActiveRecord::Schema.define(version: 20141107155028) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
+  create_table "product_translations", force: true do |t|
+    t.integer  "product_id",  null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
+  add_index "product_translations", ["locale"], name: "index_product_translations_on_locale", using: :btree
+  add_index "product_translations", ["product_id"], name: "index_product_translations_on_product_id", using: :btree
+
   create_table "products", force: true do |t|
     t.string   "title"
-    t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",        precision: 8, scale: 2
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "sale_price"
-    t.integer  "categorie_id"
+    t.integer  "category_id"
   end
 
-  add_index "products", ["categorie_id"], name: "index_products_on_categorie_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -149,12 +189,10 @@ ActiveRecord::Schema.define(version: 20141107155028) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "role_id"
-    t.integer  "address_id"
     t.boolean  "registered"
     t.string   "surname"
   end
 
-  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end

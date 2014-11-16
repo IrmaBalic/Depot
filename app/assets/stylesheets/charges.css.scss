@@ -5,37 +5,121 @@
 	#header {
 	  background-color: #413e4a;
 	}
-  #order_details {
+  .order_details {
     padding: 20px;
-    border-left: 1px solid #566473;
+    border: 1px solid #59BA8A;
+    border-radius: 4px;
     color:  #545454;
-    font-size: 1.13em; /* Approximation due to font substitution */
+    font-size: 1.2em; /* Approximation due to font substitution */
     font-weight: 600;
-    width: 187px;
-    height: 100px;
+    width: 250px;
+    min-height: 145px;
     margin-left: 100px;
     margin-top: 50px;
     float: left;
+    box-shadow: 0 0 10px #92D1B2;
+    cursor: pointer;
   }
+  .order_details:hover {
+    border-color: rgb(204, 204, 204);
+    box-shadow: none;
+  }
+  .details {
+    height: 100px;
+  }
+  .old_addresses_details {
+    padding: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    color:  #545454;
+    font-size: 1.2em; /* Approximation due to font substitution */
+    font-weight: 600;
+    width: 200px;
+    height: 130px;
+    margin-left: 100px;
+    margin-top: 50px;
+    float: left;
+    cursor: pointer;
+    .entry-button {
+      display: none;
+    }
+  }
+  .old_addresses_details:hover {
+    border-color: #59BA8A;
+    box-shadow: 0 0 10px #92D1B2;
+    .entry-button {
+      display: block;
+    }
+  }
+  .old_addresses {
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 800px;
+    min-height: 250px;
+    float: left;
+  }
+  #old_shipping_addresses {
+    display:none;
+  }
+  #old_billing_addresses {
+    display:none;
+  }
+
   #stripe-button {
     float: right;
     margin-top: 20px;
   }
- /* #price_details {
-    float: right;
-    text-align: right;
-    padding-bottom: 10px;
-  }
-  .price {  
-    color:  #566473;
-    font-size: 1.31em;
+  .entry-button {
+    color:  #ffffff;
     font-weight: 600;
-    text-align: right;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10px;
+    line-height: 25px;
+    vertical-align: middle;
+    #change_billing_button {
+      float: right;
+      border: 1px solid #566473;
+      border-radius: 4px;
+      width: 100px;
+      height: 25px;
+      background-color: #566473;   
+      cursor:pointer;
+      color: white;
+      font-weight: 600;
+      font-family: 'Open Sans';
+    }
+    #change_billing_button:hover {
+      background-color: #6D7F91;
+      border-color: #6D7F91;
+    }
+    #change_shipping_button {
+      float: right;
+      border: 1px solid #566473;
+      border-radius: 4px;
+      width: 100px;
+      height: 25px;
+      background-color: #566473;   
+      cursor:pointer;
+      color: white;
+      font-weight: 600;
+      font-family: 'Open Sans';
+    }
+    #change_shipping_button:hover {
+      background-color: #6D7F91;
+      border-color: #6D7F91;
+    }
   }
-  #cijena {
-    color:  #7d7d7d;
-    font-size: 1.13em;
-    font-weight: 600;
-    text-align: right;
-  }*/
+    .add_new_link {
+      margin-top: 20px;
+      clear: both;
+      width: 200px;
+      padding-top: 20px;
+      a {
+        color:  #7ca3cc;
+        font-size: 1.13em;
+        font-weight: 600;
+      }
+    }
 }

@@ -2,14 +2,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #before_action :authorize_admin
-  before_action :authorize_admin, :find_user_name, :find_category
+  before_action :authorize_admin, :find_user_name, :find_category, :set_locale
   include CurrentCart
   before_action :set_cart
   
   protected
 
   def find_category
-    @categories = Categorie.all
+    @categories = Category.all
   end
 
   def authorize_user
@@ -32,6 +32,14 @@ class ApplicationController < ActionController::Base
 
   def find_user_name
     @user = User.find_by(id: session[:user_id])
+  end
+  #Localization
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { locale: I18n.locale }
   end
 
   protect_from_forgery with: :exception

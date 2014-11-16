@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   	@order = order
   	@user = @order.user
   	@shipping_address = order.shipping_address
-	@billing_address = order.billing_address
+	  @billing_address = order.billing_address
   	mail(to: @user.email, subject: "Confirmation email")
   end
 

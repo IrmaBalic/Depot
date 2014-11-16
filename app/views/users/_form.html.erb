@@ -11,10 +11,11 @@
       </ul>
     </div>
   <% end %>
-<div id="section_title"> Registracija </div>
-<% unless session[:role] == "Admin" %>
-  <div id="register_link"><%= link_to 'Prijavi se', signin_path %></div>
-<% end %>
+<div id="section_title"><%= t('registration') %>
+  <% unless session[:role] == "Admin" %>
+    <div id="register_link"><%= link_to t('user_login'), signin_path %></div>
+  <% end %>
+</div>
   <div id="input_form">
     <% if session[:role] == "Admin" %>
       <div class="field">
@@ -23,11 +24,11 @@
       </div>
     <%end%>
       <div class="field">
-        <%= f.label :name, "Ime" %><br>
+        <%= f.label :name, t('name') %><br>
         <%= f.text_field :name, :autofocus=>true %>
       </div>
       <div class="field">
-        <%= f.label :surname, "Prezime" %><br>
+        <%= f.label :surname, t('surname') %><br>
         <%= f.text_field :surname %>
       </div>
       <div class="field">
@@ -35,7 +36,7 @@
         <%= f.text_field :email %>
       </div>
       <div class="field">
-        <%= f.label :password, "Šifra" %><br>
+        <%= f.label :password, t('password') %><br>
         <%= f.password_field :password_digest %>
       </div>
 
