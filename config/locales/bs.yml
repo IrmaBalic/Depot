@@ -37,3 +37,6 @@ bs:
   user_register: "Registruj se"
   payment: "Potvrda i plaćanje"
   history: "ARHIVA"
+  purchuase_history: "Arhiva narudžbi"
+  order_date: "Datum narudžbe"
+  shipping_date: "Datum dostave"

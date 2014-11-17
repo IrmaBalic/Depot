@@ -166,10 +166,6 @@ html, body, div, span { display: block;}
             }
           }
         }
-              a:hover {
-        border-bottom: 3px solid #F08490;
-        padding-bottom: 19px;
-      }
     }
   .sign_out {
     background-color: #413e4a;
@@ -239,8 +235,9 @@ html, body, div, span { display: block;}
     a:hover {
       border-bottom: 3px solid #F08490;
       padding-bottom: 17px;
-      background-image: url(image-path('textura.png'));
-      background-repeat: repeat;
+      background-color: #413e4a;
+      /*background-image: url(image-path('textura.png'));
+      background-repeat: repeat;*/
       opacity: 0.85;
     }
     li {
@@ -389,4 +386,51 @@ html, body, div, span { display: block;}
     font-weight: 600;
     text-align: right;
   }
-
+/*Add to cart button */
+.cart_button_buy {
+        margin-left: 10px;
+        background-color: #e74c3c;
+        border-radius: 4px;
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        border: 1px solid #e74c3c;
+        color: white;
+        font-size: 11px;
+        font-weight: 600;
+        float: right;
+        font-family: "Open Sans";
+        cursor: pointer;
+      }
+      .cart_button_loading {
+        margin-left: 10px;
+        border-radius: 4px;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        border: 1px solid #e74c3c;
+        font-size: 11px;
+        font-weight: 600;
+        float: right;
+        font-family: "Open Sans";
+        cursor: pointer;
+        background-color: #e74c3c;
+        color: #e74c3c;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: none;
+      }
+      .click_loading {
+        background-image: url(image-path('728.GIF'));
+      }
+      .click_checked {
+        background-image: url(image-path('checked.jpg'));
+        border-color: #14C460;
+      }
+      #cart_button_buy:hover{
+        background-color:  #f16354;
+        border: 1px solid #f16354;
+      }

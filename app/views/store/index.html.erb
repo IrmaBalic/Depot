@@ -12,7 +12,8 @@
 					</div>
 					<% unless session[:role] == 'Admin' %>
 					<div id="entry-button">
-						<%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button' %>	
+						<%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button', class: 'cart_button_buy' %>
+					<div class="cart_button_loading"></div>	
 					</div>
 					<%end%>
 				 	</div>

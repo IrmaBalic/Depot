@@ -104,38 +104,12 @@
       margin-left: auto;
       margin-right: auto;
       height: 30px;
-      .cart_button {
-        margin-left: 10px;
-        background-color: #e74c3c;
-        border-radius: 4px;
-        display: inline-block;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        vertical-align: middle;
-        border: 1px solid #e74c3c;
-        color: white;
-        font-size: 11px;
-        font-weight: 600;
-        float: right;
-        font-family: "Open Sans";
-        cursor: pointer;
-      }
-      .clickme {
-        background-color: #e74c3c;
-        color: #e74c3c;
-        background-image: url(image-path('728.GIF'));
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-      .clickme:hover{
-        background-color: #e74c3c;
-        color: #e74c3c;
-      }
-      .cart_button:hover{
-        background-color:  #f16354;
-        border: 1px solid #f16354;
-      }
+    }
+  }
+  .navbar-nav {
+    a:hover {
+      background-image: url(image-path('textura.png'));
+      background-repeat: repeat;
     }
   }
 
