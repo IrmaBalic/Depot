@@ -9,14 +9,18 @@
  * You're free to add application-wide styles to this file and they'll appear
  * at the top of the compiled file, but it's generally better to create a new
  * file per style scope.
- * 
+ *= require bootstrap.min
  *= require_self
  *= require_tree .
  */
 
 @font-face {
-    font-family: 'ProximaNova';
-    src: url(/assets/fonts/ProximaNova.otf) format("truetype");
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
  $hover_link: #F08490;
  body
@@ -37,7 +41,9 @@ a {
 a:visited {
   color: white;
 }
-a:hover {}
+a:hover {
+  text-decoration: none;
+}
 input {
       font-family: "Open Sans";
       }
@@ -70,8 +76,8 @@ html, body, div, span { display: block;}
         border-width: 1px;
         border-color:  #b7b7b7;
         border-style: solid;
-        width: 350px;
-        height: 27px;
+        width: 360px;
+        height: 35px;
         padding: 5px;
         }
         input[type=checkbox] {
@@ -102,10 +108,15 @@ html, body, div, span { display: block;}
     ul { 
       li { 
         a {
-        color:  white;
+        padding: 0;
+        color:white;
         text-decoration: none;
         }
       }
+    }
+    .navbar-brand {
+      padding: 0;
+      font-size: 23px;
     }
     a:visited {
       text-decoration: none;
@@ -123,9 +134,6 @@ html, body, div, span { display: block;}
     float: left;
   }
     #menu-right {
-     /* width: 140px;*/
-     /* border: 1px solid yellow;*/
-
       font-size: 0.88em;
       font-weight: 700;
       float: right;
@@ -140,6 +148,25 @@ html, body, div, span { display: block;}
           }
         }
       a:hover {
+        border-bottom: 3px solid #F08490;
+        padding-bottom: 19px;
+      }
+    }
+    #languages {
+      color: white;
+      font-size: 0.7em;
+      font-weight: 700;
+      float: right;
+      ul {
+          padding: 0;
+          li {
+            display: inline-block;
+            a {
+              color: white;
+            }
+          }
+        }
+              a:hover {
         border-bottom: 3px solid #F08490;
         padding-bottom: 19px;
       }
@@ -196,23 +223,37 @@ html, body, div, span { display: block;}
       background-image: url(image-path('basket_hover.png'));
     }
   }
-  #menu {
+  .navbar-collapse {
+    float: left;
+    height: 20px;
+    display: inline;
+    margin-left: 10%;
+    width: 50%;
+  }
+  .navbar-nav {
+    width: 100%;
     color: #ffffff;
     font-size: 0.88em;
     font-weight: 700;
     float: left;
-    ul {
-      li {
-          a {
-            text-transform: uppercase;
-            color: white;
-          }
-      }
-    }
     a:hover {
       border-bottom: 3px solid #F08490;
-      padding-bottom: 19px;
+      padding-bottom: 17px;
+      background-image: url(image-path('textura.png'));
+      background-repeat: repeat;
+      opacity: 0.85;
     }
+    li {
+       padding-right: 5%;
+       display: inline-block;
+    }
+  }
+  .navbar-nav li a {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    padding: 0;
   }
 }
 #menu {
@@ -262,8 +303,8 @@ html, body, div, span { display: block;}
       border-width: 1px;
       border-color:  #b7b7b7;
       border-style: solid;
-      width: 250px;
-      height: 220px;
+      width: 290px;
+      height: 240px;
       padding: 20px;
       #narudzba {
         color:  #545454;

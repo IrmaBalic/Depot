@@ -63,7 +63,7 @@
     border-radius: 4px;
     background-color:  #ffffff;
     width: 210px;
-    height: 260px;
+    height: 270px;
     padding: 10px;
     border: 2px solid white;
     margin-left: 20px;
@@ -120,6 +120,17 @@
         float: right;
         font-family: "Open Sans";
         cursor: pointer;
+      }
+      .clickme {
+        background-color: #e74c3c;
+        color: #e74c3c;
+        background-image: url(image-path('728.GIF'));
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .clickme:hover{
+        background-color: #e74c3c;
+        color: #e74c3c;
       }
       .cart_button:hover{
         background-color:  #f16354;

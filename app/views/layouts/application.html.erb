@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -12,33 +13,46 @@
 <div id="home-slider">
 	<div id="header">
 		<div id="header-top">
-			<div id="banner"> 
-				<%= link_to 'abhTech', store_path %>
-			</div>
-			<div id="menu">
-				<ul>
-					<% if session[:role] == 'Admin' %>
-						<li><%= link_to 'PROIZVODI', products_path %></li> 
-						<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
-						<li><%= link_to 'KORISNICI', users_path %></li>
-						<li><%= link_to 'KATEGORIJE', categories_path %></li>
-					<% else %>
-					  <% @categories.each do |category| %>
-						<li><%= link_to category.name, category_path(category) %></li> 
-					  <% end %>
-					<% end %>
-				</ul>
-			</div>
+			<header class="top" role="header" style="width:40%; float:left;">
+	        	<div class="container">
+					<div id="banner"> 
+						<%= link_to 'abhTech', store_path, :class => 'navbar-brand pull-left' %>
+					</div>
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                <span class="glyphicon glyphicon-align-justify"></span>
+		            </button>
+				    <nav class="navbar-collapse collapse" role="navigation">
+						<ul class="navbar-nav nav">
+							<% if session[:role] == 'Admin' %>
+								<li><%= link_to 'PROIZVODI', products_path %></li> 
+								<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
+								<li><%= link_to 'KORISNICI', users_path %></li>
+								<li><%= link_to 'KATEGORIJE', categories_path %></li>
+							<% else %>
+							  <% @categories.each do |category| %>
+								<li><%= link_to category.name, category_path(category) %></li> 
+							  <% end %>
+							<% end %>
+						</ul>
+					</nav>
+				</div>
+			</header>
 			<div id="banner-right">
 				<% unless session[:role] == 'Admin' %>
 					<a href="<%=cart_path(@cart) %>"><div class="basket"></div></a>
 						<div id="cart"><%= @cart.number_of_items %></div>
 				<% end %>
+							<div id="languages">
+				<ul>
+					<li><%= link_to 'EN', store_path(:locale => 'en') %></li>  |
+					<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
+				</ul>
+			</div>
 			</div>
 			<div id="menu-right">
 				<ul>
 				<% if session[:user_id] %>
-					<li><%= link_to 'ARHIVA', purchuase_users_path %></li>  |
+					<li><%= link_to t('history'), purchuase_users_path %></li>  |
 					<li><%= button_to 'LOGOUT', signout_path, method: :delete, :class => "sign_out" %></li>
 				<% else %>
 					<li><%= link_to 'LOGIN', signin_path %></li>  |

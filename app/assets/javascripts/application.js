@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap.min
 //= require jquery.turbolinks
 //= require.ui
 //= require.ui.effect-blind
