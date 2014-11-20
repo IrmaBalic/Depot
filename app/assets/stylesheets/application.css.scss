@@ -9,19 +9,64 @@
  * You're free to add application-wide styles to this file and they'll appear
  * at the top of the compiled file, but it's generally better to create a new
  * file per style scope.
- *= require bootstrap.min
+ *= require bootstrap
  *= require_self
  *= require_tree .
  */
+  .dropdown-toggle {
+    background-color: #413e4a;
+  }
+ @media (min-width: 767px) {
+  .navbar-right {
+    width: 250px;
+  }
+  #languages {
+     width: 100px;
+  }
+ }
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../assets/glyphicons-halflings-regular.eot');
-  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
-       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+.signout_li {
+  display: inline;
 }
+    #languages {
+      color: white;
+      font-size: 0.7em;
+      font-weight: 700;
+      li {
+        a {
+          padding-left:5px;
+          padding-right:5px;
+        }
+      }
+    }
+  #cart {
+      border-radius: 50%;
+      background-color:  #e74c3c;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      color: white;
+      font-size: 0.75em; /* Approximation due to font substitution */
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block;
+     /* margin-left: -10px;*/
+    }
+    .basket {
+      display: inline-block;
+      background-size: contain;
+      background-image: url(image-path('basket.png'));
+      background-repeat: no-repeat;
+      float: left;
+      width: 26px;
+      height: 20px;
+      margin-top: 15px;
+      margin-left: 20px;
+    }
+    .basket:hover {
+      background-image: url(image-path('basket_hover.png'));
+    }
  $hover_link: #F08490;
  body
  {
@@ -65,7 +110,7 @@ html, body, div, span { display: block;}
       .field {
         margin-top: 15px;
         label {
-         color:  #545454;
+        color:  #545454;
         font-size: 1.13em; /* Approximation due to font substitution */
         font-weight: 600;
         width: 350px;
@@ -96,9 +141,54 @@ html, body, div, span { display: block;}
   margin: 0;
 }
 #header {
-  height: 60px;
+  /*height: 60px;*/
 }
+    .navbar-brand {
+      font-size: 23px;
+      color: white;
+      font-weight: 700;
+    }
+  .sign_out {
+    background-color: #413e4a;
+    border: none;
+    background-color: none;
+    color: white;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    border-radius: 0px;
+    margin-bottom: 0;
+    /*padding-top: 15px;*/
+  }
+  .sign_out:hover{
+   border-bottom: 3px solid #F08490;
+   padding-bottom: 13px;
+   color: white;
+  }
+  @media (max-width: 767px) {
+    .sign_out:hover{
+     color: #F08490;
+     border: none;
+     padding-bottom: 6px;
+    }
+    .signout_li {
+      display: block;
+    }
+    #languages {
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
 
+      li {
+        a {
+          padding-left: 15px;
+        }
+      }
+    }
+    .basket {
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  }
 #header-top {
   margin: 0;
   height: 10px;
@@ -152,35 +242,8 @@ html, body, div, span { display: block;}
         padding-bottom: 19px;
       }
     }
-    #languages {
-      color: white;
-      font-size: 0.7em;
-      font-weight: 700;
-      float: right;
-      ul {
-          padding: 0;
-          li {
-            display: inline-block;
-            a {
-              color: white;
-            }
-          }
-        }
-    }
-  .sign_out {
-    background-color: #413e4a;
-    border: none;
-    background-color: none;
-    color: white;
-    font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-    margin-top: -15px;
-  }
-  .sign_out:hover{
-    border-bottom: 3px solid #F08490;
-    padding-bottom: 19px;
-  }
+
+
   @-moz-document url-prefix() {
     .sign_out:hover { padding-bottom:18px;}
   }
@@ -219,6 +282,7 @@ html, body, div, span { display: block;}
       background-image: url(image-path('basket_hover.png'));
     }
   }
+
   .navbar-collapse {
     float: left;
     height: 20px;
@@ -226,7 +290,7 @@ html, body, div, span { display: block;}
     margin-left: 10%;
     width: 50%;
   }
-  .navbar-nav {
+  /*.navbar-nav {
     width: 100%;
     color: #ffffff;
     font-size: 0.88em;
@@ -236,8 +300,8 @@ html, body, div, span { display: block;}
       border-bottom: 3px solid #F08490;
       padding-bottom: 17px;
       background-color: #413e4a;
-      /*background-image: url(image-path('textura.png'));
-      background-repeat: repeat;*/
+      background-image: url(image-path('textura.png'));
+      background-repeat: repeat;*
       opacity: 0.85;
     }
     li {
@@ -251,7 +315,7 @@ html, body, div, span { display: block;}
     text-transform: uppercase;
     color: white;
     padding: 0;
-  }
+  }*/
 }
 #menu {
     height: 20px;

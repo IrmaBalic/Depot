@@ -11,57 +11,60 @@
 </head>
 <body class='<%= controller.controller_name%>'>
 <div id="home-slider">
-	<div id="header">
-		<div id="header-top">
-			<header class="top" role="header" style="width:40%; float:left;">
-	        	<div class="container">
-					<div id="banner"> 
-						<%= link_to 'abhTech', store_path, :class => 'navbar-brand pull-left' %>
-					</div>
-					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                <span class="glyphicon glyphicon-align-justify"></span>
-		            </button>
-				    <nav class="navbar-collapse collapse" role="navigation">
-						<ul class="navbar-nav nav">
-							<% if session[:role] == 'Admin' %>
-								<li><%= link_to 'PROIZVODI', products_path %></li> 
-								<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
-								<li><%= link_to 'KORISNICI', users_path %></li>
-								<li><%= link_to 'KATEGORIJE', categories_path %></li>
-							<% else %>
-							  <% @categories.each do |category| %>
-								<li><%= link_to category.name, category_path(category) %></li> 
-							  <% end %>
-							<% end %>
-						</ul>
-					</nav>
-				</div>
-			</header>
-			<div id="banner-right">
-				<% unless session[:role] == 'Admin' %>
-					<a href="<%=cart_path(@cart) %>"><div class="basket"></div></a>
-						<div id="cart"><%= @cart.number_of_items %></div>
-				<% end %>
-							<div id="languages">
-				<ul>
-					<li><%= link_to 'EN', store_path(:locale => 'en') %></li>  |
-					<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
-				</ul>
-			</div>
-			</div>
-			<div id="menu-right">
-				<ul>
-				<% if session[:user_id] %>
-					<li><%= link_to t('history'), purchuase_users_path %></li>  |
-					<li><%= button_to 'LOGOUT', signout_path, method: :delete, :class => "sign_out" %></li>
-				<% else %>
-					<li><%= link_to 'LOGIN', signin_path %></li>  |
-					<li><%= link_to 'REGISTER', new_user_path %></li>
-				<% end %>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
+<nav class="navbar navbar-default" id="header" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'abhTech', store_path, :class => 'navbar-brand' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if session[:role] == 'Admin' %>
+			<li><%= link_to 'PROIZVODI', products_path %></li> 
+			<li><%= link_to 'PRIVILEGIJE', roles_path %></li> 
+			<li><%= link_to 'KORISNICI', users_path %></li>
+			<li><%= link_to 'KATEGORIJE', categories_path %></li>
+		<% else %>
+		  <% @categories.each do |category| %>
+			<li><%= link_to category.name, category_path(category) %></li> 
+		  <% end %>
+		<% end %>
+      </ul>
+      		<ul class="nav navbar-nav navbar-right" id="languages">
+			<li><%= link_to 'EN', store_path(:locale => 'en') %></li>
+			<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
+		</ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if session[:user_id]  %>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= @user.name %><span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li class="dropdown-li"><%= link_to t('history'), purchuase_users_path %></li>  
+	          </ul>
+	        </li>
+	        <li class="signout_li"><%= button_to 'LOGOUT', signout_path, method: :delete, :class => "btn btn-default navbar-btn sign_out" %></li>
+		<% else %>
+			<li><%= link_to 'LOGIN', signin_path %></li>
+			<li><%= link_to 'REGISTER', new_user_path %></li>
+        <% end %>
+		<% unless session[:role] == 'Admin' %>
+			<a href="<%=cart_path(@cart) %>"><div class="basket"></div></a>
+			<div id="cart"><%= @cart.number_of_items %></div>
+		<% end %>
+		</ul>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </div>
 	<div id="main">
 		<%= yield %>

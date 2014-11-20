@@ -7,7 +7,7 @@
   margin-left: auto;
   margin-right: auto;
    #products_sale {
-    width: 1181px;
+    width: 90%;
     min-height: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -29,6 +29,7 @@
     background-image: url(image-path('textura.png'));
     background-repeat: repeat;
     opacity: 0.85;
+    border: none;
   }
   .sign_out {
     background-image: url(image-path('textura.png'));
@@ -36,10 +37,11 @@
     opacity: 0.85;
   }
   #home-slider {
-    height: 600px;
+    height: 450px;
     background-image: url(image-path('smart-main.jpg'));
     background-repeat: no-repeat;
-    background-size:   cover;   
+    background-position: center;
+    background-size: 100% 100%;
   }
   .entry-frame {
     width: 250px;
@@ -57,12 +59,12 @@
      #entry-button {
       visibility: visible;
      }
-
   }
   .entry {
     border-radius: 4px;
     background-color:  #ffffff;
-    width: 210px;
+    width: 18%;
+    min-width: 150px;
     height: 270px;
     padding: 10px;
     border: 2px solid white;
@@ -71,12 +73,12 @@
     margin-top: 10px;
     display: inline-block;
     img {
-      width: 155px;
-      height: 134px;
+      width: 100%;
+      height: 60%;
     }
     .price_line {
-      margin-left: 20px;
-      margin-top: 20px;
+      margin-left: 5%;
+      margin-top: 5%;
       text-align: left;
       .title {
         color:  #959595;
@@ -89,7 +91,7 @@
         font-weight: 600;
         text-align: left;
       }
-      width: 145px;
+      width: 100%;
       height: 32px;
     }
     #entry-button {
@@ -106,11 +108,21 @@
       height: 30px;
     }
   }
+  .dropdown-toggle {
+    background-image: url(image-path('textura.png'));
+    background-repeat: repeat;
+  }
+
   .navbar-nav {
     a:hover {
       background-image: url(image-path('textura.png'));
       background-repeat: repeat;
     }
   }
-
+  .dropdown-menu {
+    a:hover {
+     /* background-color: #e7e7e7;*/
+      background-image: none;
+    }
+  }
 }
