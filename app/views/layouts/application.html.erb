@@ -16,15 +16,15 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+          <%= link_to 'abhTech', store_path, :class => 'navbar-brand' %>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'abhTech', store_path, :class => 'navbar-brand' %>
     </div>
-
+    <a href="<%=cart_path(@cart) %>"><div class="basket_xs"></div></a>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -39,13 +39,13 @@
 		  <% end %>
 		<% end %>
       </ul>
-      		<ul class="nav navbar-nav navbar-right" id="languages">
+      	<ul class="nav navbar-nav navbar-right hidden-xs" id="languages">
 			<li><%= link_to 'EN', store_path(:locale => 'en') %></li>
 			<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
 		</ul>
       <ul class="nav navbar-nav navbar-right">
         <% if session[:user_id]  %>
-	        <li class="dropdown">
+	        <li class="dropdown hidden-xs">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= @user.name %><span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li class="dropdown-li"><%= link_to t('history'), purchuase_users_path %></li>  
@@ -57,8 +57,8 @@
 			<li><%= link_to 'REGISTER', new_user_path %></li>
         <% end %>
 		<% unless session[:role] == 'Admin' %>
-			<a href="<%=cart_path(@cart) %>"><div class="basket"></div></a>
-			<div id="cart"><%= @cart.number_of_items %></div>
+			<a href="<%=cart_path(@cart) %>"><div class="basket hidden-xs"></div></a>
+			<div id="cart" class="hidden-xs"><%= @cart.number_of_items %></div>
 		<% end %>
 		</ul>
       </ul>

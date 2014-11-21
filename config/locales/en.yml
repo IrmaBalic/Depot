@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "NEW"
+  new: "NEW IN STORE"
   add_to_cart: "ADD TO CART"
   empty_cart: "EMPTY CART"
   continue: "CONTINUE"

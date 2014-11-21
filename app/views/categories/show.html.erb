@@ -1,18 +1,15 @@
   <div id="section_title"> <%= @category.name %></div>
 <div class="container-fluid">
 <div class="row">
-  <div id="products_list" class="col-xs-9 col-sm-10 col-md-10">
-        <div class="row">
-
-    <% @category.products.each do |product| %>
-
-        <div class="entry col-xs-9 col-sm-3 col-md-2 ">
+  <div id="products_list" class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
+    <div class="row">
+      <% @category.products.each do |product| %>
+        <div class="entry col-xs-9 col-sm-3 col-md-2 col-lg-2">
          <div class="row">
             <a href="<%= product_path(product) %>">
-              <%= image_tag(product.image_url, class: 'col-xs-10 col-sm-10 col-md-10') %>
+              <%= image_tag(product.image_url, class: 'col-xs-10 col-sm-10 col-md-10 col-lg-10') %>
             </a>
-
-          </div>
+         </div>
           <div class="price_line">
             <div class="title"><%= product.title %></div>
             <span class="price"><%= product.price %> KM </span>
@@ -26,12 +23,12 @@
             <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
           </div>   
-    <% end %>
-                </div>
-
+        <% end %>
+      </div>
   </div>
 </div>
 </div>
+
 <script>
   $(document).ready(function() {
   $(".cart_button_buy").click(function() {
