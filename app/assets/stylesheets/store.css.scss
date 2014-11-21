@@ -70,7 +70,10 @@
       display: inline-block;
     }
     .entry {
-      height: 240px;
+      height: 200px;
+      .row {
+        height: 65%;
+      }
     }
   #main-header {
     font-size: 1.31em;
