@@ -1,24 +1,55 @@
   <div id="section_title"> <%= @category.name %></div>
+<div class="container-fluid">
+<div class="row">
+  <div id="products_list" class="col-xs-9 col-sm-10 col-md-10">
+        <div class="row">
 
-<div id="products_list">
-  <% @category.products.each do |product| %>
-      <div class="entry">
-      <a href="<%= product_path(product) %>">
-        <%= image_tag(product.image_url) %></a>
-        <div class="price_line">
-          <div class="title"><%= product.title %></div>
-          <span class="price"><%= product.price %> KM </span>
-        </div>
-          <% if session[:role] != 'Admin' %>
-              <%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy' %>
-              <div class="cart_button_loading"></div> 
-          <% else %>
-          <%= link_to 'Show', product %>
-          <%= link_to 'Edit', edit_product_path(product_path(product)) %>
-          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>     
-  <% end %>
+    <% @category.products.each do |product| %>
+
+        <div class="entry col-xs-9 col-sm-3 col-md-2 ">
+         <div class="row">
+            <a href="<%= product_path(product) %>">
+              <%= image_tag(product.image_url, class: 'col-xs-10 col-sm-10 col-md-10') %>
+            </a>
+
+          </div>
+          <div class="price_line">
+            <div class="title"><%= product.title %></div>
+            <span class="price"><%= product.price %> KM </span>
+          </div>
+            <% if session[:role] != 'Admin' %>
+                <%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy' %>
+                <div class="cart_button_loading"></div> 
+            <% else %>
+            <%= link_to 'Show', product %>
+            <%= link_to 'Edit', edit_product_path(product_path(product)) %>
+            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>   
+    <% end %>
+                </div>
+
+  </div>
 </div>
-
+</div>
+<script>
+  $(document).ready(function() {
+  $(".cart_button_buy").click(function() {
+    $(this).css("display","none");
+    var element = $(".cart_button_buy").index(this);
+    var loading = $(".cart_button_loading").get(element);
+    $(loading).css("display","inline-block");
+    $(loading).addClass("click_loading");
+    var done = $(".cart_button_buy").get(element);
+    setTimeout(function(){ 
+      $(loading).addClass("click_checked").removeClass("click_loading");
+    }, 2000);
+    setTimeout(function(){
+      $(loading).removeClass("click_checked");
+      $(loading).css("display","none");
+      $(done).css("display","inline-block");
+    }, 5000);
+  });
+});
+</script>
 

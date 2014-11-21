@@ -1,7 +1,9 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.container-fluid {
+  text-align: center;
+}
 .categories {
   $crvena: #e74c3c;
   $hover_link: #81D697;
@@ -30,11 +32,14 @@
     margin-top: 40px;
   }
 #products_list {
-    width: 1200px;
-    margin-left: 10%;
+  padding-left: 5%;
+  text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
    /* width: 900px;*/
     display: inline-block;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     margin-top: 20px;
     /*padding-left: 30px;*/
     .list_actions {
@@ -61,25 +66,25 @@
     padding-bottom: 20px;
   }
 .entry    {
-    width: 210px;
-    height: 250px;
+   /* width: 210px;*/
+    /*float: none;*/
     padding: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
     margin-top: 10px;
     border-radius: 4px;
     background-color:  #ffffff;
     display: inline-block;
     border: 2px solid white;
     img {
-      width: 167px;
-      height: 126px;
-      margin-left: 20px;
+     /* width: 167px;*/
+      height: 100%;
+      margin-left: 10%;
     }
     .price_line {
-      margin-left: 20px;
-      margin-top: 20px;
-      text-align: left;
+      margin-left: 10%;
+     /* margin-top: 10%;*/
+      /*text-align: left;*/
       .title {
         color:  #959595;
         font-size: 0.88em; /* Approximation due to font substitution */
@@ -89,11 +94,10 @@
         color:  #7d7d7d;
         font-size: 1.13em; /* Approximation due to font substitution */
         font-weight: 600;
-        text-align: left;
+        /*text-align: left;*/
     }
-    width: 145px;
-    height: 32px;
-    margin-bottom: 15px;
+   /* width: 145px;*/
+   /* height: 25%;*/
     }
     #entry-button {
       border: 1px solid black;
@@ -105,7 +109,12 @@
       vertical-align: middle;
       width: 180px;     
     }
-  }
+}
+  /*.entry > .col-sm-3 {
+
+    margin-left: 2%;
+    margin-right: 2%;
+  }*/
   .cart_button {
         color: white;
         /*margin-left: 10px;*/
@@ -131,4 +140,90 @@
         border: 2px solid #E3E3E3;
     }
   }
+  @media (min-width: 768px) {
+    #section_title {
+      margin-left: 100px;
+    }
+    .entry {
+      height: 250px;
+      margin-left: 2%;
+      margin-right: 2%;
+      .row {
+        height: 55%;
+      }
+    }
+    #products_list {
+      padding-top: 20px;
+      padding-left: 10%;
+    }
+    .price_line {
+      margin-top: 10%;
+      text-align: left;
+      height: 25%;
+      .price {
+        text-align: left;
+      }
+    }
+    .cart_button_buy {
+      width: 100px;
+      height: 30px;
+      float: right;
+    }
+    .cart_button_loading {
+      width: 100px;
+      height: 30px;
+      float: right;
+    }
+  }
+
+@media (min-width: 992px) {
+  .entry {
+    height: 250px;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  #products_list {
+    padding-top: 20px;
+    padding-left: 5%;
+  }
+}
+@media (max-width: 768px) {
+    #section_title {
+      margin-left: 0;
+      text-align: center;
+    }
+  .entry {
+    margin-bottom: 25px;
+    border: 1px solid red;
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
+    height: 290px;
+    .row {
+      height: 150px;
+    }
+  }
+  #products_list {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .price_line {
+    margin-top: 5%;
+    text-align: center;
+    height: 20%;
+    .price {
+      text-align: center;
+    }
+  }
+    .cart_button_buy {
+      width: 150px;
+      height: 30px;
+     /* float: right;*/
+    }
+    .cart_button_loading {
+      width: 150px;
+      height: 30px;
+     /* float: right;*/
+    }
+}
 }

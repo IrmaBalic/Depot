@@ -98,7 +98,7 @@ html, body, div, span { display: block;}
     color:  #545454;
     font-size: 1.5em; 
     font-weight: 400;
-    margin-left: 100px;
+   /* margin-left: 100px;*/
     margin-top: 40px;
   }
   #input_form {
@@ -456,29 +456,29 @@ html, body, div, span { display: block;}
         background-color: #e74c3c;
         border-radius: 4px;
         display: inline-block;
-        width: 100px;
-        height: 30px;
+        /*width: 100px;
+        height: 30px;*/
         line-height: 30px;
         vertical-align: middle;
         border: 1px solid #e74c3c;
         color: white;
         font-size: 11px;
         font-weight: 600;
-        float: right;
+       /* float: right;*/
         font-family: "Open Sans";
         cursor: pointer;
       }
       .cart_button_loading {
         margin-left: 10px;
         border-radius: 4px;
-        width: 100px;
-        height: 30px;
+        /*width: 100px;
+        height: 30px;*/
         line-height: 30px;
         vertical-align: middle;
         border: 1px solid #e74c3c;
         font-size: 11px;
         font-weight: 600;
-        float: right;
+        /*float: right;*/
         font-family: "Open Sans";
         cursor: pointer;
         background-color: #e74c3c;
@@ -494,7 +494,7 @@ html, body, div, span { display: block;}
         background-image: url(image-path('checked.jpg'));
         border-color: #14C460;
       }
-      #cart_button_buy:hover{
+      .cart_button_buy:hover{
         background-color:  #f16354;
         border: 1px solid #f16354;
       }
