@@ -31,7 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user_name
-    @user = User.find_by(id: session[:user_id])
+    if(session[:user_id])
+      @user = User.find_by(id: session[:user_id])
+    end
   end
   #Localization
   def set_locale
