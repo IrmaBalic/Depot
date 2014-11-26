@@ -13,18 +13,56 @@
  *= require_self
  *= require_tree .
  */
+ .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+ }
+
   .dropdown-toggle {
     background-color: #413e4a;
   }
- @media (min-width: 767px) {
+ @media (min-width: 768px) {
   .navbar-right {
-    width: 250px;
+    width: 210px;
   }
   #languages {
-     width: 100px;
+    display: none;
+  }
+  .navbar-brand {
+    display: none;
+  }
+  #cart {
+    display: none;
+  }
+  .navbar-header {
+    margin-left: 0;
+    margin-right: 0;
   }
  }
-
+ @media (min-width: 992px) {
+  .navbar-right {
+    width: 220px;
+  }
+  #languages {
+    margin-left: 20px;
+    display: block;
+    width: 60px;
+  }
+  .navbar-header {
+    margin-left: 5%;
+    margin-right: 3%;
+  }
+  .navbar-brand {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    /*margin-left: 90%;*/
+    /*margin-right: 20%;*/
+  }
+  #cart {
+    display: inline-block;
+  }
+}
 .signout_li {
   display: inline;
 }
@@ -50,7 +88,7 @@
       font-weight: 600;
       text-align: center;
       vertical-align: middle;
-      display: inline-block;
+      /*display: inline-block;*/
      /* margin-left: -10px;*/
     }
     .basket {
