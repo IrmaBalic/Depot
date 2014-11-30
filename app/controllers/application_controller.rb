@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #before_action :authorize_admin
-  before_action :authorize_admin, :find_category, :set_locale, :find_user
+  before_action :authorize_admin, :find_category, :set_locale
   include CurrentCart
   before_action :set_cart
   
@@ -31,10 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user
-    #@user = nil
-    #if session[:user_id]
+    if session[:user_id]
       @user = User.find_by(id: session[:user_id])
-    #end
+    end
   end
   #Localization
   def set_locale
