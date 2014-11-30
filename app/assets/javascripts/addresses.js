@@ -1,3 +1,4 @@
+//= require i18n
 $(document).ready(function() {
 	$("#same_as_shipping").change(function() {
 		if($(this).is(":checked"))
@@ -17,9 +18,13 @@ $(document).ready(function() {
 	var bl_country = $("#billing_address_country");
 	var submit = $(".buy_button");
 	// Functions
-	function show_warning(field) {		 			
+	function show_warning(field) {
 		field.css("border-color", "#dd4b39"); 
-		var warning_label = $("<p></p>").text("Ovo polje ne može ostati prazno.");
+		var warning_label = null;
+		if (locale  == "bs")
+			warning_label = $("<p></p>").text("Ovo polje ne može ostati prazno.");
+		else 
+			warning_label = $("<p></p>").text("This field can't be empty.");
 		warning_label.attr("class","warning");
 		warning_label.css("color","#dd4b39");
 		field.parent().append(warning_label);

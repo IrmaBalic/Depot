@@ -30,11 +30,14 @@ Rails.application.configure do
     address:  "smtp.mandrillapp.com",
     port: "587",
     domain: "heroku.com",
-    authentication: "plain",
+    #authentication: "plain",
     enable_starttls_auto: true,
     user_name: MANDRILL_USERNAME,
     password: MANDRILL_APIKEY
   }
+  MandrillMailer.configure do |config|
+    config.api_key = MANDRILL_APIKEY
+  end
   # Disable Rails's static asset server (Apache or NGINX will already do this).
   config.serve_static_assets = false
 

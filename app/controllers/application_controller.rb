@@ -31,13 +31,14 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user_name
-    if(session[:user_id])
+    if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
   end
   #Localization
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale  # store locale to session
   end
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"

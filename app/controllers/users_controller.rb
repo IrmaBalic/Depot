@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   
     if @user.save
       UserMailer.registration_email(@user).deliver
+      #InvitationMailer.invite(invitation).deliver
     end
     redirect_to store_path
   end

@@ -25,12 +25,14 @@ Rails.application.configure do
     address:  "smtp.mandrillapp.com",
     port: "587",
     domain: "heroku.com",
-    authentication: "plain",
+  #  authentication: "plain",
     enable_starttls_auto: true,
     user_name: MANDRILL_USERNAME,
     password: MANDRILL_APIKEY
   }
-
+  MandrillMailer.configure do |config|
+    config.api_key = MANDRILL_APIKEY
+  end
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -41,7 +43,7 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  config.assets.initialize_on_precompile = true
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = false

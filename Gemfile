@@ -11,6 +11,7 @@ gem 'rails', '4.2.0.beta2'
 # Use sqlite3 as the database for Active Record
 gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
+gem "i18n-js"
 #gem 'spree', :github => 'radar/spree', :branch => '2-1-stable'
 gem 'pg'
 
@@ -23,6 +24,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'mandrill-api'
+gem 'mandrill_mailer'
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'jquery-ui-rails'
