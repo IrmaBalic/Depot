@@ -19,8 +19,9 @@
       </ul>
     </div>
   <% end %>
+  
   <div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
-  <div id="input_form">
+  <div id="input_form"  class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
   <% unless session[:user_id] %>
     <div class="field">
       <%= label :user_name, t('name') %>
@@ -62,7 +63,7 @@
     </div>
     <br>
   </div>
-<div id="purchuase">
+<div id="purchuase" class="hidden-xs col-sm-5 col-md-3 col-lg-3">
   <%= render(@cart) %>
   <div id="entry-button">
       <%= submit_tag(t('continue'), :class => 'buy_button')  %>
@@ -70,7 +71,7 @@
   </div>
 </div>
 <br><br>
-  <div id="input_form_2" style="clear:both;">
+  <div id="input_form_2" class="col-xs-10 col-sm-5 col-md-4 col-lg-4" style="clear:both;">
     <div class="field">
       <%= label :name, t('address') %>
       <%= text_field_tag "billing_address[name]" %>
@@ -96,5 +97,12 @@
       <%= text_field_tag "billing_address[country]" %>
     </div>
   </div>
+  <div id="purchuase" class="col-xs-12 hidden-sm hidden-md hidden-lg">
+  <%= render(@cart) %>
+  <div id="entry-button">
+      <%= submit_tag(t('continue'), :class => 'buy_button')  %>
+      <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
+  </div>
+</div>
 <% end %>
 

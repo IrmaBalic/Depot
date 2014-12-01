@@ -41,3 +41,4 @@ bs:
   order_date: "Datum narudžbe"
   shipping_date: "Datum dostave"
   payment_thank_you: "Hvala Vam na uplati."
+  category: "Kategorija"

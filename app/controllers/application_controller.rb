@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #before_action :authorize_admin
-  before_action :authorize_admin, :find_category, :set_locale
+  before_action :authorize_admin, :find_category, :set_locale, :find_user
   include CurrentCart
   before_action :set_cart
   

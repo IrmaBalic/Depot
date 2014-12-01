@@ -1,3 +1,10 @@
-
+<% unless session[:role] == "Admin" %>
+  <div id="section_title" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+    <%= t('registration') %>
+      <div id="register_link"><%= link_to t('user_login'), signin_path %></div>
+  </div>
+<% else %>
+	<div id="title"> New user </div>
+<% end %>
 <%= render 'form' %>
 

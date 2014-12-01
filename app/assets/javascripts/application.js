@@ -16,6 +16,7 @@
 //= require.ui
 //= require.ui.effect-blind
 //= require jquery_ujs
+//= require bxslider
 //= require turbolinks
 //= require i18n/translations
 //= require_tree .

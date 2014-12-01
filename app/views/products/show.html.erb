@@ -1,28 +1,54 @@
-<br><br><br>
-<div id="section_title"><%= @product.title %>
+<div id="section_title">
+  <%= @product.title %>
 </div>
-<div id="image">
-	<%= image_tag(@product.image_url) %>
+<div id="image" class="col-xs-7 col-sm-4 col-md-4 col-lg-4">
+  <ul class="bxslider">
+    <% @product.product_images.each do |product_image| %>
+      <li><%= image_tag product_image.avatar.url(:square) %></li>
+    <% end %>
+  </ul>
 </div>
-<div id="description">
-<p>
-	<strong>Kategorija:</strong>
-    <%= @product.category.name %>
-</p>
-<p>
-  <strong>Opis:</strong>
-  <%= sanitize(@product.description) %>
-</p>
-
-<p>
-  <strong>Cijena:</strong>
-  <%= @product.price %> KM
-</p>
-<% unless session[:role] == 'Admin' %>
-	 <div id="entry-button">
-          <%= button_to t('add_to_cart'), line_items_path(product_id: @product), remote: true, class: 'cart_button_buy' %>
-          <div class="cart_button_loading"></div> 
-     </div>
-<%end%>
+<div id="description" class="col-xs-10 col-sm-6 col-md-5 col-lg-5">
+  <p>
+  	<strong><%= t('category') %>:</strong>
+      <%= @product.category.name %>
+  </p>
+  <br>
+  <p>
+    <strong><%= t('description') %>:</strong>
+    <%= sanitize(@product.description) %>
+  </p>
+  <br>
+  <p>
+    <strong><%= t('price') %>:</strong>
+    <%= @product.price %> KM
+  </p>
+  <% unless session[:role] == 'Admin' %>
+  	 <div id="entry-button">
+            <%= button_to t('add_to_cart'), line_items_path(product_id: @product), remote: true, class: 'cart_button_buy' %>
+            <div class="cart_button_loading"></div> 
+       </div>
+  <%end%>
 </div>
+<script>
+  $(document).ready(function() {
+  $('.bxslider').bxSlider();
+  $(".cart_button_buy").click(function() {
+    $(this).css("display","none");
+    var element = $(".cart_button_buy").index(this);
+    var loading = $(".cart_button_loading").get(element);
+    $(loading).css("display","inline-block");
+    $(loading).addClass("click_loading");
+    var done = $(".cart_button_buy").get(element);
+    setTimeout(function(){ 
+      $(loading).addClass("click_checked").removeClass("click_loading");
+    }, 2000);
+    setTimeout(function(){
+      $(loading).removeClass("click_checked");
+      $(loading).css("display","none");
+      $(".cart_button_buy").css("display","inline-block");
+    }, 5000);
+  });
+});
+</script>
 

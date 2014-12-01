@@ -1,5 +1,5 @@
   <div id="section_title"> <%= t('payment') %> </div>
-  <div class="order_details" id="order_details_billing">
+  <div class="order_details col-xs-7 col-sm-5" id="order_details_billing">
     <%= t('billing_address') %> <br><br>
     <%= t('name_and_surname') %>: <%= @user.name %> <%=@user.surname %><br>
     <%= t('address') %>: <%= @billing_address.name %> <%= @billing_address.number%> <br>
@@ -12,7 +12,7 @@
       <%= hidden_field_tag('order_billing_address[id]', @billing_address.id) %>
     <% end %>
   </div>
-  <div class="order_details" id="order_details_shipping" style="margin-left:50px;">
+  <div class="order_details col-xs-7 col-sm-5" id="order_details_shipping">
     <%= t('shipping_address') %> <br><br>
     <%= t('name_and_surname') %>: <%= @user.name %> <%=@user.surname %><br>
     <%= t('address') %>: <%= @shipping_address.name %> <%= @shipping_address.number%> <br>
@@ -25,7 +25,8 @@
       <%= hidden_field_tag('order_shipping_address[id]', @shipping_address.id) %>
     <% end %>
   </div><br>
-  <div id="purchuase" style="margin-top:14px;">
+
+  <div id="purchuase" class="hidden-xs hidden-sm col-md-3 col-lg-3">
     <%= render(@cart) %>
     <%= form_tag charges_path do %>
     <div id="stripe-button">
@@ -38,11 +39,11 @@
     <% end %>
   </div>
 
-  <div class="old_addresses" id="old_shipping_addresses">
+  <div class="old_addresses col-xs-12 col-sm-12 col-md-12 col-lg-12" id="old_shipping_addresses">
     <div id="section_title" style="margin:0; margin-bottom:10px;"><%= t('previous_shipping') %></div>
 
     <% @user.shipping_addresses.each do |shipping_address|%>
-      <div class="old_addresses_details" style="margin-left:0; margin-right:20px; margin-top:20px;">
+      <div class="old_addresses_details col-xs-10 col-sm-3 col-md-3 cold-lg-3">
         <div class="details">
           <%= t('address') %>: <%= shipping_address.name %> <%= shipping_address.number%> <br>
           <%= t('city') %>: <%= shipping_address.city.name %> <%= shipping_address.city.postal_code %><br>
@@ -60,10 +61,10 @@
     <div class="add_new_link"><%= link_to t('add_new_address'), new_shipping_addresses_path %></div>
   </div>
   
-  <div class="old_addresses" id="old_billing_addresses">
+  <div class="old_addresses col-xs-12 col-sm-12 col-md-12 col-lg-12" id="old_billing_addresses">
     <div id="section_title" style="margin:0; margin-bottom:10px;"><%= t('previous_billing') %></div>
     <% @user.billing_addresses.each do |billing_address|%>
-      <div class="old_addresses_details" style="margin-left:0; margin-right:20px; margin-top:20px;">
+      <div class="old_addresses_details  col-xs-10 col-sm-3 col-md-3 cold-lg-3">
         <div class="details">
           <%= t('address') %>: <%= billing_address.name %> <%= billing_address.number%> <br>
           <%= t('city') %>: <%= billing_address.city.name %> <%= billing_address.city.postal_code %><br>
@@ -78,4 +79,17 @@
       </div>
     <% end %>
     <div class="add_new_link"><%= link_to t('add_new_address'), new_billing_addresses_path %></div>
+  </div>
+
+  <div id="purchuase" class="col-xs-12 col-sm-11 hidden-md hidden-lg">
+    <%= render(@cart) %>
+    <%= form_tag charges_path do %>
+    <div id="stripe-button">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_kzKfC1KtnaDRgEhugzaUKq6t"
+              data-description="A month's subscription"
+              data-amount="<%= ((@cart.total_price.to_i+40)*100) %>">
+      </script>
+    </div>
+    <% end %>
   </div>

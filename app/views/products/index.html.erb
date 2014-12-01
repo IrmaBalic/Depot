@@ -1,27 +1,38 @@
+<div id="title"> Products </div>
+<div class="container">
+<table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+      <td>
+        <% if product.product_images.any? %>
+          <%= image_tag product.product_images.first.avatar.url(:thumb) %></td>
+        <% end %>
+        </td>
+        <td><%= product.title %></td>
+        <td><%= product.price %> KM </td>
+        <td><%= product.description %></td>
+        <td><%= product.category.name %></td>
+        <td><%= link_to 'Show', product_path(product) %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '+ Add new product', new_product_path %>
 
-<div id="products_list" style="margin-left: 300px;">
-  <% @products.each do |product| %>
-      <div class="entry">
-        <%= image_tag(product.image_url) %>
-        <div class="price_line">
-          <div class="title"><%= product.title %></div>
-          <span class="price"><%= number_to_currency(product.price) %></span>
-        </div>
-          <% if session[:role] != 'Admin' %>
-            <div id="entry-button">
-              <%= button_to 'U KORPU', line_items_path(product_id: product), remote: true, class: 'cart_button' %>
-              <div class="buy_button"> <a href="#"> KUPI </a></div>
-          </div><br>
-          <% else %>
-          <div id="admin_actions" style=" text-align: center; margin-top: 20px;">
-              <%= link_to 'Ažuriraj', edit_product_path(product) %><br><br>
-              <%= link_to 'Obriši', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-          <% end %>   
-      </div>
-  <% end %>
-  <div id="admin_actions" style="margin-top: 30px; text-align: center; font-size: 150%;">
-    <%= link_to '+ Dodaj proizvod', new_product_path %>
-    </div>
 </div>
+<br>
+

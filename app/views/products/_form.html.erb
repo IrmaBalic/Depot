@@ -9,29 +9,38 @@
       </ul>
     </div>
   <% end %>
-<div id="input_form" style="margin-top: 15px;">
-  <div class="field">
-      <%= label :category_id, "Kategorija" %><br>
-      <%= select_tag(:category, options_for_select(Category.dropdown_options, -1)) %>
+  <div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+    <div class="field">
+      <%= label :category_id, "Category" %><br>
+      <%= select_tag(:category, options_for_select(Category.dropdown_options, :selected => Category.selected(@category))) %>
     </div>
     <div class="field">
-      <%= f.label :title, "Naziv" %><br>
+      <%= f.label :title %><br>
       <%= f.text_field :title %>
     </div>
     <div class="field">
-      <%= f.label :description, "Opis" %><br>
-      <%= f.text_area :description, :rows => 6 %>
+      <%= f.label :description, "Description (en)" %><br>
+      <%= f.text_area :description_en, :rows => 6 %>
     </div>
     <div class="field">
-      <%= f.label :image_url, "Slika" %><br>
+      <%= f.label :description, "Description (bs)" %><br>
+      <%= f.text_area :description_bs, :rows => 6 %>
+    </div>
+    <div class="field">
+      <%= f.label :image_url, "Image" %><br>
       <%= f.text_field :image_url %>
     </div>
     <div class="field">
-      <%= f.label :price, "Cijena" %><br>
+      <%= f.label :price%><br>
       <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :avatar, "Images" %>
+      <%= f.file_field "image",  :multiple => true %>
+  
     </div>
     <div class="actions">
       <%= f.submit "Submit" %>
     </div>
-    </div>
+  </div>
 <% end %>

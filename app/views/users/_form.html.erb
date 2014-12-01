@@ -1,26 +1,9 @@
 <%= form_for(@user) do |f| %>
-
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div id="section_title"><%= t('registration') %>
-  <% unless session[:role] == "Admin" %>
-    <div id="register_link"><%= link_to t('user_login'), signin_path %></div>
-  <% end %>
-</div>
-  <div id="input_form">
+  <div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
     <% if session[:role] == "Admin" %>
       <div class="field">
-        <%= label :role_id, "Rola" %><br>
-        <%= select_tag(:role, options_for_select(Role.dropdown_options, -1)) %>
+        <%= label :role_id, "Role" %><br>
+        <%= select_tag(:role, options_for_select(Role.dropdown_options, :selected => Role.selected(@role))) %>
       </div>
     <%end%>
       <div class="field">
@@ -41,12 +24,12 @@
       </div>
 
       <div class="actions">
-      <% if session[:role] == "Admin" %>
-        <%= f.submit "Submit" %>
-      <% else %>
-        <%= f.submit "REGISTER" %>
-      <% end %>
+        <% if session[:role] == "Admin" %>
+          <%= f.submit "Submit" %>
+        <% else %>
+          <%= f.submit "REGISTER" %>
+        <% end %>
+        </div>
       </div>
-  </div>
 
 <% end %>

@@ -1,10 +1,10 @@
-
-<div id="table_index">
-<table>
+<div id="title"> Categories </div>
+<div class="container" style="padding-left:280px; padding-right:280px;">
+<table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
   <thead>
     <tr>
-      <th>Ime</th>
-      <th colspan="3"></th>
+      <th>Name</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -12,14 +12,14 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to 'Ažuriraj', edit_category_path(category) %></td>
-        <td><%= link_to 'Obriši', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category_path(category) %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<br><br>
-<%= link_to '+ Nova kategorija', new_category_path %>
+<%= link_to '+ Add new category', new_category_path %>
 
 </div>
 <br>

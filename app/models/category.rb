@@ -6,15 +6,23 @@ class Category < ActiveRecord::Base
 	globalize_accessors :locales => [:en, :bs], :attributes => [:name]
 
 	def self.dropdown_options 
-		options = Category.order(:name).map{|r| [r.name, r.id] }
+		options = Category.all.map{|r| [r.name, r.id] }
 		[["Please select", -1]] + options 
 	end
-
+    def self.selected(category)
+        if category == nil 
+            category = -1
+        end
+        category
+    end
 #Translation
-	def update_attr(name)
-    	translation = category_translations.where(locale: I18n.locale).first
-    	translation.name = name
-    	translation.save
+	def update_attr(name_bs, name_en)
+    	translation_bs = category_translations.where(locale: "bs").first
+    	translation_bs.name = name_bs
+    	translation_bs.save
+    	translation_en = category_translations.where(locale: "en").first
+    	translation_en.name = name_en
+    	translation_en.save
     end
     def self.create_item(name_bs, name_en)
     	category = Category.create!

@@ -5,5 +5,10 @@ class Role < ActiveRecord::Base
 		options = Role.order(:name).map{|r| [r.name, r.id] }
 		[["Please select", -1]] + options 
 	end
- 
+ 	def self.selected(role)
+        unless role
+            role = -1
+        end
+        role
+    end
 end
