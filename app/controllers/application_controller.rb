@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
 
   def find_user
     if session[:user_id]
+      puts "Session id: #{session[:user_id]}"
+      u = User.find(session[:user_id])
+      puts "User id: #{u.id}"
+      
       @user = User.find_by(id: session[:user_id])
     end
   end
