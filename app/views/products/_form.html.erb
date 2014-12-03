@@ -36,7 +36,15 @@
     </div>
     <div class="field">
       <%= f.label :avatar, "Images" %>
-      <%= f.file_field :product_images[:avatar],  :multiple => true %>
+      <% if @edit %>
+        <% if @product.product_images.any? %>
+          <% @product.product_images.each do |image|%>
+            <br>
+            <a href="<%= image.avatar.url %>"><%= image.avatar_file_name %></a>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= f.file_field :image,  :multiple => true %>
   
     </div>
     <div class="actions">
