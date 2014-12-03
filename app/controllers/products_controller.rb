@@ -34,9 +34,11 @@ class ProductsController < ApplicationController
   ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
   ProductTranslation.create!(product: product, locale: "bs", description: params[:product][:description_bs])
   p = Product.last
-  params[:product][:image].each do |image|
-    product_image = ProductImage.new(product: p, avatar: image)
-    product_image.save
+  if params[:product][:image]
+    params[:product][:image].each do |image|
+      product_image = ProductImage.new(product: p, avatar: image)
+      product_image.save
+    end
   end
   redirect_to products_path
   end
@@ -50,9 +52,11 @@ class ProductsController < ApplicationController
     @product.image_url = params[:product][:image_url]
     @product.update_attr(params[:product][:description_bs], params[:product][:description_en])
     @product.save
-    params[:product][:image].each do |image|
-      product_image = ProductImage.new(product: @product, avatar: image)
-      product_image.save
+    if params[:product][:image]
+      params[:product][:image].each do |image|
+        product_image = ProductImage.new(product: @product, avatar: image)
+        product_image.save
+      end
     end
     redirect_to products_path
     #raise
