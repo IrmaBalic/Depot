@@ -8,7 +8,7 @@ ruby "1.9.3"
 gem 'paperclip'
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta2'
+gem 'rails', '4.2.0.rc1'
 # Use sqlite3 as the database for Active Record
 gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
