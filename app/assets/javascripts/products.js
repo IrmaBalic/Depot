@@ -15,5 +15,9 @@
 			$(".cart_button_buy").css("display","inline-block");
 		}, 5000);
 	});
+});*/
+$(function() {
+	$('.bxslider').bxSlider({
+	  pagerCustom: '#bx-pager'
+	});
 });
-*/

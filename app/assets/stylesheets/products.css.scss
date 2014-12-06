@@ -61,10 +61,10 @@
       border-color: #6D7F91;
     }
   }
-  img {
+  /*img {
     height: 50px;
     width: 80px;
-  }
+  }*/
     $hover_link: #81D697;
     $crvena:  #e74c3c;
     .entry:hover {
@@ -157,8 +157,8 @@
     margin-top: 60px;
     /*width: 400px;*/
     img {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
   }
   }
   #description {
@@ -242,7 +242,6 @@
     #image {
       float: left;
       margin-left: 5%;
-      border-right: 1px solid #D7D9D8;
       height: 200px;
     }
     #description {
@@ -264,9 +263,54 @@
     }
     #image {
       margin-left: 100px;
-      height: 290px;
+      height: 380px;
+      text-align: center;
+      .bx-wrapper {
+        margin-bottom: 20px !important;
+      }
+      #bx-pager {
+        display: inline-block;
+        a {
+          /*border: solid black 1px;
+          padding-top: 20px;
+          padding-bottom: 20px;*/
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        a.active img {
+          border: solid #5280DD 1px;
+        }
+        a img {
+          padding: 3px;
+          border: solid #ccc 1px;
+          height: 50px;
+          width: 80px;
+        }
+        a img:hover {
+          border: solid #5280DD 1px;
+        }
+        a:visited {
+          color: white;
+        }
+      }
+      .bx-wrapper,.bx-viewport {
+          height: 290px !important;
+          ul {
+            li {
+              height: 290px !important;
+              img {
+                height: 290px !important;
+                width: 409px !important;
+              }
+            }
+          }
+      }
     }
   }
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: white !important;
+}
 
 }
 /* END_HIGHLIGHT */

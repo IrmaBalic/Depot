@@ -38,6 +38,14 @@ Rails.application.configure do
   MandrillMailer.configure do |config|
     config.api_key = MANDRILL_APIKEY
   end
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'rormojapraksa',
+      :access_key_id => 'AKIAJHRHRUHY3WBUXVHA',
+      :secret_access_key => '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'
+    }
+  }
   # Disable Rails's static asset server (Apache or NGINX will already do this).
   config.serve_static_assets = false
 

@@ -28,19 +28,19 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-  category = Category.find_by_id(params[:category])
-    #Product.create_item(params[:product][:title], params[:product][:image_url], params[:product][:price], params[:product][:description_bs], params[:product][:description_en], params[:category])
-  product = Product.create!(title: params[:product][:title],category: category, price: params[:product][:price], image_url: params[:product][:image_url])
-  ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
-  ProductTranslation.create!(product: product, locale: "bs", description: params[:product][:description_bs])
-  p = Product.last
-  if params[:product][:image]
-    params[:product][:image].each do |image|
-      product_image = ProductImage.new(product: p, avatar: image)
-      product_image.save
+    category = Category.find_by_id(params[:category])
+      #Product.create_item(params[:product][:title], params[:product][:image_url], params[:product][:price], params[:product][:description_bs], params[:product][:description_en], params[:category])
+    product = Product.create!(title: params[:product][:title],category: category, price: params[:product][:price], image_url: params[:product][:image_url])
+    ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
+    ProductTranslation.create!(product: product, locale: "bs", description: params[:product][:description_bs])
+    p = Product.last
+    if params[:product][:image]
+      params[:product][:image].each do |image|
+        product_image = ProductImage.new(product: p, avatar: image)
+        product_image.save
+      end
     end
-  end
-  redirect_to products_path
+    redirect_to product_path(@product)
   end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
         product_image.save
       end
     end
-    redirect_to products_path
+    redirect_to product_path(@product)
     #raise
   end
 

@@ -38,10 +38,14 @@
       <%= f.label :avatar, "Images" %>
       <% if @edit %>
         <% if @product.product_images.any? %>
+          <table style="margin-top:5px; margin-bottom:10px;">
           <% @product.product_images.each do |image|%>
-            <br>
-            <a href="<%= image.avatar.url %>"><%= image.avatar_file_name %></a>
+            <tr>
+              <td style="padding-left: 10px;"><a href="<%= image.avatar.url %>"><%= image.avatar_file_name %></a></td>
+              <td style="padding-left: 10px;"><a data-confirm="Are you sure?" class="delete_image" data-remote="true" rel="nofollow" data-method="delete" href="<%= product_image_path(image) %>"><span class="glyphicon glyphicon-remove" style="color: #545454;"></span></a></td>
+              </tr>
           <% end %>
+          </table>
         <% end %>
       <% end %>
       <%= f.file_field :image,  :multiple => true %>

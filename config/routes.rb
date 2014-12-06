@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   #get 'addresses/index'
 
   #get 'addresses/show'
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   #post 'categories/create'
   scope "(:locale)", locale: /bs|en/ do
+    get 'product_images' => 'product_images#index'
+    delete '/product_images/:id', to: 'product_images#destroy', as: 'product_image'
     resources :categories
     resources :users do  
       collection do
