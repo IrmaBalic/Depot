@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
         product_image.save
       end
     end
-    redirect_to product_path(@product)
+    @new_product = Product.last
+    redirect_to product_path(@new_product)
   end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
@@ -51,11 +52,11 @@ class ProductsController < ApplicationController
     @product.price = params[:product][:price]
     @product.image_url = params[:product][:image_url]
     @product.update_attr(params[:product][:description_bs], params[:product][:description_en])
-    @product.save
+    @product.save!
     if params[:product][:image]
       params[:product][:image].each do |image|
         product_image = ProductImage.new(product: @product, avatar: image)
-        product_image.save
+        product_image.save!
       end
     end
     redirect_to product_path(@product)

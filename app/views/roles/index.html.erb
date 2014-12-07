@@ -1,24 +1,26 @@
 
 <div id="title"> Roles </div>
 <div class="container" style="padding-left:280px; padding-right:280px;">
-<table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
-  <thead>
-    <tr>
-      <th>Name </th>
-      <th colspan="2"> Actions </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @roles.each do |role| %>
+<div class="table-responsive"> 
+  <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
+    <thead>
       <tr>
-        <td><%= role.name %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Delete', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name </th>
+        <th colspan="2"> Actions </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @roles.each do |role| %>
+        <tr>
+          <td><%= role.name %></td>
+          <td><%= link_to 'Edit', edit_role_path(role) %></td>
+          <td><%= link_to 'Delete', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to '+ Add new role', new_role_path %>
 
 </div>

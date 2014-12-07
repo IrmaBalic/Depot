@@ -216,6 +216,26 @@
       float: none;
       margin-left: auto;
       margin-right: auto;
+      height: 150px;
+      text-align: center;
+      .bx-wrapper {
+        margin-bottom: 20px !important;
+      }
+      .bx-wrapper,.bx-viewport {
+          height: 150px !important;
+          ul {
+            li {
+              height: 150px !important;
+              /*padding: 20px;*/
+              img {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                height: 140px !important;
+                /*width: 409px !important;*/
+              }
+            }
+          }
+      }
     }
     #description {
       float: none;
@@ -242,7 +262,48 @@
     #image {
       float: left;
       margin-left: 5%;
-      height: 200px;
+      height: 300px;
+      text-align: center;
+      .bx-wrapper {
+        margin-bottom: 20px !important;
+      }
+      #bx-pager {
+        display: inline-block;
+        a {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        a.active img {
+          border: solid #5280DD 1px;
+        }
+        a img {
+          padding: 3px;
+          border: solid #ccc 1px;
+          height: 50px;
+          width: 50px;
+        }
+        a img:hover {
+          border: solid #5280DD 1px;
+        }
+        a:visited {
+          color: white;
+        }
+      }
+      .bx-wrapper,.bx-viewport {
+          height: 200px !important;
+          ul {
+            li {
+              height: 200px !important;
+              /*padding: 20px;*/
+              img {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                height: 190px !important;
+                /*width: 409px !important;*/
+              }
+            }
+          }
+      }
     }
     #description {
       padding-top: 60px;
@@ -271,9 +332,6 @@
       #bx-pager {
         display: inline-block;
         a {
-          /*border: solid black 1px;
-          padding-top: 20px;
-          padding-bottom: 20px;*/
           margin-left: 5px;
           margin-right: 5px;
         }
@@ -283,7 +341,7 @@
         a img {
           padding: 3px;
           border: solid #ccc 1px;
-          height: 50px;
+          height: 80px;
           width: 80px;
         }
         a img:hover {
@@ -298,9 +356,12 @@
           ul {
             li {
               height: 290px !important;
+              /*padding: 20px;*/
               img {
-                height: 290px !important;
-                width: 409px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                height: 280px !important;
+                /*width: 409px !important;*/
               }
             }
           }

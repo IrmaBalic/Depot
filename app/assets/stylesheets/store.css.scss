@@ -74,6 +74,9 @@
       .row {
         height: 65%;
       }
+      img {
+        height: 100%;
+      }
     }
   #main-header {
     font-size: 1.31em;
@@ -101,8 +104,10 @@
   }
     .entry {
       height: 270px;
+      width: 28%;
       img {
-      margin-left: 10%;
+        max-width: 190px;
+        height: 100%;
       }
       .price_line {
         margin-left: 10%;
@@ -110,7 +115,7 @@
     }
     #latest_products {
       padding-top: 20px;
-      padding-left: 10%;
+      padding-left: 8%;
     }
   }
     @media (min-width: 992px) {
@@ -125,6 +130,7 @@
       }
       img {
       margin-left: 0;
+      max-width: 100%;
       }
       .price_line {
         margin-left: 5%;

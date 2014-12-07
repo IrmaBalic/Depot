@@ -13,6 +13,7 @@ gem 'rails', '4.2.0.rc1'
 gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
 gem "i18n-js"
+gem "font-awesome-rails"
 #gem 'spree', :github => 'radar/spree', :branch => '2-1-stable'
 gem 'pg'
 gem 'bxslider-rails'

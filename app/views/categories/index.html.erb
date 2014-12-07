@@ -1,24 +1,26 @@
 <div id="title"> Categories </div>
 <div class="container" style="padding-left:280px; padding-right:280px;">
-<table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
+<div class="table-responsive"> 
+  <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
+    <thead>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= link_to 'Show', category_path(category) %></td>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+          <td><%= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to '+ Add new category', new_category_path %>
 
 </div>

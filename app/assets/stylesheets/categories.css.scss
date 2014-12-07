@@ -127,8 +127,7 @@ a:visited {
     border: 2px solid white;
     img {
      /* width: 167px;*/
-      height: 100%;
-      margin-left: 10%;
+   /*   height: 100%;*/
     }
     .price_line {
       margin-left: 10%;
@@ -200,9 +199,9 @@ a:visited {
     float:none;
     margin-left: auto;
     margin-right: auto;
-    height: 290px;
+    /*height: 290px;*/
     .row {
-      height: 150px;
+     /* height: 150px;*/
     }
   }
   #products_list {
@@ -239,6 +238,10 @@ a:visited {
       .row {
         height: 55%;
       }
+      img {
+        height: 100%;
+        max-width: 140px;
+      }
     }
     #products_list {
       padding-top: 20px;
@@ -269,6 +272,9 @@ a:visited {
     height: 250px;
     margin-left: 1%;
     margin-right: 1%;
+    img {
+      max-width: 157px;
+    }
   }
   #products_list {
     padding-top: 20px;

@@ -4,13 +4,13 @@
 <div id="image" class="col-xs-7 col-sm-4 col-md-4 col-lg-4">
   <ul class="bxslider">
     <% @product.product_images.each do |product_image| %>
-      <li><%= image_tag product_image.avatar.url(:square) %></li>
+      <li><%= image_tag product_image.avatar.url(:large) %></li>
     <% end %>
   </ul>
-  <div id="bx-pager">
+  <div id="bx-pager" class="hidden-xs visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
     <% @product.product_images.each do |product_image| %>
       <a data-slide-index="<%= @product.product_images.index(product_image)%>" href="">
-        <%= image_tag product_image.avatar.url(:thumb) %>
+        <%= image_tag product_image.avatar.url(:icon) %>
       </a>
     <% end %>
   </div>

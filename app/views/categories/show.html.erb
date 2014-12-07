@@ -7,7 +7,9 @@
         <div class="entry col-xs-9 col-sm-3 col-md-2 col-lg-2">
          <div class="row">
             <a href="<%= product_path(product) %>">
-              <%= image_tag(product.image_url, class: 'col-xs-10 col-sm-10 col-md-10 col-lg-10') %>
+            <% if product.product_images.any? %>
+              <%= image_tag(product.product_images.first.avatar.url(:medium)) %></td>
+            <% end %>
             </a>
          </div>
           <div class="price_line">
@@ -19,7 +21,7 @@
                 <div class="cart_button_loading"></div> 
             <% else %>
             <%= link_to 'Show', product %>
-            <%= link_to 'Edit', edit_product_path(product_path(product)) %>
+            <%= link_to 'Edit', edit_product_path(product) %>
             <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
           </div>   

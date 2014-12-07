@@ -10,10 +10,24 @@
  * at the top of the compiled file, but it's generally better to create a new
  * file per style scope.
  *= require bootstrap
+ *= require font-awesome
  *= require bxslider
  *= require_self
  *= require_tree .
  */
+ li.icon {
+  a {
+    /*border-bottom: 1px solid black;*/
+    padding-bottom: 5px;
+    padding-right: 25px;
+  }
+  a:hover {
+    .fa { 
+      color: #F08490 !important;
+    }
+    border-bottom: none !important;
+  }
+ }
  .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -34,10 +48,13 @@
     width: 210px;
   }
   #languages {
-    display: none;
+    margin-left: 20px;
+    display: block;
+    width: 60px;
   }
   .navbar-brand {
-    display: none;
+    display: block;
+    margin-left: -15px;
   }
   #cart {
     display: none;
@@ -64,6 +81,7 @@
     display: block;
     padding-left: 0;
     padding-right: 0;
+    margin-left: 0;
     /*margin-left: 90%;*/
     /*margin-right: 20%;*/
   }
@@ -591,8 +609,8 @@ html, body, div, span { display: block;}
     border: 2px solid white;
     img {
      /* width: 167px;*/
-      height: 100%;
-      margin-left: 10%;
+     /* height: 100%;*/
+     /* margin-left: 10%;*/
     }
     .price_line {
       margin-left: 10%;
@@ -638,9 +656,9 @@ html, body, div, span { display: block;}
     float:none;
     margin-left: auto;
     margin-right: auto;
-    height: 290px;
+    
     .row {
-      height: 150px;
+     /* height: 150px;*/
     }
   }
   #products_list {
@@ -649,6 +667,7 @@ html, body, div, span { display: block;}
   }
   .price_line {
     margin-top: 5%;
+    margin-bottom: 10px;
     text-align: center;
     height: 20%;
     .price {

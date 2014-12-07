@@ -2,12 +2,20 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #before_action :authorize_admin
-  before_action :authorize_admin, :find_category, :set_locale, :find_user
+  before_action :authorize_admin, :find_category, :set_locale, :find_user, :find_category_url
   include CurrentCart
   before_action :set_cart
   
   protected
 
+  def find_category_url
+    @desktop_tr = CategoryTranslation.find_by(name: "TV i monitori")
+    @desktop = @desktop_tr.category
+    @laptop_tr = CategoryTranslation.find_by(name:"Laptopi")
+    @laptop = @laptop_tr.category
+    @tablet_tr = CategoryTranslation.find_by(name:"Mobiteli i tableti")
+    @tablet = @tablet_tr.category
+  end
   def find_category
     @categories = Category.all
   end
