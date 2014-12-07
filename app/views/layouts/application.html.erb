@@ -37,17 +37,17 @@
 		  <% @categories.each do |category| %>
 			<li class="hidden-sm"><%= link_to category.name, category_path(category) %></li> 
 		  <% end %>
-		<% end %>
-		<li class="visible-sm-inline-block icon">
-			<a href="<%= category_path(@desktop) %>"><i class="fa fa-desktop fa-2x" style="color:white;"></i></a>
-		</li>
-		<li class="visible-sm-inline-block icon">
-			<a href="<%= category_path(@tablet) %>"><i class="fa fa-tablet fa-2x" style="color:white;"></i></a>
-		</li>
-		<li class="visible-sm-inline-block icon">
-			<a href="<%= category_path(@laptop) %>"><i class="fa fa-laptop fa-2x" style="color:white;"></i></a>
+			<li class="visible-sm-inline-block icon">
+				<a href="<%= category_path(@desktop) %>"><i class="fa fa-desktop fa-2x" style="color:white;"></i></a>
 			</li>
-      </ul>
+			<li class="visible-sm-inline-block icon">
+				<a href="<%= category_path(@tablet) %>"><i class="fa fa-tablet fa-2x" style="color:white;"></i></a>
+			</li>
+			<li class="visible-sm-inline-block icon">
+				<a href="<%= category_path(@laptop) %>"><i class="fa fa-laptop fa-2x" style="color:white;"></i></a>
+			</li>
+		<% end %>
+      </ul
       	<ul class="nav navbar-nav navbar-right hidden-xs" id="languages">
 			<li><%= link_to 'EN', store_path(:locale => 'en') %></li>
 			<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
