@@ -41,7 +41,6 @@ class UsersController < ApplicationController
     #  @role = Role.find_by(name: 'User');
     #end*/
     #@role = Role.find(params[:role])
-    raise
     @user = User.new(user_params)
     if session[:role] == 'Admin'
       role = Role.find(params[:role])
