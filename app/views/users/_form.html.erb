@@ -25,9 +25,9 @@
 
       <div class="actions">
         <% if session[:role] == "Admin" %>
-          <%= f.submit "Submit" %>
+          <%= f.submit "Submit", :id => "submit_form" %>
         <% else %>
-          <%= f.submit "REGISTER" %>
+          <%= f.submit "REGISTER", :id => "submit_form" %>
         <% end %>
         </div>
       </div>

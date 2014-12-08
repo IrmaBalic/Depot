@@ -32,10 +32,6 @@ $(function() {
 			if (number_of_children > 3) remove_warning(field);
 		}
 	}
-	//Onblur events	
-	/*category.blur(function(){
-		validate_field($(this));
-	});*/
 	product_title.blur(function(){
 		validate_field($(this));
 	});
@@ -51,9 +47,6 @@ $(function() {
 				validate_field($(this));			
 			}
 		});
-		if(category_sel == -1) {
-			has_empty = true;
-		}
 		if (has_empty)  {
 			alert("Forma nije ispravno popunjena.");
 			return false;
