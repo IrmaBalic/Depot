@@ -1,0 +1,44 @@
+<div id="title"> Orders </div>
+<div class="container">
+<div class="table-responsive"> 
+  <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Number of items</th>
+        <th>Total price</th>
+        <th>Billing address</th>
+        <th>Shipping Address</th>
+        <th>Order date</th>
+        <th>Shipping date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.user.name %> <%= order.user.surname %></td>
+          <td><%= order.number_of_items %> </td>
+          <td><%= order.total_price %></td>
+          <td>
+            <%= order.billing_address.name %>
+            <%= order.billing_address.number %>,
+            <%= order.billing_address.city.name %>,
+            <%= order.billing_address.city.country.name %>
+          </td>
+          <td>
+            <%= order.shipping_address.name %>
+            <%= order.shipping_address.number %>,
+            <%= order.shipping_address.city.name %>,
+            <%= order.shipping_address.city.country.name %>
+          </td>
+          <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
+          <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br>

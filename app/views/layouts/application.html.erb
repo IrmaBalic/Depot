@@ -29,6 +29,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if session[:role] == 'Admin' %>
+        	<li><%= link_to 'ORDERS', orders_path %></li>
 			<li><%= link_to 'PRODUCTS', products_path %></li> 
 			<li><%= link_to 'ROLES', roles_path %></li> 
 			<li><%= link_to 'USERS', users_path %></li>
@@ -90,6 +91,7 @@
 	<div id="menu">
 		<ul>
 			<% if session[:role] == 'Admin' %>
+				<li><%= link_to 'ORDERS', orders_path %></li>
 				<li><%= link_to 'PRODUCTS', products_path %></li> 
 				<li><%= link_to 'ROLES', roles_path %></li> 
 				<li><%= link_to 'USERS', users_path %></li>

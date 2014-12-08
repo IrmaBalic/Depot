@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   #post 'categories/create'
   scope "(:locale)", locale: /bs|en/ do
+    get 'orders' => 'orders#index'
     get 'product_images' => 'product_images#index'
     delete '/product_images/:id', to: 'product_images#destroy', as: 'product_image'
     resources :categories
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
     resources :charges do
       post 'change', on: :collection
     end
-    get 'administrator' => 'products#index'
+    get 'administrator' => 'orders#index'
     controller :admin_sessions do
       get  'signin' => :new
       post 'signin' => :create
