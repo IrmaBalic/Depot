@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = User.find_by_id(session[:user_id])
     end
+    @orders = @user.orders.sort_by { |h| h[:created_at] }.reverse!
   end
 
   # GET /logins/new

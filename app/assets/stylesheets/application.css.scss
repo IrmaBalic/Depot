@@ -45,7 +45,7 @@
   }
  @media (min-width: 768px) {
   .navbar-right {
-    width: 210px;
+    width: 220px;
   }
   #languages {
     margin-left: 20px;
@@ -57,11 +57,19 @@
     margin-left: -15px;
   }
   #cart {
-    display: none;
+    display: inline-block;
   }
   .navbar-header {
     margin-left: 0;
     margin-right: 0;
+  }
+  .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    padding-left: 100px;
+    padding-right: 70px;
+    line-height: 20px;
   }
  }
  @media (min-width: 992px) {
@@ -156,7 +164,7 @@
   max-width: 1350px;
 }
   #main {
-    min-height: 430px;
+    min-height: 470px;
   }
 ol,ul{list-style:none;margin:0;padding:0;}
 a { 
@@ -443,9 +451,8 @@ html, body, div, span { display: block;}
   }
   @media (min-width: 768px) {
     #purchuase {
-      float: none;
-      margin-left: auto;
-      margin-right: auto;
+      float: left;
+      margin-left: 6%;
     }
   }
   @media (min-width: 992px) {
@@ -456,6 +463,7 @@ html, body, div, span { display: block;}
     }
   }
 #purchuase {
+    min-width: 320px;
     max-width: 340px;
     #kupovina {
       border-radius: 4px;
@@ -489,13 +497,11 @@ html, body, div, span { display: block;}
       } 
     }
     #entry-button {
-      margin-top: 20px;
       color:  #ffffff;
       font-weight: 600;
       text-align: center;
       vertical-align: middle;
       width: 85%;
-      float: right;
       .buy_button {
           float: right;
           border-radius: 4px;
@@ -656,11 +662,17 @@ html, body, div, span { display: block;}
     float:none;
     margin-left: auto;
     margin-right: auto;
-    
     .row {
      /* height: 150px;*/
     }
   }
+      #entry-button {
+      padding-top: 10px;
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      clear: both;
+    }
   #products_list {
     padding-left: 0;
     padding-top: 0;
@@ -702,11 +714,19 @@ html, body, div, span { display: block;}
         height: 55%;
       }
     }
+    #entry-button {
+      padding-top: 10px;
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      clear: both;
+    }
     #products_list {
       padding-top: 20px;
       padding-left: 10%;
     }
     .price_line {
+      margin-bottom: 0;
       margin-top: 10%;
       text-align: left;
       height: 25%;
@@ -727,6 +747,10 @@ html, body, div, span { display: block;}
   }
 
 @media (min-width: 992px) {
+    #entry-button {
+    margin-top: 20px;
+    float: right;
+  }
   #footer {
     #menu {
         display: block;
@@ -741,4 +765,7 @@ html, body, div, span { display: block;}
     padding-top: 20px;
     padding-left: 5%;
   }
+}
+@media(min-width: 1024px) {
+
 }

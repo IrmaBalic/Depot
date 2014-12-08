@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .admin_sessions {
+    #main {
+      min-height: 450px;
+    }
 	#login {
 		border: 1px solid gray;
 		margin:0;

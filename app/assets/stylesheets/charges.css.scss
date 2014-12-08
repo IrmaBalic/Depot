@@ -61,18 +61,32 @@
       width: 300px;
       margin-left: 8%;
       margin-top: 30px;
+      margin-bottom: 35px;
     }
     #order_details_shipping {
-      margin-left:50px;
+      margin-left: 8%;
+    }
+    .add_new_link {
+      margin-left: 0;
+
     }
   }
   @media (min-width: 992px) {
     .order_details {
       margin-top: 50px;
-      margin-left: 100px;
+      margin-left: 2%;
     }
     #order_details_shipping {
-      margin-left:50px;
+     margin-left:2%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .order_details {
+      margin-top: 50px;
+      margin-left: 8%;
+    }
+    #order_details_shipping {
+      margin-left:100px;
     }
   }
   .old_addresses_details {
@@ -101,6 +115,9 @@
     .details {
       min-height: 80px;
     }
+    .stripe-button-el {
+      margin-bottom: 20px;
+    }
   }
   @media (min-width: 768px) {
     .old_addresses_details {
@@ -109,9 +126,12 @@
       margin-right: 30px;
       height: 170px;
     }
-      .details {
-    height: 100px;
-  }
+    .details {
+      height: 100px;
+    }
+    .stripe-button-el {
+      margin-bottom: 20px;
+    }
   }
   @media (min-width: 992px) {
     .old_addresses_details {
@@ -156,7 +176,7 @@
       margin-left: 8%;
     }
     .old_addresses {
-      margin-top: 30px;
+     /* margin-top: 30px;*/
       float: left;
       padding-left: 8%;
     }

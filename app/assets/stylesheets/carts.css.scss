@@ -21,7 +21,7 @@
 			margin-right: auto;
 		}
 		#cart_line_item {
-			height: 240px; 
+			/*height: 240px; */
 		}
     }
     @media (min-width: 768px) {
@@ -31,12 +31,12 @@
 			margin-right: auto;
 		}
 		#cart_line_item {
-			height: 270px;
+			/*height: 270px;*/
 		}
     }
     @media (min-width: 992px) {
 		#cart_line_item {
-			height: 240px; 
+			/*height: 240px; */
 		}
 		#cart_frame {
 			margin-left: 7%;
@@ -55,7 +55,7 @@
 			height: 136px;
 			float: left;
 			img {
-				width: 100%;
+				max-width: 151px;
 				height: 100%;
 			}
 		}

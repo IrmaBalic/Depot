@@ -1,9 +1,11 @@
 <div id="purchase_title"><%= t('purchuase_history') %></div>
 <div id="cart_frame">
-<% @user.orders.each do |order| %>
+<% @orders.each do |order| %>
 	<% order.ordered_line_items.each do |line_item| %>
 	  	<div id="cart_line_item">
-			<div id="slika"><%= image_tag(line_item.ordered_product.image_url) %></div>	
+			<div id="slika">
+				<%= image_tag(line_item.ordered_product.avatar.url(:medium)) %>
+			</div>	
 				<div id="description">
 					<span><%= t('title') %>: <%= line_item.ordered_product.title %></span><br>
 					<span><%= t('description') %>: <%= sanitize(line_item.ordered_product.description) %></span>

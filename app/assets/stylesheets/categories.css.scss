@@ -11,7 +11,7 @@ a:visited {
   $crvena: #e74c3c;
   $hover_link: #81D697;
       #main {
-      min-height: 445px;
+      min-height: 450px;
     }
     #input_form {
     background-color:  #f9fafa;
@@ -195,13 +195,16 @@ a:visited {
     }
   .entry {
     margin-bottom: 25px;
-    border: 1px solid red;
     float:none;
     margin-left: auto;
     margin-right: auto;
     /*height: 290px;*/
     .row {
      /* height: 150px;*/
+      img {
+        height: 100%;
+        max-width: 140px;
+      }
     }
   }
   #products_list {
@@ -232,9 +235,11 @@ a:visited {
       margin-left: 100px;
     }
     .entry {
+      margin-bottom: 0;
       height: 250px;
-      margin-left: 2%;
-      margin-right: 2%;
+      margin-left: 4%;
+      margin-right: 4%;
+      /*float: left;*/
       .row {
         height: 55%;
       }
@@ -245,7 +250,7 @@ a:visited {
     }
     #products_list {
       padding-top: 20px;
-      padding-left: 10%;
+      /*padding-left: 10%;*/
     }
     .price_line {
       margin-top: 10%;

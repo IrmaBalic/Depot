@@ -31,6 +31,8 @@ class ChargesController < ApplicationController
 
     @cart.line_items.each do |line_item| 
       @ordered_product = OrderedProduct.create_item(line_item.product.title, line_item.product.image_url, line_item.product.price,line_item.product.description_bs, line_item.product.description_en)
+      @ordered_product.avatar = line_item.product.product_images.first.avatar
+      @ordered_product.save
       @ordered_line_item = OrderedLineItem.new
       @ordered_line_item.quantity = line_item.quantity
       @ordered_line_item.ordered_product = @ordered_product
