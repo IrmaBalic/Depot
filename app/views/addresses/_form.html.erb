@@ -21,7 +21,7 @@
   <% end %>
   
   <div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
-  <div id="input_form"  class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+  <div id="input_form"  class="col-xs-10 col-sm-5 col-md-5 col-lg-4">
   <% unless session[:user_id] %>
     <div class="field">
       <%= label :user_name, t('name') %>
@@ -71,7 +71,7 @@
   </div>
 </div>
 <br><br>
-  <div id="input_form_2" class="col-xs-10 col-sm-5 col-md-4 col-lg-4" style="clear:both;">
+  <div id="input_form_2" class="col-xs-10 col-sm-5 col-md-5 col-lg-4" style="clear:both;">
     <div class="field">
       <%= label :name, t('address') %>
       <%= text_field_tag "billing_address[name]" %>

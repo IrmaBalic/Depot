@@ -3,7 +3,6 @@ class Product < ActiveRecord::Base
 	has_many :product_translations
     has_many :product_images
 	belongs_to :category
-	before_destroy :ensure_not_referenced_by_any_line_item
 	validates :title, :image_url, presence:true
 	validates :price, numericality: {greater_than_or_equal_to: 0.01}
 	validates :title, uniqueness: true

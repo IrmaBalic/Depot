@@ -1,6 +1,6 @@
 <%= form_tag  create_shipping_addresses_path do %>  
 <div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
-  <div id="input_form">
+  <div id="input_form" class="col-xs-10 col-sm-5 col-md-5 col-lg-4">
 	    <div class="field">
 	      <%= label :name, t('address') %>
 	      <%= text_field :address, :name %>
