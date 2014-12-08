@@ -11,6 +11,9 @@
   #main {
     margin-bottom: 30px;
   }
+    #purchuase {
+      margin-bottom: 50px;
+    }
   @media (max-width: 768px) {
     #input_form {
       max-width: 450px; 
@@ -32,9 +35,6 @@
     #input_form_2 {
       float: left;
       margin-left: 5%;
-    }
-    #purchuase {
-      float: right;
     }
   }
   @media (min-width: 992px) {

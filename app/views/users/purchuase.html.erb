@@ -1,26 +1,33 @@
 <div id="purchase_title"><%= t('purchuase_history') %></div>
-<div id="cart_frame">
+<div class="container-fluid">
+<div class="row">
+<div id="cart_frame" class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
 <% @orders.each do |order| %>
 	<% order.ordered_line_items.each do |line_item| %>
-	  	<div id="cart_line_item">
-			<div id="slika">
+	  	<div id="cart_line_item" class="col-xs-11 col-sm-12 col-md-12 col-lg-12">
+	  		<div class="row">
+		  		<span class="title-xs visible-xs-block col-xs-11"><%= t('title') %>: 
+		  			<%= line_item.ordered_product.title %>
+		  		</span><br>
+		  	</div>
+			<div id="slika" class="hidden-xs col-sm-3 col-md-3 col-lg-2">
 				<%= image_tag(line_item.ordered_product.avatar.url(:medium)) %>
 			</div>	
-				<div id="description">
+				<div id="description" class="hidden-xs col-sm-4 col-md-4 col-lg-4">
 					<span><%= t('title') %>: <%= line_item.ordered_product.title %></span><br>
 					<span><%= t('description') %>: <%= sanitize(line_item.ordered_product.description) %></span>
 				</div>
-				<div id="price_details">
+				<div id="price_details" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<span id="cijena"><%= t('price') %>: </span> <span class="price"><%= line_item.ordered_product.price %> KM</span><br><br>
 					<span id="cijena"><%= t('quantity') %>: </span><span class="price"> <%=line_item.quantity %></span>
 				</div>
-				<div id="order_details">
+				<div id="order_details" class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
 					<span id="label"><%= t('order_date') %>:</span>
 					 <span class="value"><%= order.created_at.strftime("%d.%m.%Y") %></span><br><br>
 					<span id="label"><%= t('shipping_date') %></span>
 					<span class="value"> <%= order.created_at.strftime("%d.%m.%Y") %></span>
 				</div>
-				<div id="order_details" style="margin-left: 10px; width: 200px;">
+				<div id="order_details" class="col-xs-4 col-sm-1 col-md-2 col-lg-2">
 					<span id="label"><%= t('shipping_address') %>:</span>
 					<span class="value" style="width: 200px;">
 						<%= order.shipping_address.name %>, <%= order.shipping_address.number %><br>
@@ -31,4 +38,6 @@
 		</div>
 	<% end %>
 <% end %>
+</div>
+</div>
 </div>
