@@ -3,6 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* START_HIGHLIGHT */
 .products {
+  .price {
+        color:  #7d7d7d;
+        /*font-size: 1.13em; 
+        font-weight: 600;*/
+        /*text-align: left;*/
+      }
+  p {
+    .price {
+      text-align: left;
+    }
+    .discount {
+      float: none;
+      width: 30px;
+      margin-left: 5px;
+    }
+  }
+  .price-old {
+    .price {
+      font-size: 1.13em; 
+    }
+  }
+  .price_discount {
+    font-size: 1.31em;
+    display: block;
+    margin-left: 0;
+    color: #566473;
+  }
   #input_form {
     float: none;
     margin-left: auto;
@@ -115,7 +142,6 @@
    /* font-size: 130%;*/
     text-align: center;
   }
-
   /* An entry in the store catalog */
   .entry    {
     margin-left: 15px;
@@ -142,19 +168,13 @@
         font-size: 0.88em; /* Approximation due to font substitution */
         font-weight: 600;
       }
-      .price {
-
-        color:  #7d7d7d;
-        font-size: 1.13em; /* Approximation due to font substitution */
-        font-weight: 600;
-      }
       width: 145px;
       height: 32px;
     }
   }
 }
   #image {
-    margin-top: 60px;
+    /*margin-top: 60px;*/
     /*width: 400px;*/
     img {
     /*width: 100%;
@@ -214,6 +234,7 @@
     }
   @media (max-width: 768px) {
     #image {
+      margin-top: 20px;
       float: none;
       margin-left: auto;
       margin-right: auto;
@@ -244,15 +265,19 @@
       margin-right: auto;
       padding-top: 20px;
     }
-    .cart_button_buy {
+    /*.cart_button_buy {
       float: none;
       margin-left: auto;
       margin-right: auto;
     }
+
     .cart_button_loading {
       float: none;
       margin-left: auto;
       margin-right: auto;
+    }*/
+    .cart_button_buy {
+      display: inline-block;
     }
   }
 
@@ -261,6 +286,7 @@
       margin-left: 7%;
     }
     #image {
+      margin-top: 40px;
       float: left;
       margin-left: 5%;
       height: 300px;
@@ -307,17 +333,20 @@
       }
     }
     #description {
-      padding-top: 60px;
+      padding-top: 40px;
       float: left;
     }
-    .cart_button_buy {
+   /* .cart_button_buy {
       float: left;
       margin-left: 0;
     }
     .cart_button_loading {
       float: left;
       margin-left: 0;
-    }
+    }*/
+    .cart_button_buy {
+    display: none;
+  }
   }
   @media(min-width: 992px) {
     #section_title {

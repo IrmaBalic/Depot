@@ -1,7 +1,7 @@
 <div id="section_title">
   <%= @product.title %>
 </div>
-<div id="image" class="col-xs-7 col-sm-4 col-md-4 col-lg-4">
+<div id="image" class="col-xs-9 col-sm-4 col-md-4 col-lg-4">
   <ul class="bxslider">
     <% @product.product_images.each do |product_image| %>
       <li><%= image_tag product_image.avatar.url(:large) %></li>
@@ -29,7 +29,14 @@
   <br>
   <p>
     <strong><%= t('price') %>:</strong>
-    <%= @product.price %> KM
+    </p><p>
+    <% if @product.discount %>
+      <span class="price-old"><span class="price"><%= @product.price %> KM</span></span>
+      <span class="discount"><%= @product.discount.to_i %>%</span>
+      <span class="price_discount"><%= @product.sale_price %> KM </span>
+    <% else %>
+      <span class="price"><%= @product.price %> KM</span>
+    <% end %>
   </p>
   <% unless session[:role] == 'Admin' %>
   	 <div id="entry-button">

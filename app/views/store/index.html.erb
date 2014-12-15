@@ -1,26 +1,33 @@
 <div class="container-fluid">
 <div class="row">
-<div id="products_sale" class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
+<div id="products_sale" class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
 <div class="row">
 	<div id="main-header" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><%= t :new %></div>
 	</div>
-	<div class="row">
-	<div id="latest_products" class="col-xs-11 col-sm-12 col-md-12 col-lg-12">
+	<div id="latest_products">
 	<% cache ['store', Product.latest] do %>
 	<div class="row">
 		<% @products.each do |product| %>
 			<% cache ['entry', product] do %>
-				<div class="entry col-xs-5 col-sm-4 col-md-3 col-lg-3">
-					<div class="row">
+				<div class="entry col-xs-5 col-sm-3 col-md-3 col-lg-3">
+					<div class="img_div">
 						<a href="<%= product_path(product) %>">
 							<% if product.product_images.any? %>
 				              <%= image_tag(product.product_images.first.avatar.url(:medium)) %></td>
 				            <% end %>
 						</a>
 					</div>
+					<% if product.discount %>
+						<div class="discount"><%= product.discount.to_i %>%</div>
+					<% end %>
 					<div class="price_line">
 						<div class="title"><%= product.title %></div>
-						<span class="price"><%= product.price %> KM </span>
+						<% if product.discount %>
+							<span class="price-old"><span class="price"><%= product.price %>KM</span></span>
+							<span class="price_discount"><%= product.sale_price %>KM </span>
+						<% else %>
+							<span class="price"><%= product.price %>KM</span>
+						<% end %>
 					</div>
 					<% unless session[:role] == 'Admin' %>
 						<%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy button_store hidden-xs' %>
@@ -31,7 +38,6 @@
 		<% end %>
 	</div>
 	<% end %>
-	</div>
 	</div>
 </div>
 </div>

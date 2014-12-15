@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
     category = Category.find_by_id(params[:category])
       #Product.create_item(params[:product][:title], params[:product][:image_url], params[:product][:price], params[:product][:description_bs], params[:product][:description_en], params[:category])
     product = Product.create!(title: params[:product][:title],category: category, price: params[:product][:price], image_url: params[:product][:image_url])
+    product.discount = params[:product][:discount]
+    product.save
     ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
     ProductTranslation.create!(product: product, locale: "bs", description: params[:product][:description_bs])
     p = Product.last
@@ -50,6 +52,7 @@ class ProductsController < ApplicationController
     @product.category = category
     @product.title = params[:product][:title]
     @product.price = params[:product][:price]
+    @product.discount = params[:product][:discount]
     @product.image_url = params[:product][:image_url]
     @product.update_attr(params[:product][:description_bs], params[:product][:description_en])
     @product.save!

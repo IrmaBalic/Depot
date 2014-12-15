@@ -31,6 +31,10 @@
       <%= f.text_field :price %>
     </div>
     <div class="field">
+      <%= f.label :discount %><br>
+      <%= f.text_field :discount %>
+    </div>
+    <div class="field">
       <%= f.label :avatar, "Images" %>
       <% if @edit %>
         <% if @product.product_images.any? %>

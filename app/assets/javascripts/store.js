@@ -16,7 +16,7 @@ $(document).ready(function() {
 		}, 5000);
 	});
 	$(".entry").hover(function() {
-		var mq = window.matchMedia( "(max-width: 768px)" );
+		var mq = window.matchMedia( "(max-width: 991px)" );
 		if(!mq.matches) {
 			var element = $(".entry").index(this);
 			var loading = $(".cart_button_loading").get(element);
@@ -26,7 +26,7 @@ $(document).ready(function() {
 			}
 		}
 	}, function() {
-		var mq = window.matchMedia( "(max-width: 768px)" );
+		var mq = window.matchMedia( "(max-width: 991px)" );
 		if(!mq.matches) {
 			var element = $(".entry").index(this);
 			var add_to_cart = $(".button_store").get(element);

@@ -11,6 +11,9 @@ class Product < ActiveRecord::Base
 	def self.latest
 	  Product.order(:updated_at).last
 	end
+    def sale_price
+        price-(discount*0.01*price)
+    end
     #Translation
 	def update_attr(description_bs, description_en)
         translation_bs = product_translations.where(locale: "bs").first

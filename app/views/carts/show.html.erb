@@ -18,7 +18,12 @@
 					<span><%= t('description')%>: <%= sanitize(line_item.product.description) %></span>
 				</div>
 				<div id="price_details" class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-					<span id="cijena"><%= t('price') %></span> <span class="price"><%= line_item.product.price %> KM</span><br><br>
+					<span id="cijena"><%= t('price') %></span> 
+					<span class="price">
+						<% if line_item.product.discount %>
+						<%= line_item.product.sale_price %>
+						<% else %>
+						<%= line_item.product.price %> <% end %> KM</span><br><br>
 					<span id="cijena"><%= t('quantity') %></span><span class="price"> <%=line_item.quantity %></span>
 				</div>
 			</div>
