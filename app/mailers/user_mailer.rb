@@ -29,6 +29,9 @@ class UserMailer < MandrillMailer::TemplateMailer
       template: 'RegistrationEmail',
       to: @user.email, 
       subject: "Confirmation email"
+      vars: {
+        'USER_NAME' => @user.name,
+      }
     )
   	#mail(to: @user.email, subject: "Confirmation email")
   end

@@ -50,8 +50,8 @@
 		<% end %>
       </ul>
       	<ul class="nav navbar-nav navbar-right hidden-xs" id="languages">
-			<li><%= link_to 'EN', store_path(:locale => 'en') %></li>
-			<li><%= link_to 'BS', store_path(:locale => 'bs') %></li>
+			<li><%= link_to 'EN', :locale=>'en' %></li>
+			<li><%= link_to 'BS', :locale => 'bs' %></li>
 		</ul>
       <ul class="nav navbar-nav navbar-right">
         <% if session[:user_id]  %>
