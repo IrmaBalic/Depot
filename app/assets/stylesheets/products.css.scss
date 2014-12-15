@@ -265,7 +265,7 @@
       margin-right: auto;
       padding-top: 20px;
     }
-    /*.cart_button_buy {
+    .cart_button_buy {
       float: none;
       margin-left: auto;
       margin-right: auto;
@@ -275,9 +275,6 @@
       float: none;
       margin-left: auto;
       margin-right: auto;
-    }*/
-    .cart_button_buy {
-      display: inline-block;
     }
   }
 
@@ -336,17 +333,14 @@
       padding-top: 40px;
       float: left;
     }
-   /* .cart_button_buy {
+    .cart_button_buy {
       float: left;
       margin-left: 0;
     }
     .cart_button_loading {
       float: left;
       margin-left: 0;
-    }*/
-    .cart_button_buy {
-    display: none;
-  }
+    }
   }
   @media(min-width: 992px) {
     #section_title {
