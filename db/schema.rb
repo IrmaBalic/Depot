@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
 
-  create_table "admins", force: true do |t|
-    t.string   "name"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "billing_addresses_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "address_id"
@@ -203,20 +196,10 @@ ActiveRecord::Schema.define(version: 20141212134314) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-<<<<<<< HEAD
-=======
     t.string   "email"
-    t.integer  "address_id"
->>>>>>> master
     t.integer  "role_id"
     t.boolean  "registered"
     t.string   "surname"
   end
-
-<<<<<<< HEAD
-  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
-=======
-  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
->>>>>>> master
 
 end
