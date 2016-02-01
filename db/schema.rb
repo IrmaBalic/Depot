@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20141023080545) do
   add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
 
-  create_table "admins", force: true do |t|
-    t.string   "name"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -111,17 +104,16 @@ ActiveRecord::Schema.define(version: 20141023080545) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "role_id"
+    t.string   "email"
     t.integer  "address_id"
+    t.integer  "role_id"
     t.boolean  "registered"
     t.string   "surname"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
-  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end
