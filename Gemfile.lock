@@ -45,6 +45,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+<<<<<<< HEAD
     arel (6.0.0)
     aws-sdk (1.59.0)
       aws-sdk-v1 (= 1.59.0)
@@ -52,17 +53,26 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.9-x86-mingw32)
+=======
+    arel (6.0.0.beta1)
+    bcrypt (3.1.7)
+    bcrypt (3.1.7-x86-mingw32)
+>>>>>>> master
     better_errors (0.0.8)
       coderay
       erubis
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+<<<<<<< HEAD
     bxslider-rails (4.1.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
+=======
+    byebug (8.2.1)
+>>>>>>> master
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -71,14 +81,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    columnize (0.8.9)
     debug_inspector (0.0.2)
+<<<<<<< HEAD
     debugger (1.6.8)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.3.5)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.3.7)
+=======
+>>>>>>> master
     erubis (2.7.0)
     excon (0.42.0)
     execjs (2.2.2)
@@ -124,6 +136,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+<<<<<<< HEAD
     netrc (0.9.0)
     nokogiri (1.6.5-x86-mingw32)
       mini_portile (~> 0.6.0)
@@ -132,6 +145,14 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+=======
+    netrc (0.8.0)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
+    nokogiri (1.6.3.1-x86-mingw32)
+      mini_portile (= 0.6.0)
+    pg (0.17.1)
+>>>>>>> master
     pg (0.17.1-x86-mingw32)
     rack (1.6.0.beta2)
     rack-test (0.6.2)
@@ -168,6 +189,9 @@ GEM
     rake (10.4.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rest-client (1.7.2-x86-mingw32)
       ffi (~> 1.9)
       mime-types (>= 1.16, < 3.0)
@@ -209,6 +233,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
@@ -216,6 +241,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors (= 0.0.8)
   binding_of_caller
+<<<<<<< HEAD
   bxslider-rails
   coffee-rails (~> 4.0.0)
   debugger
@@ -223,6 +249,10 @@ DEPENDENCIES
   globalize (~> 4.0.2)
   globalize-accessors
   i18n-js
+=======
+  byebug
+  coffee-rails (~> 4.0.0)
+>>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
   jquery-turbolinks
@@ -240,3 +270,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0.0.beta4)
+
+BUNDLED WITH
+   1.11.2

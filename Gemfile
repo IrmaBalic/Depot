@@ -4,9 +4,10 @@ if RUBY_VERSION =~ /1.9/
 end
 source 'https://rubygems.org'
 
-ruby "1.9.3"
 gem 'paperclip'
 gem 'aws-sdk'
+ruby "2.0.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.rc1'
 # Use sqlite3 as the database for Active Record
@@ -53,8 +54,7 @@ gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
+  gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0.0.beta4'
