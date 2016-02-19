@@ -20,8 +20,8 @@ class AddressesController < ApplicationController
   def create_billing
     #Shipping address
     @address = Address.new(address_params)  
-    unless city = City.find_by(name: params[:city][:name])
-      unless country = Country.find_by(name: params[:country][:name])
+    unless city = City.where(name: params[:city][:name]).first
+      unless country = Country.where(name: params[:country][:name]).first
         country = Country.new(country_params)
       end
       city = City.new(city_params)
@@ -50,8 +50,8 @@ class AddressesController < ApplicationController
   def create_shipping
     #Shipping address
     @address = Address.new(address_params)  
-    unless city = City.find_by(name: params[:city][:name])
-      unless country = Country.find_by(name: params[:country][:name])
+    unless city = City.where(name: params[:city][:name]).first
+      unless country = Country.where(name: params[:country][:name]).first
         country = Country.new(country_params)
       end
       city = City.new(city_params)
@@ -84,8 +84,8 @@ class AddressesController < ApplicationController
   def create
     #Shipping address
   	@address = Address.new(address_params)	
-    unless city = City.find_by(name: params[:city][:name])
-    	unless country = Country.find_by(name: params[:country][:name])
+    unless city = City.where(name: params[:city][:name]).first
+    	unless country = Country.where(name: params[:country][:name]).first
     		country = Country.new(country_params)
     	end
     	city = City.new(city_params)
@@ -109,8 +109,8 @@ class AddressesController < ApplicationController
     unless params[:same_as_shipping]
       # New billing address
         @billing_address = Address.new(billing_address_params)
-        unless b_city = City.find_by(name: params[:billing_address][:city])
-          unless b_country = Country.find_by(name: params[:billing_address][:country])
+        unless b_city = City.where(name: params[:billing_address][:city]).first
+          unless b_country = Country.where(name: params[:billing_address][:country]).first
             b_country = Country.new
             b_country.name = params[:billing_address][:country]
           end

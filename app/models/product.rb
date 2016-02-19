@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 	has_many :product_translations
     has_many :product_images
+    belongs_to :brand
 	belongs_to :category
 	validates :title, presence:true
 	validates :price, numericality: {greater_than_or_equal_to: 0.01}

@@ -5,11 +5,11 @@ end
 source 'https://rubygems.org'
 
 gem 'paperclip'
-gem 'aws-sdk'
-ruby "2.0.0"
+gem 'aws-sdk', '< 2.0'
+ruby "2.2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.rc1'
+gem 'rails', '~> 4.2', '>= 4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
@@ -44,7 +44,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use Unicorn as the app server

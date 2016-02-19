@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def find_category_url
-    @desktop_tr = CategoryTranslation.find_by(name: "TV i monitori")
+    @desktop_tr = CategoryTranslation.where(name: "TV i monitori").first
     @desktop = @desktop_tr.category
-    @laptop_tr = CategoryTranslation.find_by(name:"Laptopi")
+    @laptop_tr = CategoryTranslation.where(name:"Laptopi").first
     @laptop = @laptop_tr.category
-    @tablet_tr = CategoryTranslation.find_by(name:"Mobiteli i tableti")
+    @tablet_tr = CategoryTranslation.where(name:"Mobiteli i tableti").first
     @tablet = @tablet_tr.category
   end
   def find_category
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user
-  	unless User.find_by(id: session[:user_id])
+  	unless User.where(id: session[:user_id]).first
   		redirect_to signin_url, notice: "Please log in"
   	end
   end
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user_login
-    if User.find_by(id: session[:user_id])
+    if User.where(id: session[:user_id])
       redirect_to store_url
     end
   end
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
       u = User.find(session[:user_id])
       puts "User id: #{u.id}"
       
-      @user = User.find_by(id: session[:user_id])
+      @user = User.where(id: session[:user_id]).first
     end
   end
   #Localization

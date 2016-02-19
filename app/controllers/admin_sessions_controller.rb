@@ -18,7 +18,7 @@ class AdminSessionsController < ApplicationController
     #@user.role = role
   def create
     #raise
-    user = User.find_by(email: params[:email])
+    user = User.where(email: params[:email]).first
     #if user and user.authenticate(params[:password])
     if user and user.password_digest == params[:password]
       session[:user_id] = user.id

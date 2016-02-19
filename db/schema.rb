@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212134314) do
+ActiveRecord::Schema.define(version: 20160216221657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "address_types", force: true do |t|
+  create_table "address_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "addresses", force: true do |t|
+  create_table "addresses", force: :cascade do |t|
     t.string   "name"
     t.string   "number"
     t.integer  "floor"
@@ -35,7 +35,14 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
 
-  create_table "billing_addresses_users", force: true do |t|
+  create_table "admins", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "billing_addresses_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "address_id"
     t.datetime "created_at", null: false
@@ -45,17 +52,21 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "billing_addresses_users", ["address_id"], name: "index_billing_addresses_users_on_address_id", using: :btree
   add_index "billing_addresses_users", ["user_id"], name: "index_billing_addresses_users_on_user_id", using: :btree
 
-  create_table "carts", force: true do |t|
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "carts", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_translations", force: true do |t|
+  create_table "category_translations", force: :cascade do |t|
     t.integer  "category_id", null: false
     t.string   "locale",      null: false
     t.datetime "created_at"
@@ -66,7 +77,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id", using: :btree
   add_index "category_translations", ["locale"], name: "index_category_translations_on_locale", using: :btree
 
-  create_table "cities", force: true do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.string   "postal_code"
     t.integer  "country_id",  null: false
@@ -76,13 +87,13 @@ ActiveRecord::Schema.define(version: 20141212134314) do
 
   add_index "cities", ["country_id"], name: "index_cities_on_country_id", using: :btree
 
-  create_table "countries", force: true do |t|
+  create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "line_items", force: true do |t|
+  create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
     t.datetime "created_at"
@@ -93,7 +104,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
-  create_table "ordered_line_items", force: true do |t|
+  create_table "ordered_line_items", force: :cascade do |t|
     t.integer  "ordered_product_id"
     t.integer  "order_id"
     t.integer  "quantity"
@@ -104,7 +115,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "ordered_line_items", ["order_id"], name: "index_ordered_line_items_on_order_id", using: :btree
   add_index "ordered_line_items", ["ordered_product_id"], name: "index_ordered_line_items_on_ordered_product_id", using: :btree
 
-  create_table "ordered_product_translations", force: true do |t|
+  create_table "ordered_product_translations", force: :cascade do |t|
     t.integer  "ordered_product_id", null: false
     t.string   "locale",             null: false
     t.datetime "created_at"
@@ -115,7 +126,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "ordered_product_translations", ["locale"], name: "index_ordered_product_translations_on_locale", using: :btree
   add_index "ordered_product_translations", ["ordered_product_id"], name: "index_ordered_product_translations_on_ordered_product_id", using: :btree
 
-  create_table "ordered_products", force: true do |t|
+  create_table "ordered_products", force: :cascade do |t|
     t.string   "title"
     t.string   "image_url"
     t.decimal  "price"
@@ -130,7 +141,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
 
   add_index "ordered_products", ["categorie_id"], name: "index_ordered_products_on_categorie_id", using: :btree
 
-  create_table "orders", force: true do |t|
+  create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -140,19 +151,20 @@ ActiveRecord::Schema.define(version: 20141212134314) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
-  create_table "product_images", force: true do |t|
+  create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "cover",               default: false
   end
 
   add_index "product_images", ["product_id"], name: "index_product_images_on_product_id", using: :btree
 
-  create_table "product_translations", force: true do |t|
+  create_table "product_translations", force: :cascade do |t|
     t.integer  "product_id",  null: false
     t.string   "locale",      null: false
     t.datetime "created_at"
@@ -163,7 +175,7 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "product_translations", ["locale"], name: "index_product_translations_on_locale", using: :btree
   add_index "product_translations", ["product_id"], name: "index_product_translations_on_product_id", using: :btree
 
-  create_table "products", force: true do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "title"
     t.string   "image_url"
     t.decimal  "price",       precision: 8, scale: 2
@@ -171,17 +183,20 @@ ActiveRecord::Schema.define(version: 20141212134314) do
     t.datetime "updated_at"
     t.decimal  "discount"
     t.integer  "category_id"
+    t.integer  "quantity",                            default: 1
+    t.integer  "brand_id"
   end
 
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
-  create_table "roles", force: true do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "shipping_addresses_users", force: true do |t|
+  create_table "shipping_addresses_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "address_id"
     t.datetime "created_at", null: false
@@ -191,15 +206,17 @@ ActiveRecord::Schema.define(version: 20141212134314) do
   add_index "shipping_addresses_users", ["address_id"], name: "index_shipping_addresses_users_on_address_id", using: :btree
   add_index "shipping_addresses_users", ["user_id"], name: "index_shipping_addresses_users_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "email"
     t.integer  "role_id"
     t.boolean  "registered"
     t.string   "surname"
   end
+
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end

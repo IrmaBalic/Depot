@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     if session[:role] == 'Admin'
       role = Role.find(params[:role])
     else 
-      role = Role.find_by(name: 'User')
+      role = Role.where(name: 'User').first
     end
     @user.role = role
   

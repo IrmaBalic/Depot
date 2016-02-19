@@ -23,14 +23,16 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @category = @product.category.id
+    @brand = @product.brand ? @product.brand.id : -1 
   end
 
   # POST /products
   # POST /products.json
   def create
-    category = Category.find_by_id(params[:category])
+    category = Category.find(params[:category])
+    brand = Brand.find(params[:brand])
       #Product.create_item(params[:product][:title], params[:product][:image_url], params[:product][:price], params[:product][:description_bs], params[:product][:description_en], params[:category])
-    product = Product.create!(title: params[:product][:title],category: category, price: params[:product][:price], image_url: params[:product][:image_url])
+    product = Product.create!(title: params[:product][:title],category: category, brand: brand, price: params[:product][:price], image_url: params[:product][:image_url])
     product.discount = params[:product][:discount]
     product.save
     ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
@@ -48,8 +50,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    category = Category.find_by_id(params[:category])
+    category = Category.find(params[:category])
+    brand = Brand.find(params[:brand])
     @product.category = category
+    @product.brand = brand
     @product.title = params[:product][:title]
     @product.price = params[:product][:price]
     @product.discount = params[:product][:discount]
