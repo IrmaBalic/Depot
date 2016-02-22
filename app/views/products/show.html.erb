@@ -27,6 +27,13 @@
     <%= sanitize(@product.description) %>
   </p>
   <br>
+  <% unless @product.brand.nil? %>
+    <p>
+      <strong>Brand:</strong>
+        <%= @product.brand.name %>
+    </p>
+    <br>
+  <% end %>
   <p>
     <strong><%= t('price') %>:</strong>
     </p><p>

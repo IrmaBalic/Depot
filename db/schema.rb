@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20160216221657) do
   add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
 
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "billing_addresses_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "address_id"
@@ -153,13 +146,12 @@ ActiveRecord::Schema.define(version: 20160216221657) do
 
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.boolean  "cover",               default: false
   end
 
   add_index "product_images", ["product_id"], name: "index_product_images_on_product_id", using: :btree
@@ -183,7 +175,6 @@ ActiveRecord::Schema.define(version: 20160216221657) do
     t.datetime "updated_at"
     t.decimal  "discount"
     t.integer  "category_id"
-    t.integer  "quantity",                            default: 1
     t.integer  "brand_id"
   end
 
@@ -208,15 +199,13 @@ ActiveRecord::Schema.define(version: 20160216221657) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "email"
     t.integer  "role_id"
     t.boolean  "registered"
     t.string   "surname"
   end
-
-  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
 end

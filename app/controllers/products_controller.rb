@@ -51,9 +51,13 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     category = Category.find(params[:category])
-    brand = Brand.find(params[:brand])
+
+    if params[:brand] != "-1"
+      brand = Brand.find(params[:brand])
+      @product.brand = brand
+    end
+
     @product.category = category
-    @product.brand = brand
     @product.title = params[:product][:title]
     @product.price = params[:product][:price]
     @product.discount = params[:product][:discount]

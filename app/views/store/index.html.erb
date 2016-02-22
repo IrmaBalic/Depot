@@ -2,14 +2,34 @@
 <div class="row">
 <div id="products_sale" class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
 <div class="row">
-	<div id="main-header" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><%= t :new %></div>
+	<div id="main-header" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="row">
+		<div class="col-xs-2 col-sm-2 col-md-12 col-lg-2">
+			<%= t :new %>
+		</div>
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+		<div class="brands">
+			<% Brand.all.each do |brand| %>
+				<span class="brand">
+					<a href="#"><%= brand.name %></a>
+				</span>
+			<% end %>
+		</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<div class="search-icon">
+				<input type="text" id="search" placeholder="Pretrazi artikle.." />
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+	</div>
 	</div>
 	<div id="latest_products">
 	<% cache ['store', Product.latest] do %>
 	<div class="row">
 		<% @products.each do |product| %>
 			<% cache ['entry', product] do %>
-				<div class="entry col-xs-5 col-sm-3 col-md-3 col-lg-3">
+				<div class="entry col-xs-5 col-sm-3 col-md-3 col-lg-3" id="product-<%=product.id%>">
 					<div class="img_div">
 						<a href="<%= product_path(product) %>">
 							<% if product.product_images.any? %>
@@ -33,7 +53,10 @@
 						<%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy button_store hidden-xs' %>
 						<div class="cart_button_loading hidden-xs"></div>	
 					<%end%>
-				 	</div>
+					<% if product.brand %>
+						<input type="hidden" class="brand_name" value="<%= product.brand.name %>">
+					<% end %>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
@@ -43,7 +66,7 @@
 </div>
 </div>
 <script>
-	$(document).ready(function() {
+$(document).ready(function() {
 	$(".cart_button_buy").click(function() {
 		$(this).css("display","none");
 		var element = $(".cart_button_buy").index(this);
@@ -59,5 +82,16 @@
 			$(loading).css("display","none");
 		}, 5000);
 	});
+	$("#search").keyup(function(){
+	    var val = $(this).val().toLowerCase();
+	    $("#latest_products .entry").hide();
+		$("#latest_products .entry").each(function(){
+		 var text = $(this).find(".price_line .title").text().toLowerCase();
+		 if(text.indexOf(val) != -1)
+		 {
+		 	$(this).show();
+		 }
+		});
+	 });
 });
 </script>

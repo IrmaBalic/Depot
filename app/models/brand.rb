@@ -3,7 +3,7 @@ class Brand < ActiveRecord::Base
 	
 	def self.dropdown_options 
 		options = Brand.all.map{|r| [r.name, r.id] }
-		[["Please select", -1]] + options 
+		[["---", -1]] + options 
 	end
 
 	def self.selected(brand)

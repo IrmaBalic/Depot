@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       end
     end
     resources :roles
+    resources :brands
     resources :addresses do
       collection do
         get :old_addresses

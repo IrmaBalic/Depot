@@ -14,8 +14,8 @@
     margin-right: auto;
     text-align: center;  
     #main-header {
-      height: 80px;
-      line-height: 80px;
+      height: 60px;
+      line-height: 60px;
       padding-left: 40px; 
       background-color: white;
       color: #7d7d7d;
@@ -31,6 +31,44 @@
     background-image: url(image-path('textura.png'));
     background-repeat: repeat;
     opacity: 0.85;
+  }
+
+  .brands {
+    .brand {
+      line-height: 14px;
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+      a {
+        color: #7d7d7d;
+      }
+    }
+  }
+
+  .search-icon {
+    text-align: right;
+    position: relative;
+    color: #c2c2c2;
+    input {
+      height: 30px;
+      line-height: 30px;
+      border-top-left-radius: 53px;
+      border-bottom-left-radius: 53px;
+      border-top-right-radius: 53px;
+      border: 1px solid #c2c2c2;
+      border-bottom-right-radius: 53px;
+      padding-left: 30px;
+    }
+    input:focus {
+      outline: none;
+    }
+    .fa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 25px;
+      margin-left: 85px;
+    }
   }
 
   .entry-frame {
@@ -51,9 +89,9 @@
      }*/
   }
   .entry {
-  /*  .cart_button_buy {
-        display: none;
-     }*/
+    .cart_button_buy {
+      line-height: 25px;
+     }
   }
   #latest_products {
     text-align: center;

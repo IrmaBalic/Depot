@@ -32,6 +32,23 @@
   padding-left: 0;
   padding-right: 0;
  }
+
+ .relative {
+  position: relative;
+ }
+
+ .pull-left {
+  float: left;
+ }
+
+ .cat-title {
+  color:  #545454;
+  font-size: 18px;/* Approximation due to font substitution */
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 20px;
+ }
 #title {
     color:  #545454;
     font-size: 1.5em; 
@@ -124,6 +141,9 @@
       vertical-align: middle;
       /*display: inline-block;*/
      /* margin-left: -10px;*/
+     position: absolute;
+     right: 0;
+     top: 4px;
     }
     .basket {
       display: inline-block;
@@ -156,12 +176,12 @@
  $hover_link: #F08490;
  body
  {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color:  #ffffff;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1500px;
 }
   #main {
     min-height: 470px;
@@ -178,7 +198,7 @@ a:hover {
   text-decoration: none;
 }
 input {
-      font-family: "Open Sans";
+      font-family: "Lato";
       }
 
 html, body, div, span { display: block;}
@@ -242,7 +262,7 @@ html, body, div, span { display: block;}
     background-color: none;
     color: white;
     font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     cursor: pointer;
     border-radius: 0px;
     margin-bottom: 0;
@@ -525,7 +545,7 @@ html, body, div, span { display: block;}
         border: 1px solid #566473;
         width: 120px;
         height: 30px;
-        line-height: 30px;
+        line-height: 25px;
         vertical-align: middle;
         display: inline-block;
         background-color:   white;   
@@ -569,7 +589,7 @@ html, body, div, span { display: block;}
         font-size: 11px;
         font-weight: 600;
        /* float: right;*/
-        font-family: "Open Sans";
+        font-family: "Lato";
         cursor: pointer;
       }
       .cart_button_loading {
@@ -583,7 +603,7 @@ html, body, div, span { display: block;}
         font-size: 11px;
         font-weight: 600;
         /*float: right;*/
-        font-family: "Open Sans";
+        font-family: "Lato";
         cursor: pointer;
         background-color: #e74c3c;
         color: #e74c3c;

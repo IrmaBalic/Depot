@@ -1,7 +1,25 @@
-  <div id="section_title"> <%= @category.name %></div>
 <div class="container-fluid">
 <div class="row">
-  <div id="products_list" class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
+  <div class="filters hidden-xs col-md-offset-1 col-lg-offset-1 col-sm-2 col-md-2 col-lg-2">
+    <div class="cat-title">  FILTER </div>
+    <div class="filters-part">
+      <div class="field">
+      <%= label :brand_id, "Brend:" %><br>
+      <%= select_tag(:brand, options_for_select(Brand.dropdown_options, :selected => Brand.selected(@category))) %>
+      </div>
+      <div class="field">
+      <%= label :price, "Cijena:" %><br>
+      <%= select_tag(:price, options_for_select([["---",-1], ["< 500KM", 1], ["500KM - 1000KM", 2], ["1000KM - 2000KM", 3], ["2000KM - 5000KM", 4], ["> 5000KM", 5]], :selected => -1)) %>
+    </div>
+    </div>
+  </div>
+  <div id="products_list" class="col-xs-9 col-md-offset-1 col-lg-offset-1 col-sm-8 col-md-8 col-lg-8">
+    <div class="cat-title col-xs-9 col-sm-8 col-md-8 col-lg-8"> <%= @category.name %></div>
+    <div class="cat-sort col-xs-3 col-sm-3 col-md-3 col-lg-3"> 
+    Cijena: 
+    <%= select_tag(:sort, options_for_select([["---",-1], ["od veće ka manjoj", 1], ["od manje ka većoj", 2]], :selected => -1)) %>
+    </div>
+    <div class="clearfix"></div>
     <div class="row">
       <% @category.products.each do |product| %>
         <div class="entry col-xs-7 col-sm-3 col-md-2 col-lg-2">
@@ -19,18 +37,21 @@
             <div class="title"><%= product.title %></div>
             <% if product.discount %>
               <span class="price-old"><span class="price"><%= product.price %>KM</span></span>
-              <span class="price_discount"><%= product.sale_price %>KM </span>
+              <span class="price_discount current-price"><%= product.sale_price %>KM </span>
             <% else %>
-              <span class="price"><%= product.price %>KM</span>
+              <span class="price current-price"><%= product.price %>KM</span>
             <% end %>
           </div>
             <% if session[:role] != 'Admin' %>
                 <%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy button_store hidden-xs' %>
                 <div class="cart_button_loading hidden-xs"></div> 
             <% else %>
-            <%= link_to 'Show', product %>
-            <%= link_to 'Edit', edit_product_path(product) %>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Show', product %>
+              <%= link_to 'Edit', edit_product_path(product) %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            <% if product.brand %>
+              <input type="hidden" class="brand_name" value="<%= product.brand.name %>">
             <% end %>
           </div>   
         <% end %>
@@ -40,7 +61,10 @@
 </div>
 
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
+
+  $firstLoaded = $("#products_list .entry");
+
   $(".cart_button_buy").click(function() {
     $(this).css("display","none");
     var element = $(".cart_button_buy").index(this);
@@ -57,6 +81,131 @@
       $(done).css("display","inline-block");
     }, 5000);
   });
+
+  $("select#brand").change(function(){
+    filterItems();
+  });
+  $("select#price").change(function(){
+    filterItems();
+  });
+  $("select#sort").change(function(){
+    sortItems();
+  });
 });
+
+function filterItems() {
+  var brandVal = $("select#brand").find("option:selected").val();
+  var priceVal = $("select#price").find("option:selected").val();
+
+  var showAllBrands = (brandVal == -1) ? true : false;
+  var showAllPrices = (priceVal == -1) ? true : false;
+
+  if(!showAllPrices || !showAllBrands) {
+    var brand = $("select#brand").find("option:selected").text().toLowerCase();
+    $("#products_list .entry").hide();
+
+    $("#products_list .entry").each(function() {
+      var showBrand = false, showPrice = false;
+
+      if(!showAllBrands) {
+        var brandText = $(this).find(".brand_name").val(); 
+        if(brandText) {
+          brandText = brandText.toLowerCase();
+          if(brand.indexOf(brandText) != -1)
+          {
+            showBrand = true;
+          }
+        }
+      }
+      else {
+        showBrand = true;
+      }
+
+      if(!showAllPrices) {
+        var priceText = $(this).find(".current-price").text();
+         
+        if(priceText) {
+          priceNumber = Number(priceText.toLowerCase().replace("km",""));
+          // What if NaN?
+          if(priceNumber) {
+            if(priceVal == 1 && priceNumber < 500) {
+              showPrice = true;
+            }
+            else if(priceVal == 2 && (priceNumber >= 500 && priceNumber < 1000)) {
+              showPrice = true;
+            }
+            else if(priceVal == 3 && (priceNumber >= 1000 && priceNumber < 2000)) {
+              showPrice = true;
+            }
+            else if(priceVal == 4 && (priceNumber >= 2000 && priceNumber < 5000)) {
+              showPrice = true;
+            }
+            else if(priceVal == 5 && priceNumber >= 5000) {
+              showPrice = true;
+            }
+          }
+        }
+      }
+      else {
+        showPrice = true;
+      }
+
+      if(showBrand && showPrice) {
+        $(this).show();
+      }
+    });
+
+  }
+  else {
+    $("#products_list .entry").show();
+  }
+  // [["---",-1], ["< 500KM", 1], ["500KM - 1000KM", 2], ["1000KM - 2000KM", 3], ["2000KM - 5000KM", 4], ["> 5000KM", 5]]
+}
+
+function sorterAsc(a, b) {
+   var priceTextA = $(a).find(".current-price").text();         
+    var priceNumberA = Number(priceTextA.toLowerCase().replace("km",""));
+
+    var priceTextB = $(b).find(".current-price").text();         
+    var priceNumberB = Number(priceTextB.toLowerCase().replace("km",""));
+
+    var result = priceNumberA - priceNumberB;
+    return result;
+};
+
+function sorterDesc(a, b) {
+   var priceTextA = $(a).find(".current-price").text();         
+    var priceNumberA = Number(priceTextA.toLowerCase().replace("km",""));
+
+    var priceTextB = $(b).find(".current-price").text();         
+    var priceNumberB = Number(priceTextB.toLowerCase().replace("km",""));
+
+    var result = priceNumberB - priceNumberA;
+    return result;
+};
+
+function sortItems() {
+  var sortVal = $("select#sort").find("option:selected").val();
+  var showAll = (sortVal == -1) ? true : false;
+  //["---",-1], ["od veće ka manjoj", 1], ["od manje ka većoj", 2]
+  if(!showAll) {
+    var sortAsc = true;
+    if(sortVal == 1) {
+      sortAsc = false;
+    }
+    var prices = $(".current-price");
+    $entryArray = $("#products_list .entry");
+    if(sortAsc) {
+      $entryArray.sort(sorterAsc).appendTo('#products_list');
+    }
+    else {
+      $entryArray.sort(sorterDesc).appendTo('#products_list');
+    }
+  }
+  else {
+    //debugger
+    $firstLoaded.appendTo('#products_list');
+  }
+}
 </script>
 

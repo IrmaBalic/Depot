@@ -10,8 +10,8 @@ a:visited {
 .categories {
   $crvena: #e74c3c;
   $hover_link: #81D697;
-      #main {
-      min-height: 450px;
+    #main {
+      min-height: 530px;
     }
     #input_form {
     background-color:  #f9fafa;
@@ -80,6 +80,18 @@ a:visited {
     margin-left: 40px;
     margin-top: 40px;
   }
+.filters {
+  padding-top: 20px;
+  label {
+    text-align: left;
+    width: 100%;
+    color: #545454;
+    font-size: 14px;
+  }
+  .field {
+    margin-bottom: 20px;
+  }
+}
 #products_list {
   padding-left: 5%;
   text-align: center;
@@ -89,7 +101,6 @@ a:visited {
    /* width: 900px;*/
     display: inline-block;
     /*padding-top: 20px;*/
-    margin-top: 20px;
     /*padding-left: 30px;*/
     .list_actions {
      margin-top: 10px;
@@ -115,6 +126,8 @@ a:visited {
     padding-bottom: 20px;
   }
 .entry    {
+      margin-left: 10px;
+    margin-right: 10px;
    /* width: 210px;*/
     /*float: none;*/
    /*padding: 10px;
@@ -155,7 +168,8 @@ a:visited {
       font-weight: 600;
       text-align: center;
       vertical-align: middle;
-      width: 180px;     
+      width: 180px;    
+
     }
 }
   /*.entry > .col-sm-3 {
@@ -233,6 +247,7 @@ margin-right: 2%;
     .cart_button_buy {
       width: 150px;
       height: 30px;
+      line-height: 27px;
      /* float: right;*/
     }
     .cart_button_loading {
@@ -282,6 +297,7 @@ margin-right: 2%;
     }*/
        .cart_button_buy {
     display: none;
+    line-height: 25px;
   }
   }
 
@@ -315,5 +331,29 @@ margin-right: 2%;
   /*  min-width: 965px;*/
   }
 }
+
+  .cat-sort {
+    color: #545454;
+  }
+  select {
+    margin-top: 5px;
+    border-width: 1px;
+    border-color:  #b7b7b7;
+    border-style: solid;
+    padding: 5px;
+    width: 100%;
+    border-radius: 4px;
+    height: 30px;
+  }
+
+  select#sort {
+    width: 70%;
+    margin-left: 10px;
+    background-color: #ebebeb;
+    height: 30px;
+    border-color: #ebebeb;
+        color: #545454;
+
+  }
 
 }
