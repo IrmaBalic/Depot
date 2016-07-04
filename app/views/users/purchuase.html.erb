@@ -4,15 +4,15 @@
 <div id="cart_frame" class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
 <% @orders.each do |order| %>
 	<% order.ordered_line_items.each do |line_item| %>
-	  	<div id="cart_line_item" class="col-xs-11 col-sm-12 col-md-12 col-lg-12">
+	  	<div id="cart_line_item" class="col-xs-11 col-sm-12 col-md-12 col-lg-12 archived">
 	  		<div class="row">
 		  		<span class="title-xs visible-xs-block col-xs-11"><%= t('title') %>: 
 		  			<%= line_item.ordered_product.title %>
 		  		</span><br>
 		  	</div>
-			<div id="slika" class="hidden-xs col-sm-3 col-md-3 col-lg-2">
+			<!--<div id="slika" class="hidden-xs col-sm-3 col-md-3 col-lg-2">
 				<%= image_tag(line_item.ordered_product.avatar.url(:medium)) %>
-			</div>	
+			</div>	-->
 				<div id="description" class="hidden-xs col-sm-4 col-md-4 col-lg-4">
 					<span><%= t('title') %>: <%= line_item.ordered_product.title %></span><br>
 					<span><%= t('description') %>: <%= sanitize(line_item.ordered_product.description) %></span>

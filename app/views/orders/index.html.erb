@@ -11,6 +11,7 @@
         <th>Shipping Address</th>
         <th>Order date</th>
         <th>Shipping date</th>
+        <th>Shipped</th>
       </tr>
     </thead>
 
@@ -33,7 +34,12 @@
             <%= order.shipping_address.city.country.name %>
           </td>
           <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
-          <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
+          <td><%= order.shipping_date.strftime("%d.%m.%Y") %></td>
+          <% if order.shipping_date < Date.today %>
+            <td> Yes </td>
+          <% else %>
+            <td> No </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

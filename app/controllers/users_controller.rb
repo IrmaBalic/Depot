@@ -51,10 +51,11 @@ class UsersController < ApplicationController
     @user.role = role
   
     if @user.save
-      UserMailer.registration_email(@user).deliver
-      #InvitationMailer.invite(invitation).deliver
+      redirect_to signin_path
+    else
+      flash[:notice] = "Error"
+      redirect_to new_user_path
     end
-    redirect_to store_path
   end
 
   # PATCH/PUT /logins/1

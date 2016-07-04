@@ -159,6 +159,11 @@
     .basket:hover {
       background-image: url(image-path('basket_hover.png'));
     }
+    a.current {
+      .basket {
+        background-image: url(image-path('basket_hover.png'));
+      }
+    }
     .basket_xs {
       display: inline-block;
       background-size: contain;
@@ -174,6 +179,12 @@
       background-image: url(image-path('basket_hover.png'));
     }
  $hover_link: #F08490;
+ html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
  body
  {
   font-family: 'Lato', sans-serif;
@@ -182,9 +193,18 @@
   margin-right: auto;
   width: 100%;
   max-width: 1500px;
+  height: 100%;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
 }
   #main {
     min-height: 470px;
+    padding-bottom:60px; /* Height of the footer element */
   }
 ol,ul{list-style:none;margin:0;padding:0;}
 a { 
@@ -454,6 +474,8 @@ html, body, div, span { display: block;}
     #menu {
       float: right;
       margin-top: 20px;
+      text-align: right;
+      margin-right: 80px;
       ul {
         li {
           font-size: 1.1em; /* Approximation due to font substitution */
@@ -461,6 +483,14 @@ html, body, div, span { display: block;}
         }
       }
     }
+}
+
+#footer {
+  width:100%;
+  height:60px;
+  position:absolute;
+  bottom:0;
+  left:0;
 }
   @media (max-width: 768px) {
     #purchuase {
@@ -694,7 +724,9 @@ html, body, div, span { display: block;}
   @media (max-width: 768px) {
     #footer {
       #menu {
-        display: none;
+        /*display: none;*/
+        text-align: center;
+        margin-right: 0;
       }
     }
     #section_title {
@@ -839,3 +871,43 @@ html, body, div, span { display: block;}
 @media(min-width: 1024px) {
 
 }
+
+.btn:focus, .btn.focus {
+  color: white;
+}
+
+.row {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+a.current, li.current > a {
+  /*border-bottom: 3px solid #F08490;*/
+  color: #F08490 !important;
+}
+
+.slider {
+    display: none;
+    .sale-caption {
+      position: absolute;
+      margin-top: 30%;
+      z-index: 200;
+      width: 100%;
+      text-align: center;
+    }
+    .sale-text {
+    color: rgba(199, 0, 0, 0.93);
+    font-size: 50px;
+    font-weight: bold;
+
+    color: rgba(206, 7, 7, 0.87);
+    font-size: 50px;
+    font-weight: bold;
+    background: rgba(210, 205, 205, 0.88);
+    border: 1px solid rgba(66, 62, 62, 0.44);
+    text-align: center;
+    padding: 10px 70px;
+    display: inline;
+    cursor: default;
+    }
+  }

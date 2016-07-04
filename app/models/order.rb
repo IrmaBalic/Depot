@@ -22,4 +22,8 @@ class Order < ActiveRecord::Base
 	  	end
 		sum
 	end
+
+	def shipping_date
+		created_at + 7.days
+	end
 end

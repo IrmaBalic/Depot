@@ -21,89 +21,93 @@
   <% end %>
   
   <div id="section_title" style="margin-left: 50px"><%= t('shipping_address') %></div>
+  
   <div id="input_form"  class="col-xs-10 col-sm-5 col-md-5 col-lg-4">
-  <% unless session[:user_id] %>
-    <div class="field">
-      <%= label :user_name, t('name') %>
-      <%= text_field :user, :name %>
-    </div>
-    <div class="field">
-      <%= label :user_surname, t('surname') %>
-      <%= text_field :user, :surname %>
-    </div>
-  <% end %>
-    <div class="field">
-      <%= label :name, t('address') %>
-      <%= text_field :address, :name %>
-    </div>
-    <div class="field">
-      <%= label :number, t('address_number') %>
-      <%= text_field :address, :number %>
-    </div>
-    <div class="field">
-      <%= label :floor, t('address_floor') %>
-      <%= text_field :address, :floor %>
-    </div>
-    <div class="field">
-      <%= label :city, t('city') %>
-      <%= text_field :city, :name %>
-    </div>
-    <div class="field">
-      <%= label :postal_code, t('postal_code') %>
-      <%= text_field :city, :postal_code %>
-    </div>
+    <% unless session[:user_id] %>
       <div class="field">
-      <%= label :country, t('country') %>
-      <%= text_field :country, :name %>
-    </div>
-   <div id="section_title" style="margin-left: -30px;"><%= t('billing_address') %></div>
-    <div class="field" style="margin-top: 20px">
-      <%= check_box_tag :same_as_shipping, 1, true %>
-      <%= label :same_as_shipping, t('same_as_shipping') %>
-    </div>
-    <br>
+        <%= label :user_name, t('name') %>
+        <%= text_field :user, :name %>
+      </div>
+      <div class="field">
+        <%= label :user_surname, t('surname') %>
+        <%= text_field :user, :surname %>
+      </div>
+    <% end %>
+      <div class="field">
+        <%= label :name, t('address') %>
+        <%= text_field :address, :name %>
+      </div>
+      <div class="field">
+        <%= label :number, t('address_number') %>
+        <%= text_field :address, :number %>
+      </div>
+      <div class="field">
+        <%= label :floor, t('address_floor') %>
+        <%= text_field :address, :floor %>
+      </div>
+      <div class="field">
+        <%= label :city, t('city') %>
+        <%= text_field :city, :name %>
+      </div>
+      <div class="field">
+        <%= label :postal_code, t('postal_code') %>
+        <%= text_field :city, :postal_code %>
+      </div>
+        <div class="field">
+        <%= label :country, t('country') %>
+        <%= text_field :country, :name %>
+      </div>
+      <div id="section_title" style="margin-left: -30px;"><%= t('billing_address') %></div>
+      <div class="field" style="margin-top: 20px">
+        <%= check_box_tag :same_as_shipping, 1, true, style: "float:left;" %>
+        <%= label :same_as_shipping, t('same_as_shipping'), style: "padding-top: 2px;padding-left: 5px;" %>
+      </div>
+      <br>
   </div>
-<div id="purchuase" class="hidden-xs col-sm-5 col-md-3 col-lg-3">
-  <%= render(@cart) %>
-  <div id="entry-button">
-      <%= submit_tag(t('continue'), :class => 'buy_button')  %>
-      <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
+  <div id="purchuase" class="hidden-xs col-sm-5 col-md-3 col-lg-3">
+    <%= render(@cart) %>
+    <div id="entry-button">
+        <%= submit_tag(t('continue'), :class => 'buy_button')  %>
+        <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
+    </div>
   </div>
-</div>
-<br><br>
+  <br><br>
+
   <div id="input_form_2" class="col-xs-10 col-sm-5 col-md-5 col-lg-4" style="clear:both;">
-    <div class="field">
-      <%= label :name, t('address') %>
-      <%= text_field_tag "billing_address[name]" %>
-    </div>
-    <div class="field">
-      <%= label :number, t('address_number') %>
-      <%= text_field_tag "billing_address[number]" %>
-    </div>
-    <div class="field">
-      <%= label :floor, t('address_floor') %>
-      <%= text_field_tag "billing_address[floor]" %>
-    </div>
-    <div class="field">
-      <%= label :city, t('city') %>
-      <%= text_field_tag "billing_address[city]"%>
-    </div>
-    <div class="field">
-      <%= label :postal_code, t('postal_code') %>
-      <%= text_field_tag "billing_address[postal_code]" %>
-    </div>
       <div class="field">
-      <%= label :country, t('country') %>
-      <%= text_field_tag "billing_address[country]" %>
+        <%= label :name, t('address') %>
+        <%= text_field_tag "billing_address[name]" %>
+      </div>
+      <div class="field">
+        <%= label :number, t('address_number') %>
+        <%= text_field_tag "billing_address[number]" %>
+      </div>
+      <div class="field">
+        <%= label :floor, t('address_floor') %>
+        <%= text_field_tag "billing_address[floor]" %>
+      </div>
+      <div class="field">
+        <%= label :city, t('city') %>
+        <%= text_field_tag "billing_address[city]"%>
+      </div>
+      <div class="field">
+        <%= label :postal_code, t('postal_code') %>
+        <%= text_field_tag "billing_address[postal_code]" %>
+      </div>
+      <div class="field">
+        <%= label :country, t('country') %>
+        <%= text_field_tag "billing_address[country]" %>
+      </div>  
+  </div>
+
+  <div id="purchuase" class="col-xs-12 hidden-sm hidden-md hidden-lg">
+    <%= render(@cart) %>
+    <div id="entry-button">
+        <%= submit_tag(t('continue'), :class => 'buy_button')  %>
+        <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
     </div>
   </div>
-  <div id="purchuase" class="col-xs-12 hidden-sm hidden-md hidden-lg">
-  <%= render(@cart) %>
-  <div id="entry-button">
-      <%= submit_tag(t('continue'), :class => 'buy_button')  %>
-      <div class="leave_button"> <a href="<%=store_url%>"><%= t('cancel') %></a></div>
-  </div>
-</div>
+
 <% end %>
 
 <script>

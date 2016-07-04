@@ -43,7 +43,7 @@ class ChargesController < ApplicationController
     end
     @order.save
     if session[:user_id]
-      UserMailer.confirmation_email(@order).deliver
+      #UserMailer.confirmation_email(@order).deliver
     end
     @amount = ((@cart.total_price.to_i+40)*100)
     customer = Stripe::Customer.create(

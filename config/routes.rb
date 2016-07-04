@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /bs|en/ do
     get 'orders' => 'orders#index'
     get 'product_images' => 'product_images#index'
+    get 'about' => 'static_pages#aboutus'
+    get 'faq' => 'static_pages#faq'
+    get 'contact' => 'static_pages#contact'
+
     delete '/product_images/:id', to: 'product_images#destroy', as: 'product_image'
     resources :categories
     resources :users do  
@@ -47,6 +51,11 @@ Rails.application.routes.draw do
       get  'signin' => :new
       post 'signin' => :create
       delete 'signout' => :destroy
+    end
+     controller :static_pages do
+      get  'aboutus' => :aboutus
+      get  'faq' => :faq
+      get  'contact' => :contact
     end
     resources :line_items
     resources :carts

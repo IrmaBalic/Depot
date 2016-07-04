@@ -19,7 +19,7 @@
 <div id="description" class="col-xs-10 col-sm-6 col-md-5 col-lg-5">
   <p>
   	<strong><%= t('category') %>:</strong>
-      <%= @product.category.name %>
+      <%= link_to @product.category.name, category_path(@product.category), class: "product_category_link" %>
   </p>
   <br>
   <p>

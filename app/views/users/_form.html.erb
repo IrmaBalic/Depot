@@ -8,7 +8,7 @@
     <%end%>
       <div class="field">
         <%= f.label :name, t('name') %><br>
-        <%= f.text_field :name, :autofocus=>true %>
+        <%= f.text_field :name %>
       </div>
       <div class="field">
         <%= f.label :surname, t('surname') %><br>
@@ -22,6 +22,12 @@
         <%= f.label :password, t('password') %><br>
         <%= f.password_field :password_digest %>
       </div>
+
+      <% if flash[:notice] %>
+      <div class="warning warning-error" style="color:#dd4b39;">
+        <%= t('signup_error') %>
+      </div>
+    <% end %>
 
       <div class="actions">
         <% if session[:role] == "Admin" %>
@@ -38,11 +44,13 @@
 $(function() {
   var user_name = $("#user_name");
   var user_surname = $("#user_surname");
-  var user_email = $("#user_surname");
-  var user_password = $("#user_surname");
+  var user_email = $("#user_email");
+  var user_password = $("#user_password_digest");
   var submit = $("#submit_form");
   // Functions
   function show_warning(field) {
+    $(".warning-error").remove();
+
     field.css("border-color", "#dd4b39"); 
     var warning_label = null;
     if (locale  == "bs")

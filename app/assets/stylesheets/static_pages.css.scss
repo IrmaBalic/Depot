@@ -1,0 +1,19 @@
+.static_pages {
+    #header {
+	  background-color: #413e4a;
+	}
+
+	@media (min-width: 768px) {
+	 	.description {
+			margin: 20px 100px;
+    		text-align: justify;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.description {
+			margin: 10px 20px;
+			text-align: center;
+		}
+	}
+}

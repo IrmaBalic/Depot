@@ -11,102 +11,157 @@
   <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300,300italic' rel='stylesheet' type='text/css'>
 </head>
 <body class='<%= controller.controller_name%>'>
-<div id="home-slider">
-	
-<nav class="navbar navbar-default" id="header" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-          <%= link_to 'TechShop', store_path, :class => 'navbar-brand' %>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <a href="<%=cart_path(@cart) %>"><div class="basket_xs"></div></a>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <% if session[:role] == 'Admin' %>
-        	<li><%= link_to 'ORDERS', orders_path %></li>
-			<li><%= link_to 'PRODUCTS', products_path %></li> 
-			<li><%= link_to 'ROLES', roles_path %></li> 
-			<li><%= link_to 'USERS', users_path %></li>
-			<li><%= link_to 'CATEGORIES', categories_path %></li>
-			<li><%= link_to 'BRANDS', brands_path %></li>
-		<% else %>
-		  <% @categories.each do |category| %>
-			<li class="hidden-sm"><%= link_to category.name, category_path(category) %></li> 
-		  <% end %>
-			<li class="visible-sm-inline-block icon">
-				<a href="<%= category_path(@desktop) %>"><i class="fa fa-desktop fa-2x" style="color:white;"></i></a>
-			</li>
-			<li class="visible-sm-inline-block icon">
-				<a href="<%= category_path(@tablet) %>"><i class="fa fa-tablet fa-2x" style="color:white;"></i></a>
-			</li>
-			<li class="visible-sm-inline-block icon">
-				<a href="<%= category_path(@laptop) %>"><i class="fa fa-laptop fa-2x" style="color:white;"></i></a>
-			</li>
-		<% end %>
-      </ul>
-      	<ul class="nav navbar-nav navbar-right hidden-xs" id="languages">
-			<li><%= link_to 'EN', :locale=>'en' %></li>
-			<li><%= link_to 'BS', :locale => 'bs' %></li>
-		</ul>
-      <ul class="nav navbar-nav navbar-right relative">
-        <% if session[:user_id]  %>
-        	<% if session[:role] == 'User' %>
-		        <li class="dropdown hidden-xs">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-		          	<%= @user.name %>
-		          	<span class="caret"></span>
-		          </a>
-		          <ul class="dropdown-menu" role="menu">
-		            <li class="dropdown-li"><%= link_to t('history'), purchuase_users_path %></li>  
-		          </ul>
-		        </li>
-	        <% end %>
-	        <li class="signout_li">
-	        	<%= button_to 'LOGOUT', signout_path, method: :delete, :class => "btn btn-default navbar-btn sign_out" %>
-	        </li>
-		<% else %>
-			<li><%= link_to 'LOGIN', signin_path %></li>
-			<li><%= link_to 'REGISTER', new_user_path %></li>
-        <% end %>
-		<% unless session[:role] == 'Admin' %>
-			<a href="<%=cart_path(@cart) %>"><div class="basket hidden-xs"></div></a>
-			<div id="cart" class="hidden-xs"><%= @cart.number_of_items %></div>
-		<% end %>
-		</ul>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
-	<div id="main">
-		<%= yield %>
+	<div id="wrapper">
+
+		<div id="home-slider">	
+			<nav class="navbar navbar-default" id="header" role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			          <%= link_to 'TechShop', store_path, :class => 'navbar-brand' %>
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			    </div>
+			    <a href="<%=cart_path(@cart) %>"><div class="basket_xs"></div></a>
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <% if session[:role] == 'Admin' %>
+			        	<li><%= link_to 'ORDERS', orders_path %></li>
+						<li><%= link_to 'PRODUCTS', products_path %></li> 
+						<li><%= link_to 'ROLES', roles_path %></li> 
+						<li><%= link_to 'USERS', users_path %></li>
+						<li><%= link_to 'CATEGORIES', categories_path %></li>
+						<li><%= link_to 'BRANDS', brands_path %></li>
+					<% else %>
+					  <% @categories.each do |category| %>
+						<li class="hidden-sm"><%= link_to category.name, category_path(category), class: cp(category_path(category)) %></li> 
+					  <% end %>
+						<li class="visible-sm-inline-block icon">
+							<a href="<%= category_path(@desktop) %>"><i class="fa fa-desktop fa-2x" style="color:white;"></i></a>
+						</li>
+						<li class="visible-sm-inline-block icon">
+							<a href="<%= category_path(@tablet) %>"><i class="fa fa-tablet fa-2x" style="color:white;"></i></a>
+						</li>
+						<li class="visible-sm-inline-block icon">
+							<a href="<%= category_path(@laptop) %>"><i class="fa fa-laptop fa-2x" style="color:white;"></i></a>
+						</li>
+					<% end %>
+			      </ul>
+			      	<ul class="nav navbar-nav navbar-right hidden-xs" id="languages">
+						<li class="<%= cl('en') %>"><%= link_to 'EN', :locale => 'en'%></li>
+						<li class="<%= cl('bs') %>"><%= link_to 'BS', :locale => 'bs' %></li>
+					</ul>
+			      <ul class="nav navbar-nav navbar-right relative">
+			        <% if session[:user_id]  %>
+			        	<% if session[:role] == 'User' %>
+					        <li class="dropdown hidden-xs">
+					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+					          	<%= @user.name %>
+					          	<span class="caret"></span>
+					          </a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li class="dropdown-li"><%= link_to t('history'), purchuase_users_path %></li>  
+					          </ul>
+					        </li>
+				        <% end %>
+				        <li class="signout_li">
+				        	<%= button_to 'LOGOUT', signout_path, method: :delete, data: { confirm: t('are_you_sure') }, :class => "btn btn-default navbar-btn sign_out" %>
+				        </li>
+					<% else %>
+						<li><%= link_to 'LOGIN', signin_path, class: cp(signin_path)  %></li>
+						<li><%= link_to 'REGISTER', new_user_path, class: cp(new_user_path)  %></li>
+			        <% end %>
+					<% unless session[:role] == 'Admin' %>
+						<a href="<%=cart_path(@cart) %>" class="<%= cp(cart_path(@cart)) %>"><div class="basket hidden-xs"></div></a>
+
+						<div id="cart" class="hidden-xs"><%= @cart.number_of_items %></div>
+					<% end %>
+					</ul>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+			<!-- Slider -->
+			<div class="slider hidden-xs">
+				<div class="sale-caption">
+				    <div class="sale-text"> <%= t('sale_text') %> </div>
+				</div>
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				  </ol>
+
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner" role="listbox">
+				    <div class="item active">
+				      <img src="http://cdn.imore.com/sites/imore.com/files/field/image/2012/09/iphone_5_camera_hero.jpg" alt="...">
+				      <div class="carousel-caption">
+				      </div>
+				    </div>
+				    
+				    <div class="item">
+				      <img src="http://www.samsung.com/de/news/samsung-electronics-redefines-tv-experience-with-tizen/Samsung-Smart-TV-Plattform-2015_02.jpg" alt="...">
+				      <div class="carousel-caption">
+				      </div>
+				    </div>
+				    
+				    <div class="item">
+				      <img src="http://www.samsung.com/global/galaxy/galaxy-note5/entertainment/images/galaxy-note5_entertainment_kv.jpg" alt="...">
+				      <div class="carousel-caption">
+				      </div>
+				    </div>
+				    
+				    <div class="item">
+				      <img src="http://thenextweb.com/wp-content/blogs.dir/1/files/2014/03/DSC07353.jpg" alt="...">
+				      <div class="carousel-caption">
+				      </div>
+				    </div>
+				    
+				    <div class="item">
+				      <img src="https://cnet1.cbsistatic.com/hub/i/2015/03/13/e95a48ce-d591-41bc-a60e-f994b605751a/aa46f7d2db91e918eb921209cbaf45bd/apple-macbook-pro-13-inch-2015-10.jpg" alt="...">
+				      <div class="carousel-caption">
+				      </div>
+				    </div>
+				  </div>
+
+				  <!-- Controls -->
+				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<%= yield %>
+		</div>
+
+		<div id="footer">
+			Copyright TechShop. All rights reserved.
+			<div id="menu">
+				<ul>
+					<% if session[:role] != 'Admin' %>
+						<li><%= link_to t('aboutus'), aboutus_path, class: cp(aboutus_path) %></li>
+						<li><%= link_to t('faq'), faq_path, class: cp(faq_path) %></li> 
+ 						<li><%= link_to t('contact'), contact_path, class: cp(contact_path) %></li> 
+					<% end %>
+				</ul>
+			</div>
+		</div>
+
 	</div>
-<div id="footer">
-	Copyright TechShop. All rights reserved.
-	<div id="menu">
-		<ul>
-			<% if session[:role] == 'Admin' %>
-				<li><%= link_to 'ORDERS', orders_path %></li>
-				<li><%= link_to 'PRODUCTS', products_path %></li> 
-				<li><%= link_to 'ROLES', roles_path %></li> 
-				<li><%= link_to 'USERS', users_path %></li>
-				<li><%= link_to 'CATEGORIES', categories_path %></li>
-				<li><%= link_to 'BRANDS', brands_path %></li>
-			<% else %>
-				<% @categories.each do |category| %>
-					<li><%= link_to category.name, category_path(category) %></li> 
-				<% end %>
-			<% end %>
-		</ul>
-	</div>
-</div>
 </body>
 </html>
 <script type="text/javascript">
