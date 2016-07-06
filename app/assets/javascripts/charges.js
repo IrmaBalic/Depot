@@ -5,6 +5,7 @@ $(document).ready(function() {
 		$("#old_shipping_addresses").css("display","block");
 		$("#order_details_shipping").css("border", "rgb(204, 204, 204) solid 1px");
 		$("#order_details_shipping").css("box-shadow", "none");
+		$("#footer").css("position","relative");
     
 	});
 	$("#change_billing_button").click(function() {
@@ -14,5 +15,6 @@ $(document).ready(function() {
 		$("#old_billing_addresses").css("display","block");
 		$("#order_details_billing").css("border", "rgb(204, 204, 204) solid 1px");
 		$("#order_details_billing").css("box-shadow", "none");
+		$("#footer").css("position","relative");
 	});
 });

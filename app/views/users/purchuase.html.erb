@@ -16,6 +16,15 @@
 				<div id="description" class="hidden-xs col-sm-4 col-md-4 col-lg-4">
 					<span><%= t('title') %>: <%= line_item.ordered_product.title %></span><br>
 					<span><%= t('description') %>: <%= sanitize(line_item.ordered_product.description) %></span>
+					<br>
+					<span><%= t('shipped') %>:
+					  <% if order.shipping_date < Date.today %>
+			           <i class="fa fa-check-square-o" aria-hidden="true"></i>
+			          <% else %>
+			            <i class="fa fa-close" aria-hidden="true"></i>
+			          <% end %>
+          			</span><br> 
+					</span>
 				</div>
 				<div id="price_details" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<span id="cijena"><%= t('price') %>: </span> <span class="price"><%= line_item.ordered_product.price %> KM</span><br><br>
@@ -25,7 +34,7 @@
 					<span id="label"><%= t('order_date') %>:</span>
 					 <span class="value"><%= order.created_at.strftime("%d.%m.%Y") %></span><br><br>
 					<span id="label"><%= t('shipping_date') %></span>
-					<span class="value"> <%= order.created_at.strftime("%d.%m.%Y") %></span>
+					<span class="value"> <%= order.shipping_date.strftime("%d.%m.%Y") %></span>
 				</div>
 				<div id="order_details" class="col-xs-4 col-sm-1 col-md-2 col-lg-2">
 					<span id="label"><%= t('shipping_address') %>:</span>
@@ -34,7 +43,7 @@
 						<%= order.shipping_address.city.postal_code %>, <%= order.shipping_address.city.name %><br>
 						<%= order.shipping_address.city.country.name %><br>
 					</span><br><br>
-				</div>	
+				</div>
 		</div>
 	<% end %>
 <% end %>

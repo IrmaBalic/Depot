@@ -26,4 +26,7 @@ class Order < ActiveRecord::Base
 	def shipping_date
 		created_at + 7.days
 	end
+
+	def shipped?
+	end
 end

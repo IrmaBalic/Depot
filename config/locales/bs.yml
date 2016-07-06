@@ -40,37 +40,30 @@ bs:
   purchuase_history: "Arhiva narudžbi"
   order_date: "Datum narudžbe"
   shipping_date: "Datum dostave"
-  payment_thank_you: "Hvala Vam na uplati."
+  payment_thank_you: "Hvala Vam na uplati. Proizvodi će biti dostavljeni na Vašu adresu u roku od 7 dana. Ukoliko dođe do komplikacija molimo da nas kontaktirate na +387 00 00 0000 ili info@techshop.com."
   category: "Kategorija"
   contact: "Kontakt"
   aboutus: "O nama"
   faq: "Česta pitanja"
   are_you_sure: "Da li ste sigurni?"
-  aboutus_desc: "UNIVERZALNO.com online shop je nastao kao ideja dugogodišnjeg uspješnog poslovanja. Univerzalno.com ima dugu tradiciju i odlične reference kada je u pitanju poslovanje sa tehnikom i mobilnim telefonima. Na tržištu uspješno poslujemo, razvijamo se i kontinuirano inoviramo već 10 godina.
-Da bi išli u korak sa vremenom, samim modernim načinom poslovanja, kao i novim trendovima u društvu, odlučili smo se za našu Internet prodavnicu koja nosi naziv UNIVERZALNO.com! Kao što govori i samo ime, da je to naša Internet prodavnica, sa kojom imamo viziju da proširimo krug kupaca, olakšamo kupovinu našim postojećim kupcima, kao i to da dajemo kvalitetne informacije o samoj mobilnoj telefoniji i svijetu gedžeta u čemu se možemo pohvaliti da smo regionalni lideri! Nadamo se da će te Vi prepoznati naš trud i znanje koje naš tim svakodnevno ulaže da bi Vama ponudili što modernije gedžete po najboljim cijenama na tržištu!
-UNIVERZALNO.com u svom prodajnom asortimanu također ima i pored mobilnih telefona i dodatne opreme, odličnu ponudu ostalih sjajnih gedžeta kao što su mp3 uređaji, navigacije, kamere, laptopi, kao i drugu interesantnu tehniku najboljih svjetskih brendova, po zaista nevjerovatnim cjenama! Dakle, tu smo za Vas! Možete nas pronaći na našoj već poznatoj adresi, kao i na našoj novoj Internet prodavnici koja će Vam prije svega ponuditi mogućnost kupovine najnovijih originalnih modela kada su u pitanju mobilni telefoni i to po odličnim cijenama!
-Lokacije naših poslovnica pogledajte na linku ispod...
-Link: http://www.univerzalno.com/kontakt"
+  aboutus_desc: "TechShop je nastao kao ideja dugogodišnjeg uspješnog poslovanja. TechShop ima dugu tradiciju i odlične reference kada je u pitanju poslovanje sa tehnikom i mobilnim telefonima. Uz pomoć naše online aplikacije željene artikle možete kupiti u samo nekoliko koraka, te ostvariti velike popuste."
   contact_desc: "<b>TechShop</b>
-<br>Letaliska cesta 29b, 1000 Ljubljana, Slovenia<br>
+<br>Zmaja od Bosne bb, 71000 Sarajevo, BIH<br>
 
-<br><b>Telefon:</b> +386 81 60 5200
-<br><b>Fax:</b> +386 81 60 5050
+<br><b>Telefon:</b> +387 00 00 0000
+<br><b>Fax:</b> +387 00 00 0000
 <br><b>E-mail:</b> info@techshop.com
 <br><b>Web: </b> www.techshop.herokuapp.com"
   faq_desc: "
 <b>Kako naručiti?</b><br>
-Sve što treba da uradite, je da nađete proizvod koji želite, izaberete ga i nakon što dobijete njegove detalje i karakteristike odlučite se za kupovinu, kliknete na korpa ikonicu.
-Nakon što ste stavili artikal u Vašu korpu, kliknite na  Pregled i zaključenje narudžbe, otvorit će Vam se lista artikala koje ste izabrali. Sve što treba da uradite je da pritisnete Sljedeći korak.
-U slučaju da nemate registrovan račun, dovoljno je da popunite registracijsku formu.
-Na Vaš email će stići potvrda za aktivaciju Vašeg računa, nakon čega ćete moći pristupiti Vašoj korpi.
-Ako željeni proizvod imamo na stanju, šalje se i u roku od 24 do 48 sati je na vašoj adresi. Narudžbu možete izvršiti i direktno na brojeve telefona: 033 841 841 ili 061 317 614.
+Sve što treba da uradite, je da nađete proizvod koji želite, otvorite ga i nakon što dobijete njegove detalje i karakteristike odlučite se za kupovinu, kliknete na dugme Dodaj u korpu.
+Nakon što ste stavili artikal u Vašu korpu, kliknite na  korpa ikonicu u gornjem desnom uglu, te otvorit će Vam se otvoriti lista artikala koje ste izabrali. Sve što treba da uradite je da pritisnete Sljedeći korak.
+U slučaju da nemate registrovan račun, dovoljno je da popunite formu sa svojim podacima te kliknete na dugme Pay with card. Sigurno plaćanje je omogućeno uz pomoć Stripe tehnologije (https://stripe.com/).
+Ipak, preporučujemo da se registrujete prije kupovine, jer u tom slučaju ćemo čuvati vaše podatke kako ih ne biste morali unositi svaki put. Također, imate pravo na uvid vaših prethodnih kupovina.
 <br><br><b>Kako se registrovati?</b><br>
-Prvi korak do sigurne kupovine je registracija. Tako ćete moći u potpunosti iskoristiti sve pogodnosti koje koje vam Univerzalno.com pruža, a prijavom na naš newsletter možete biti sigurni da nećete propustiti niti jednu akciju niti novitet koji smo dodali u našu ponudu.
-Sam proces registracije je vrlo jednostavan i kratak. Kliknite na polje Prijava/Registracija u gornjem desnom uglu svake stranice, te potom kliknite na tipku Registracija. Bez brige, slanje vaših podataka je u potpunosti sigurno jer se pri prijavi i registraciji koriste sigurnosni protokoli koji onemogućuju krađu ličnih podataka.
-Upišite svoju e-mail adresu i željenu šifru. Potvrda o vašoj registraciji sa korisničkim podacima koje ste upisali stiže na vaš e-mail u nekoliko trenutaka. Kliknite na link koji Vam je poslan na e-mail kako biste završili registraciju. Tako je registracija završena i možete pregledavati našu ponudu, kreirati svoje liste želja ili odmah stavljati proizvode u korpu i na taj način sigurno kupovati.
-"
+Klikom na dugme Registracija se možete registrovati nakon popunjavanja vrlo kratke forme. Nakon što se prijavite na naš sistem (poslije registracije), klikom na vaše ime u traci menija, dobit ćete opciju za pregled arhive kupovanja."
   search: "Pretraga..."
   sale_text: "POPUSTI DO 50%!"
   login_error: "Netačan email ili šifra."
   signup_error: "Email već postoji."
+  shipped: "Dostavljena narudžba"

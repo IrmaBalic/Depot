@@ -57,7 +57,10 @@ Rails.application.routes.draw do
       get  'faq' => :faq
       get  'contact' => :contact
     end
-    resources :line_items
+    resources :line_items do
+      post 'increment', on: :member
+      post 'decrement', on: :member
+    end
     resources :carts
     get 'store/index'
     resources :products do

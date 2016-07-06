@@ -5,6 +5,9 @@
     <%= t('address') %>: <%= @billing_address.name %> <%= @billing_address.number%> <br>
     <%= t('city') %>: <%= @billing_address.city.name %> <%= @billing_address.city.postal_code %><br>
     <%= t('country') %>: <%= @billing_address.city.country.name %><br>
+    <div class="entry-button">
+      <div id="change_billing_button"><%= t('change') %></div>
+    </div>
     <%= form_tag change_charges_path do %>
       <%= hidden_field_tag('order_billing_address[id]', @billing_address.id) %>
     <% end %>
@@ -15,6 +18,9 @@
     <%= t('address') %>: <%= @shipping_address.name %> <%= @shipping_address.number%> <br>
     <%= t('city') %>: <%= @shipping_address.city.name %> <%= @shipping_address.city.postal_code %><br>
     <%= t('country') %>: <%= @shipping_address.city.country.name %><br>
+    <div class="entry-button">
+        <div id="change_shipping_button"><%= t('change') %></div>
+    </div>
     <%= form_tag change_charges_path do %>
       <%= hidden_field_tag('order_shipping_address[id]', @shipping_address.id) %>
     <% end %>

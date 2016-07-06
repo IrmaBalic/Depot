@@ -8,7 +8,7 @@ class CartsController < ApplicationController
     @carts = Cart.all
   end
   def set_line_items
-    @line_items = LineItem.all
+    @line_items = LineItem.order("created_at")
   end
 
   # GET /carts/1

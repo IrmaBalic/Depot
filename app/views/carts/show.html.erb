@@ -11,20 +11,44 @@
 		  	</div>
 		  	<div class="row">
 				<div id="slika" class="col-xs-9 col-sm-3 col-md-3 col-lg-3">
-					<%= image_tag(line_item.product.product_images.first.avatar.url(:medium)) %>
+					<%if line_item.product.product_images.first %>
+						<%= image_tag(line_item.product.product_images.first.avatar.url(:medium)) %>
+					<% end %>
 				</div>	
 				<div id="description" class="hidden-xs col-sm-7 col-md-7 col-lg-7">
 					<span><%= t('title') %>: <%= line_item.product.title %></span><br>
 					<span><%= t('description')%>: <%= sanitize(line_item.product.description) %></span>
 				</div>
 				<div id="price_details" class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+					<div class="delete-item" style="margin-top: -15px;margin-right: -25px;">
+					  <%= link_to line_item_path(line_item),
+				        :method => :delete, 
+				        :data => { :confirm => t('are_you_sure') } do %>
+						<i class="fa fa-times" aria-hidden="true" style="color: rgba(169, 26, 26, 0.77);font-size: 18px;"></i>				      
+					  <% end %>
+					</div>
+
 					<span id="cijena"><%= t('price') %></span> 
 					<span class="price">
 						<% if line_item.product.discount %>
 						<%= line_item.product.sale_price %>
 						<% else %>
 						<%= line_item.product.price %> <% end %> KM</span><br><br>
-					<span id="cijena"><%= t('quantity') %></span><span class="price"> <%=line_item.quantity %></span>
+					<span id="cijena"><%= t('quantity') %></span>
+
+					<%= link_to decrement_line_item_path(line_item),
+						:class => "decrement",
+				        :method => :post do %>
+						<i class="fa fa-minus-square" style="padding:5px 2px"></i>
+					<% end %>
+
+					<%= link_to increment_line_item_path(line_item),
+					    :class => "increment",
+				        :method => :post do %>
+						<i class="fa fa-plus-square" style="padding:5px;padding-left:0;color:rgba(61, 140, 30, 0.72)"></i>
+					<% end %>
+
+					<div class="price quantity" style="display:inline;"> <%=line_item.quantity %></div>
 				</div>
 			</div>
 		</div>
@@ -49,3 +73,16 @@
 	</div>
 	</div>
 </div>
+
+<script>
+$(function(){
+	$('.decrement').each(function(){ //each do
+		if(parseInt($(this).parent().children(".quantity").text()) <= 1) {
+			$(this).css("display","none");
+			$(this).click(function(e){			
+				return false;
+			})
+		}
+	});
+})
+</script>
