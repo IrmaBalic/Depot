@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(".cart_button_buy").click(function() {
+	/*$(".cart_button_buy").click(function() {
 		$(this).css("display","none");
 		var element = $(".cart_button_buy").index(this);
 		var loading = $(".cart_button_loading").get(element);
@@ -33,5 +33,5 @@ $(document).ready(function() {
 			$(add_to_cart).css("display","none");
 		}
 		}
-	);
+	);*/
 });

@@ -1,9 +1,9 @@
 $(function() {
-	$('.bxslider').bxSlider({
-	  pagerCustom: '#bx-pager'
-	});
+	//$('.bxslider').bxSlider({
+	//  pagerCustom: '#bx-pager'
+	//});
 	
-	$(".entry").hover(function() {
+	/*$(".entry").hover(function() {
 		var mq = window.matchMedia( "(max-width: 991px)" );
 		if(!mq.matches) {
 			var element = $(".entry").index(this);
@@ -21,5 +21,5 @@ $(function() {
 			$(add_to_cart).css("display","none");
 		}
 		}
-	);
+	);*/
 });
