@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
       if line_item.product.discount
         @ordered_product.price = line_item.product.sale_price
       end
-      @ordered_product.avatar = line_item.product.product_images.first.avatar
+      #@ordered_product.avatar = line_item.product.product_images.first.avatar
       @ordered_product.save
       @ordered_line_item = OrderedLineItem.new
       @ordered_line_item.quantity = line_item.quantity
