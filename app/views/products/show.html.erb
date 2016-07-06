@@ -61,7 +61,10 @@
 
 <script>
   $(document).ready(function() {
-   // $('.bxslider').bxSlider();
+    $('.bxslider').bxSlider({
+      pagerCustom: '#bx-pager'
+    });
+  
 
     $(".cart_button_buy").click(function() {
       $(this).css("display","none");
