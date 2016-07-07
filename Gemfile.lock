@@ -223,7 +223,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  aws-sdk (< 2.0)
+  aws-sdk
   bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.0.8)
   binding_of_caller

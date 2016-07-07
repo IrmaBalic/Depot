@@ -64,6 +64,7 @@ class ChargesController < ApplicationController
     redirect_to store_path
 
   end
+
   def set_user
     unless session[:user_id]
       @user = User.last
@@ -71,6 +72,7 @@ class ChargesController < ApplicationController
       @user = User.find_by_id(session[:user_id])
     end
   end
+
   def set_order
     unless session[:user_id]
       @shipping_address = @user.last_shipping_address

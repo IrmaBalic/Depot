@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user.role = role
   
     if @user.save
-      redirect_to signin_path
+      redirect_to signin_path, notice: 'Registered'
     else
       flash[:notice] = "Error"
       redirect_to new_user_path

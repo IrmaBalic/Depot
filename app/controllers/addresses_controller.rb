@@ -101,8 +101,9 @@ class AddressesController < ApplicationController
       @user.name = params[:user][:name]
       @user.surname = params[:user][:surname]
      	@user.password_digest = "blank"
+      #@user.email = "blank"
      	@user.registered = false
-      @tmp_user=@user
+      @tmp_user = @user
     end
     @user.shipping_addresses << @address
     # Billing address

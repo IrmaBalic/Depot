@@ -6,16 +6,23 @@
 		<% end %>
 	</div>
 	<div id="input_form" class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+
+     <% if flash[:notice] == "Registered" %>
+      <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);text-align:center;">
+        <%= t('registration_completed') %>
+      </div>
+    <% end %>
+
 		<div class="field">
 			<%= label_tag :email, 'Email' %>
-			<%= text_field_tag :email, params[:email] %>
+			<%= text_field_tag :email, params[:email]%>
 		</div>
 		<div class="field">
 			<%= label_tag :password, t('password') %>
 			<%= password_field_tag :password, params[:password] %>
 		</div>
 
-		<% if flash[:notice] %>
+		<% if flash[:notice] == "InvalidLogin" %>
 			<div class="warning warning-error" style="color:#dd4b39;">
 				<%= t('login_error') %>
 			</div>

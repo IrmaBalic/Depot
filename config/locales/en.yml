@@ -84,3 +84,4 @@ By clicking Register you can register after completing a short form. Once you si
   login_error: "Invalid email or password."
   signup_error: "Email already exists."
   shipped: "Order shipped"
+  registration_completed: "Your registration is successfully completed!"

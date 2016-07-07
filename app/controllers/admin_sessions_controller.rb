@@ -29,7 +29,7 @@ class AdminSessionsController < ApplicationController
         redirect_to store_url
       end
     else
-      flash[:notice] = "Invalid user/password combination"
+      flash[:notice] = "InvalidLogin"
       redirect_to signin_url
     end
   end

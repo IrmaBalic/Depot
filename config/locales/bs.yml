@@ -67,3 +67,4 @@ Klikom na dugme Registracija se možete registrovati nakon popunjavanja vrlo kra
   login_error: "Netačan email ili šifra."
   signup_error: "Email već postoji."
   shipped: "Dostavljena narudžba"
+  registration_completed: "Vaša registracija je uspješno završena!"
