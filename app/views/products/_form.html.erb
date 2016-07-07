@@ -65,7 +65,7 @@
 <script>
 $(function() {
   var category = $("#category");
-  var category_sel = category.value;
+  var brand = $("#brand");
   var product_title = $("#product_title");
   var product_price = $("#product_price");
   var submit = $("#submit_form");
@@ -97,6 +97,26 @@ $(function() {
   product_title.blur(function(){
     validate_field($(this));
   });
+  category.blur(function(){
+    var number_of_children = $(this).parent().children().length;
+    if (category.val()== "-1") {
+      if(number_of_children == 3) show_warning($(this));
+    }
+    else {
+      if (number_of_children > 3) remove_warning($(this));
+    }
+  });
+
+  brand.blur(function(){
+    var number_of_children = $(this).parent().children().length;
+    if (brand.val()== "-1") {
+      if(number_of_children == 3) show_warning($(this));
+    }
+    else {
+      if (number_of_children > 3) remove_warning($(this));
+    }
+  });
+
   product_price.blur(function(){
     validate_field($(this));
   });
@@ -109,6 +129,29 @@ $(function() {
         validate_field($(this));      
       }
     });
+
+    if(category.val() == "-1") {
+      has_empty = true;
+      var number_of_children = category.parent().children().length;
+      if (category.val() == "-1") {
+        if(number_of_children == 3) show_warning(category);
+      }
+      else {
+        if (number_of_children > 3) remove_warning(category);
+      }
+    }
+
+    if(brand.val() == "-1") {
+      has_empty = true;
+      var number_of_children = brand.parent().children().length;
+      if (brand.val() == "-1") {
+        if(number_of_children == 3) show_warning(brand);
+      }
+      else {
+        if (number_of_children > 3) remove_warning(brand);
+      }
+    }
+
     if (has_empty)  {
       return false;
     }

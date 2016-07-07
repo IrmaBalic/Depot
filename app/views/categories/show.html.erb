@@ -27,6 +27,8 @@
             <a href="<%= product_path(product) %>">
             <% if product.product_images.any? %>
               <%= image_tag(product.product_images.first.avatar.url(:medium)) %></td>
+            <% else %>
+              <img src="http://ktu.edu/uploads/files/fakultetai/Elektros%20ir%20elektronikos%20fakultetas/files/images/no-image-half-landscape.png">
             <% end %>
             </a>
          </div>
