@@ -30,6 +30,13 @@ class UsersController < ApplicationController
   # GET /logins/1/edit
   def edit
     @role = @user.role.id
+    @edit = true
+  end
+
+   # GET /logins/1/edit
+  def edit_password
+    @role = @user.role.id
+    @edit = true
   end
 
   # POST /logins
@@ -51,10 +58,9 @@ class UsersController < ApplicationController
     @user.role = role
   
     if @user.save
-      redirect_to signin_path, notice: 'Registered'
+      redirect_to signin_path, notice: t('registration_completed')
     else
-      flash[:notice] = "Error"
-      redirect_to new_user_path
+      redirect_to new_user_path, alert: t('signup_error')
     end
   end
 
@@ -62,16 +68,40 @@ class UsersController < ApplicationController
   # PATCH/PUT /logins/1.json
   def update
     role = Role.find_by_id(params[:role])
-    @user.role = role
+    if role
+      @user.role = role
+    end
+
+    if params[:user][:old_password] && params[:user][:new_password] && params[:user][:password_confirmation]
+      @resetPass = true
+      if params[:user][:old_password] == @user.password_digest && params[:user][:new_password] == params[:user][:password_confirmation]
+        @user.password_digest = params[:user][:new_password]
+      else
+        @wrongPass = true
+      end
+    end
+    
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+
+      if @wrongPass
+        format.html { redirect_to edit_user_path(@user), alert: t('save_pass_error') }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      elsif @user.update(user_params)
+        format.html { 
+          if session[:role] == 'Admin'
+            redirect_to users_path, notice: 'User was successfully updated.'
+          else 
+            redirect_to edit_user_path(@user), notice: t('edit_profile_success')
+          end
+        }
+
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        format.html { redirect_to edit_user_path(@user), alert: t('save_data_error') }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /logins/1
@@ -89,6 +119,7 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
     def user_params
       params.require(:user).permit(:name, :surname, :email, :password_digest)
     end

@@ -1,9 +1,21 @@
-<div id="title"> Orders </div>
+<% if flash[:notice] %>
+  <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);text-align:center;">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="warning warning-error" style="color:#dd4b39;text-align:center;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <div class="container">
 <div class="table-responsive"> 
   <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">
     <thead>
       <tr>
+        <th>UUID</th>
         <th>User</th>
         <th>Number of items</th>
         <th>Total price</th>
@@ -12,13 +24,21 @@
         <th>Order date</th>
         <th>Shipping date</th>
         <th>Shipped</th>
+        <th colspan="2">Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.user.name %> <%= order.user.surname %></td>
+          <td> <%= order.guid %></td>
+          <td>
+          <% if order.user %>
+            <%= order.user.name %> <%= order.user.surname %>
+          <% else %>
+            Unknown
+          <% end %>
+          </td>
           <td><%= order.number_of_items %> </td>
           <td><%= order.total_price %></td>
           <td>
@@ -34,12 +54,28 @@
             <%= order.shipping_address.city.country.name %>
           </td>
           <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
-          <td><%= order.shipping_date.strftime("%d.%m.%Y") %></td>
-          <% if order.shipping_date < Date.today %>
+          <td>
+          <%if order.shipping_date %>
+            <%= order.shipping_date.strftime("%d.%m.%Y") %>
+          <% else %>
+          /
+          <% end %>
+          </td>
+          <% if order.shipped %>
             <td> Yes </td>
           <% else %>
             <td> No </td>
           <% end %>
+
+          <td><%= link_to 'Show details', order_path(order) %></td>
+          <td>
+            <% unless order.shipped %>
+              <%= link_to 'Change status', change_status_order_path(order), method: :post, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+            /
+            <% end %>
+          </td>
+
         </tr>
       <% end %>
     </tbody>

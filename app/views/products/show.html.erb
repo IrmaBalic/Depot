@@ -17,6 +17,21 @@
 </div>
 
 <div id="description" class="col-xs-10 col-sm-6 col-md-5 col-lg-5">
+
+    <% if flash[:notice] %>
+      <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);font-size:13px;">
+        <%= flash[:notice] %>
+        <br><br>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="warning warning-error" style="color:#dd4b39;font-size:13px;">
+        <%= flash[:alert] %>
+        <br><br>
+      </div>
+    <% end %>
+
   <p>
   	<strong><%= t('category') %>:</strong>
       <%= link_to @product.category.name, category_path(@product.category), class: "product_category_link" %>
@@ -47,9 +62,16 @@
   </p>
   <% unless session[:role] == 'Admin' %>
   	 <div id="entry-button">
-            <%= button_to t('add_to_cart'), line_items_path(product_id: @product), remote: true, class: 'cart_button_buy' %>
+        <%= button_to t('add_to_cart'), line_items_path(product_id: @product), remote: true, class: 'cart_button_buy' %>
             <div class="cart_button_loading"></div> 
        </div>
+  <% else %>
+    <p>
+    <br>
+      <strong>Actions:</strong><br>
+      <%= link_to 'Edit', edit_product_path(@product), class: "product_category_link" %> &nbsp&nbsp
+      <%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: "product_category_link" %>
+    </p>
   <%end%>
 </div>
 

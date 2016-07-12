@@ -1,4 +1,16 @@
-<div id="title"> Categories </div>
+<!--<div id="title"> Categories </div>-->
+<% if flash[:notice] %>
+  <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);text-align:center;">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="warning warning-error" style="color:#dd4b39;text-align:center;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <div class="container" style="padding-left:280px; padding-right:280px;">
 <div class="table-responsive"> 
   <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 20px;">

@@ -31,12 +31,12 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 			        <% if session[:role] == 'Admin' %>
-			        	<li><%= link_to 'ORDERS', orders_path %></li>
-						<li><%= link_to 'PRODUCTS', products_path %></li> 
-						<li><%= link_to 'ROLES', roles_path %></li> 
-						<li><%= link_to 'USERS', users_path %></li>
-						<li><%= link_to 'CATEGORIES', categories_path %></li>
-						<li><%= link_to 'BRANDS', brands_path %></li>
+			        	<li><%= link_to 'ORDERS', orders_path, class: cp(orders_path)  %></li>
+						<li><%= link_to 'PRODUCTS', products_path, class: cp(products_path) %></li> 
+						<li><%= link_to 'ROLES', roles_path, class: cp(roles_path) %></li> 
+						<li><%= link_to 'USERS', users_path, class: cp(users_path) %></li>
+						<li><%= link_to 'CATEGORIES', categories_path, class: cp(categories_path) %></li>
+						<li><%= link_to 'BRANDS', brands_path, class: cp(brands_path) %></li>
 					<% else %>
 					  <% @categories.each do |category| %>
 						<li class="hidden-sm"><%= link_to category.name, category_path(category), class: cp(category_path(category)) %></li> 
@@ -65,6 +65,7 @@
 					          	<span class="caret"></span>
 					          </a>
 					          <ul class="dropdown-menu" role="menu">
+					          	<li class="dropdown-li"><%= link_to t('profile'), edit_user_path(@user) %></li>  
 					            <li class="dropdown-li"><%= link_to t('history'), purchuase_users_path %></li>  
 					          </ul>
 					        </li>
@@ -165,5 +166,5 @@
 </body>
 </html>
 <script type="text/javascript">
-  var locale = "<%= I18n.locale %>";
+    var locale = "<%= I18n.locale %>";
 </script>

@@ -48,9 +48,9 @@
                 <%= button_to t('add_to_cart'), line_items_path(product_id: product), remote: true, class: 'cart_button_buy button_store hidden-xs' %>
                 <div class="cart_button_loading hidden-xs"></div> 
             <% else %>
-              <%= link_to 'Show', product %>
-              <%= link_to 'Edit', edit_product_path(product) %>
-              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Show', product, class: "product_category_link" %>
+              <%= link_to 'Edit', edit_product_path(product),class: "product_category_link" %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "product_category_link" %>
             <% end %>
             <% if product.brand %>
               <input type="hidden" class="brand_name" value="<%= product.brand.name %>">

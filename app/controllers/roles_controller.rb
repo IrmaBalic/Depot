@@ -27,14 +27,16 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     @role.save
-    redirect_to roles_path
+    redirect_to roles_path, notice: t('save_data_success')
   end
 
   # PATCH/PUT /roles/1
   # PATCH/PUT /roles/1.json
   def update
       if @role.update(role_params)
-            redirect_to roles_path
+        redirect_to roles_path, notice: t('save_data_success')
+      else
+        redirect_to roles_path, alert: t('save_data_error')
       end
   end
 

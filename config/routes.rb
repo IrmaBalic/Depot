@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   #post 'categories/create'
   scope "(:locale)", locale: /bs|en/ do
-    get 'orders' => 'orders#index'
     get 'product_images' => 'product_images#index'
     get 'about' => 'static_pages#aboutus'
     get 'faq' => 'static_pages#faq'
@@ -30,6 +29,11 @@ Rails.application.routes.draw do
       collection do
         get :purchuase
       end
+      get 'edit_password', on: :member
+    end
+
+    resources :orders, only: [:index, :show] do
+      post 'change_status', on: :member
     end
     resources :roles
     resources :brands

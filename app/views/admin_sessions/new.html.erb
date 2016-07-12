@@ -7,9 +7,15 @@
 	</div>
 	<div id="input_form" class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
 
-     <% if flash[:notice] == "Registered" %>
+    <% if flash[:notice] %>
       <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);text-align:center;">
-        <%= t('registration_completed') %>
+        <%= flash[:notice]  %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="warning warning-error" style="color:#dd4b39;text-align:center;">
+        <%= flash[:alert] %>
       </div>
     <% end %>
 
@@ -21,12 +27,6 @@
 			<%= label_tag :password, t('password') %>
 			<%= password_field_tag :password, params[:password] %>
 		</div>
-
-		<% if flash[:notice] == "InvalidLogin" %>
-			<div class="warning warning-error" style="color:#dd4b39;">
-				<%= t('login_error') %>
-			</div>
-		<% end %>
 
 		<div class="actions">
 			<%= submit_tag "LOGIN" %>

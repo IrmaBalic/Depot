@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
     @line_item.quantity = @line_item.quantity + 1
     @line_item.save
     respond_to do |format|
-      format.html { redirect_to cart_url(@cart), notice: 'Line item was successfully incremented.' }
+      format.html { redirect_to cart_url(@cart)}
       format.json { head :no_content }
     end
   end
@@ -37,7 +37,7 @@ class LineItemsController < ApplicationController
     @line_item.quantity = @line_item.quantity - 1
     @line_item.save
     respond_to do |format|
-      format.html { redirect_to cart_url(@cart), notice: 'Line item was successfully decremented.' }
+      format.html { redirect_to cart_url(@cart) }
       format.json { head :no_content }
     end
   end
@@ -65,7 +65,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to cart_url(@cart), notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_url(@cart)}
       format.json { head :no_content }
     end
   end

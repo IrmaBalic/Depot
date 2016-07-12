@@ -1,9 +1,11 @@
-<div id="purchase_title"><%= t('purchuase_history') %></div>
+<% order = @order %>
+<div id="section_title" style="text-align:center;">
+  Order GUID: <%= @order.guid %>
+</div>
 <div class="container-fluid">
 <div class="row">
 <div id="cart_frame" class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
-<% @orders.each do |order| %>
-	<% order.ordered_line_items.each do |line_item| %>
+<% order.ordered_line_items.each do |line_item| %>
 	  	<div id="cart_line_item" class="col-xs-11 col-sm-12 col-md-12 col-lg-12 archived">
 	  		<div class="row">
 		  		<span class="title-xs visible-xs-block col-xs-11"><%= t('title') %>: 
@@ -14,8 +16,6 @@
 				<%= image_tag(line_item.ordered_product.avatar.url(:medium)) %>
 			</div>	-->
 				<div id="description" class="hidden-xs col-sm-4 col-md-4 col-lg-4">
-					<span>UUID: <%= order.guid %></span><br>
-
 					<span><%= t('title') %>: <%= line_item.ordered_product.title %></span><br>
 					<span><%= t('description') %>: <%= sanitize(line_item.ordered_product.description) %></span>
 					<br>
@@ -26,7 +26,9 @@
 			            <i class="fa fa-close" aria-hidden="true"></i>
 			          <% end %>
           			</span><br> 
-					</span>
+          			<% unless order.shipped %>
+						<span><%= link_to t('change_status'), change_status_order_path(order), method: :post, data: { confirm: t('are_you_sure') }, class: "product_category_link" %> </span>
+					<% end %>
 				</div>
 				<div id="price_details" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<span id="cijena"><%= t('price') %>: </span> <span class="price"><%= line_item.ordered_product.price %> KM</span><br><br>
@@ -37,11 +39,13 @@
 					 <span class="value"><%= order.created_at.strftime("%d.%m.%Y") %></span><br><br>
 					<span id="label"><%= t('shipping_date') %></span>
 					<span class="value"> 
-					<% if order.shipping_date %>
-						<%= order.shipping_date.strftime("%d.%m.%Y") %>
-					<% else %>
-					/
-					<% end %>
+
+						<% if order.shipping_date %>
+							<%= order.shipping_date.strftime("%d.%m.%Y") %>
+						<% else %>
+						/
+						<% end %>
+							
 					</span>
 				</div>
 				<div id="order_details" class="col-xs-4 col-sm-1 col-md-2 col-lg-2">
@@ -54,7 +58,6 @@
 				</div>
 		</div>
 	<% end %>
-<% end %>
 </div>
 </div>
 </div>

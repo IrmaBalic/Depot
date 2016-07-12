@@ -1,5 +1,18 @@
 <%= form_for(@user) do |f| %>
-  <div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+  <div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:20px;">
+
+    <% if flash[:notice] %>
+      <div class="warning warning-success" style="color:rgba(57, 128, 221, 0.87);text-align:center;">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="warning warning-error" style="color:#dd4b39;text-align:center;">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <% if session[:role] == "Admin" %>
       <div class="field">
         <%= label :role_id, "Role" %><br>
@@ -18,22 +31,34 @@
         <%= f.label :email, "Email" %><br>
         <%= f.text_field :email %>
       </div>
-      <div class="field">
-        <%= f.label :password, t('password') %><br>
-        <%= f.password_field :password_digest %>
-      </div>
 
-      <% if flash[:notice] %>
-      <div class="warning warning-error" style="color:#dd4b39;">
-        <%= t('signup_error') %>
-      </div>
-    <% end %>
+      <% unless @edit %>
+        <div class="field">
+          <%= f.label :password, t('password') %><br>
+          <%= f.password_field :password_digest %>
+        </div>
+
+        <div class="field">
+          <%= label_tag "password_confirmation", t('password_confirmation') %><br>
+          <%= password_field_tag "user[password_confirmation]" %>
+        </div>
+      <% else %>
+        <% if session[:user_id] == @user.id %>
+          <div id="change_pass"><a href="<%= edit_password_user_path(@user) %>"><%= t('edit_pass') %></a></div>
+          <% end %>
+      <% end %>
 
       <div class="actions">
         <% if session[:role] == "Admin" %>
           <%= f.submit "Submit", :id => "submit_form" %>
         <% else %>
-          <%= f.submit "REGISTER", :id => "submit_form" %>
+
+          <% if @edit %>
+            <%= f.submit t("edit"), :id => "submit_form" %>
+          <% else %>
+            <%= f.submit "REGISTER", :id => "submit_form" %>
+          <% end %>
+
         <% end %>
         </div>
       </div>
@@ -46,21 +71,23 @@ $(function() {
   var user_surname = $("#user_surname");
   var user_email = $("#user_email");
   var user_password = $("#user_password_digest");
+  var user_password_confirm = $("#user_password_confirmation");
   var submit = $("#submit_form");
   // Functions
-  function show_warning(field) {
+  function show_warning(field, msg_bs, msg_en) {
     $(".warning-error").remove();
 
     field.css("border-color", "#dd4b39"); 
     var warning_label = null;
     if (locale  == "bs")
-      warning_label = $("<p></p>").text("Ovo polje ne može ostati prazno.");
+      warning_label = $("<p></p>").text(msg_bs);
     else 
-      warning_label = $("<p></p>").text("This field can't be empty.");
+      warning_label = $("<p></p>").text(msg_en);
     warning_label.attr("class","warning");
     warning_label.css("color","#dd4b39");
     field.parent().append(warning_label);
   }
+
   function remove_warning(field) {
     field.parent().children("p").remove(".warning");
     field.css("border-color", "#b7b7b7");
@@ -68,11 +95,25 @@ $(function() {
   function validate_field(field) {
     var number_of_children = field.parent().children().length;
     if (!field.val()) {
-      if(number_of_children == 3) show_warning(field);
+      if(number_of_children == 3) show_warning(field, "Ovo polje ne može ostati prazno.", "This field can't be empty.");
     }
     else {
       if (number_of_children > 3) remove_warning(field);
     }
+  }
+
+  function checkPasswords() {
+    if(user_password.val() && user_password_confirm.val()) {
+      remove_warning(user_password_confirm);
+      if(user_password.val() != user_password_confirm.val()) {
+        show_warning(user_password_confirm, "Šifre se ne podudaraju.", "Passwords don't match.");
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+    return true;
   }
   //Onblur events 
   user_name.blur(function(){
@@ -86,19 +127,32 @@ $(function() {
   });
   user_password.blur(function(){
     validate_field($(this));
+    checkPasswords();
+  });
+  user_password_confirm.blur(function(){
+    validate_field($(this));
+    checkPasswords();
   });
   // Onsubmit validation
   $("form").submit(function() {
     var has_empty = false;
-    $("#user_name, #user_surname, #user_password, #user_email", this).each(function() {
+    $("#user_name, #user_surname, #user_password_digest, #user_email, #user_password_confirmation", this).each(function() {
+
       if(!$(this).val()) {
         has_empty = true;
         validate_field($(this));      
       }
+
     });
+
     if (has_empty)  {
       return false;
     }
+
+    if(!checkPasswords()) {
+      return false;
+    }
+
     return true;
   });
 });

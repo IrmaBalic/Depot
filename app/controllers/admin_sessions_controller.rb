@@ -29,8 +29,7 @@ class AdminSessionsController < ApplicationController
         redirect_to store_url
       end
     else
-      flash[:notice] = "InvalidLogin"
-      redirect_to signin_url
+      redirect_to signin_url, alert: t('login_error')
     end
   end
 

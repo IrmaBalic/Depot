@@ -532,12 +532,12 @@ html, body, div, span { display: block;}
         height: 14px;
       }
       #broj_proizvoda {
-        float: left;
         color:  rgba(84, 84, 84, 0.5);
         font-size: 1.13em; /* Approximation due to font substitution */
         font-weight: 400;
-        width: 92px;
         height: 17px;
+        float: left;
+        margin-left: 5px;
       }
       #ukupno {
         padding-top: 10px;
@@ -911,3 +911,11 @@ a.current, li.current > a {
     cursor: default;
     }
   }
+
+  #input_form {
+    margin-bottom: 20px;
+  }
+
+  .product_category_link {
+  color: #7ca3cc;
+}

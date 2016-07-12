@@ -34,7 +34,10 @@ class ProductsController < ApplicationController
       #Product.create_item(params[:product][:title], params[:product][:image_url], params[:product][:price], params[:product][:description_bs], params[:product][:description_en], params[:category])
     product = Product.create!(title: params[:product][:title],category: category, brand: brand, price: params[:product][:price], image_url: params[:product][:image_url])
     product.discount = params[:product][:discount]
-    product.save
+    if product.save! 
+      @created = true
+    end
+
     ProductTranslation.create!(product: product, locale: "en", description: params[:product][:description_en])
     ProductTranslation.create!(product: product, locale: "bs", description: params[:product][:description_bs])
     p = Product.last
@@ -45,7 +48,12 @@ class ProductsController < ApplicationController
       end
     end
     @new_product = Product.last
-    redirect_to product_path(@new_product)
+
+    if @created
+      redirect_to product_path(product), notice: t('save_data_success')
+    else
+      redirect_to new_product_path(product), notice: t('save_data_error')
+    end
   end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
@@ -63,14 +71,22 @@ class ProductsController < ApplicationController
     @product.discount = params[:product][:discount]
     @product.image_url = params[:product][:image_url]
     @product.update_attr(params[:product][:description_bs], params[:product][:description_en])
-    @product.save!
+    if @product.save! 
+      @saved = true
+    end
+
     if params[:product][:image]
       params[:product][:image].each do |image|
         product_image = ProductImage.new(product: @product, avatar: image)
         product_image.save!
       end
     end
-    redirect_to product_path(@product)
+
+    if @saved
+      redirect_to product_path(@product), notice: t('save_data_success')
+    else
+      redirect_to product_path(@product), notice: t('save_data_error')
+    end
     #raise
   end
 

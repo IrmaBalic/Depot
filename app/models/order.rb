@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
 	has_many :ordered_line_items
 	belongs_to :billing_address, class_name: "Address"
 	belongs_to :shipping_address, class_name: "Address"
+	before_create :generate_guid
+
 	def last
 	  Order.order("created_at DESC").first
 	end
@@ -23,10 +25,8 @@ class Order < ActiveRecord::Base
 		sum
 	end
 
-	def shipping_date
-		created_at + 7.days
+	def generate_guid
+		self.guid = SecureRandom.uuid
 	end
 
-	def shipped?
-	end
 end

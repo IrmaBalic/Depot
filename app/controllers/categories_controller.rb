@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
 
   def create 
     @category = Category.create_item(params[:category][:name_bs], params[:category][:name_en])
-    redirect_to categories_path
+    redirect_to categories_path, notice: t('save_data_success')
   end
   def show
   end
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
     # PATCH/PUT /roles/1.json
   def update
     @category.update_attr(params[:category][:name_bs], params[:category][:name_en])
-    redirect_to categories_path
+    redirect_to categories_path, notice: t('save_data_success')
   end
 
   # DELETE /roles/1
@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url }
+      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
